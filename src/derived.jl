@@ -1,7 +1,7 @@
 # Units and functionalities for derived dimensions of Angle
 
 # solid angle
-@derived_dimension SolidAngle 𝐀*𝐀 true
+@derived_dimension SolidAngle (𝐀 * 𝐀) true
 
 """
     srᵃ
@@ -16,11 +16,11 @@ Accepts SI prefixes.
 
 Dimension: [`UnitfulAngleDimension.𝐀`](@ref)."
 """
-@unit srᵃ "sr" Steradianᵃ 1radᵃ*radᵃ true true
+@unit srᵃ "sr" Steradianᵃ (1radᵃ * radᵃ) true true
 
 # angular velocity & acceleration, and relation to angular frequency
-@derived_dimension AngularVelocity 𝐀*𝐓^-1 true
-@derived_dimension AngularAcceleration 𝐀*𝐓^-2 true
+@derived_dimension AngularVelocity (𝐀 * 𝐓^-1) true
+@derived_dimension AngularAcceleration (𝐀 * 𝐓^-2) true
 
 """
     rpsᵃ
@@ -34,7 +34,7 @@ Dimension: 𝐀 𝐓⁻¹.
 
 See also [`UnitfulAngleDimension.radᵃ`](@ref).
 """
-@unit rpsᵃ "rps" RevolutionsPerSecondᵃ 1turnᵃ/s      false
+@unit rpsᵃ "rps" RevolutionsPerSecondᵃ (1turnᵃ / s) false
 
 """
     rpmᵃ
@@ -48,7 +48,7 @@ Dimension: 𝐀 𝐓⁻¹.
 
 See also [`UnitfulAngleDimension.radᵃ`](@ref).
 """
-@unit rpmᵃ "rps" RevolutionsPerMinuteᵃ 1turnᵃ/minute false
+@unit rpmᵃ "rps" RevolutionsPerMinuteᵃ (1turnᵃ / minute) false
 
 """
     Periodic()
@@ -56,11 +56,13 @@ See also [`UnitfulAngleDimension.radᵃ`](@ref).
 Equivalence to convert between period, frequency, and
 [angular frequency](https://en.wikipedia.org/wiki/Angular_frequency)
 according to the relation ``f = ω/2π = 1/T``, where
-* ``f`` is the frequency,
-* ``ω`` is the angular speed and
-* ``T`` is the period.
+
+  - ``f`` is the frequency,
+  - ``ω`` is the angular speed and
+  - ``T`` is the period.
 
 # Example
+
 ```jldoctest
 julia> using Unitful
 julia> using Unitful: s, Hz
@@ -74,6 +76,6 @@ julia> uconvert(rad/s, 1Hz, Periodic())
 ```
 """
 struct Periodic <: Equivalence end
-@eqrelation Periodic AngularVelocity/Frequency = 2π*radᵃ
-@eqrelation Periodic Frequency*Time = 1
-@eqrelation Periodic AngularVelocity*Time = 2π*radᵃ
+@eqrelation Periodic (AngularVelocity / Frequency = 2π * radᵃ)
+@eqrelation Periodic (Frequency * Time = 1)
+@eqrelation Periodic (AngularVelocity * Time = 2π * radᵃ)

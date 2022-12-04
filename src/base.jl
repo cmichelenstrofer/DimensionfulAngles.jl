@@ -33,14 +33,14 @@ const units_pi = (
 const units_deg = (°ᵃ, arcminuteᵃ, arcsecondᵃ, asᵃ)
 
 # remove units
-_normalize(x::Angle) = float(x)/θ₀ |> NoUnits
+_normalize(x::Angle) = (float(x) / θ₀) |> NoUnits
 _normalize_deg(x::Angle) = ustrip(float(x) |> °ᵃ)
 _normalize_pi(x::Angle) = ustrip(float(x) |> halfTurnᵃ)
 
 # extend functions of angles in Base
 for _f in functions
     @eval Base.$_f(x::Angle) = $_f(_normalize(x))
-    @eval Base.$_f(x::Matrix{T}) where {T<:Angle} = $_f(_normalize.(x))
+    @eval Base.$_f(x::Matrix{T}) where {T <: Angle} = $_f(_normalize.(x))
 end
 
 # better implementation when using degrees, using the *d version of functions
@@ -65,12 +65,12 @@ end
 
 # functions with units of angle in output
 const _U = Units{T, 𝐀} where {T}
-const _M = AbstractMatrix{N} where {N<:Number}
+const _M = AbstractMatrix{N} where {N <: Number}
 for _f in inverses
-    @eval Base.$_f(u::_U, x::Number) = uconvert(u, $_f(x)*radᵃ)
-    @eval Base.$_f(u::_U, x::_M) = uconvert.(u, $_f(x)*radᵃ)
+    @eval Base.$_f(u::_U, x::Number) = uconvert(u, $_f(x) * radᵃ)
+    @eval Base.$_f(u::_U, x::_M) = uconvert.(u, $_f(x) * radᵃ)
 end
-Base.atan(u::_U, y::Number, x::Number) = uconvert(u, atan(y, x)*radᵃ)
+Base.atan(u::_U, y::Number, x::Number) = uconvert(u, atan(y, x) * radᵃ)
 
 # utilities
 Base.deg2rad(d::Quantity{T, 𝐀, typeof(°ᵃ)}) where {T} = deg2rad(ustrip(°ᵃ, d))radᵃ

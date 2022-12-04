@@ -9,9 +9,11 @@ for more information.
     *Angle* is not an SI base dimension.
 
 # Exports
+
 $(EXPORTS)
 
 # Examples
+
 ```jldoctest
 julia> 1.0ua"turn"
 1.0 τ
@@ -37,7 +39,6 @@ using DocStringExtensions: EXPORTS
 
 export @ua_str
 
-
 """
     𝐀
 
@@ -49,7 +50,8 @@ A dimension representing Angle.
 @dimension 𝐀 "𝐀" Angle true
 
 # SI units
-""""
+"""
+
     radᵃ
 
 The radian, a unit of angle.
@@ -63,6 +65,7 @@ Accepts SI prefixes.
 Dimension: [`UnitfulAngleDimension.𝐀`](@ref).
 
 # Examples
+
 ```jldoctest
 julia> 1.0ua"rad" + 20.0ua"mrad"
 1.02 rad
@@ -84,13 +87,14 @@ Does not accepts SI prefixes.
 Dimension: [`UnitfulAngleDimension.𝐀`](@ref).
 
 # Examples
+
 ```jldoctest
 julia> 1ua"°"
 1 °
 ```
 """
-@unit °ᵃ "°" Degreeᵃ radᵃ*π/180 false
-Unitful.has_unit_spacing(u::Units{(Unit{:Degreeᵃ, 𝐀}(0, 1//1),), 𝐀}) = false
+@unit °ᵃ "°" Degreeᵃ (1radᵃ * π / 180) false
+Unitful.has_unit_spacing(u::Units{(Unit{:Degreeᵃ, 𝐀}(0, 1 // 1),), 𝐀}) = false
 
 # constants
 """
@@ -118,6 +122,7 @@ const localpromotion = promotion
 function __init__()
     register(UnitfulAngleDimension)
     merge!(promotion, localpromotion)
+    return nothing
 end
 
 end

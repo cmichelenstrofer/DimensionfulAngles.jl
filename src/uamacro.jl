@@ -15,16 +15,18 @@ with `ᵃ`, the suffix should not be used when using this macro.
 Note that what goes inside must be parsable as a valid Julia expression.
 
 # Examples
+
 ```jldoctest
 julia> 1.0ua"turn"
 1.0 τ
+
 julia> 1.0ua"rad" - 1.0ua"°"
 0.9825467074800567 rad
 ```
 """
 macro ua_str(unit)
     ex = Meta.parse(unit)
-    esc(_replace_value(ex))
+    return esc(_replace_value(ex))
 end
 
 function _replace_value(ex::Expr)
@@ -33,14 +35,14 @@ function _replace_value(ex::Expr)
             error("""$(ex.args[1]) is not a valid function call when parsing a unit.
              Only the following functions are allowed: $allowed_funcs""")
         for i in 2:length(ex.args)
-            if typeof(ex.args[i])==Symbol || typeof(ex.args[i])==Expr
-                ex.args[i]=_replace_value(ex.args[i])
+            if typeof(ex.args[i]) == Symbol || typeof(ex.args[i]) == Expr
+                ex.args[i] = _replace_value(ex.args[i])
             end
         end
         return Core.eval(@__MODULE__, ex)
     elseif ex.head == :tuple
-        for i=1:length(ex.args)
-            if typeof(ex.args[i])==Symbol
+        for i in 1:length(ex.args)
+            if typeof(ex.args[i]) == Symbol
                 ex.args[i] = _replace_value(ex.args[i])
             else
                 error("only use symbols inside the tuple.")

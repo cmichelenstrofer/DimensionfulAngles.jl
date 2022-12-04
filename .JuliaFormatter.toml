@@ -1,0 +1,17 @@
+
+style = "blue"
+
+# Use of pipes in Unitful ecosystem for unit conversion. E.g. `1° |> rad`.
+pipe_to_function_call = false
+
+# preferences that should not violate/interfere with Blue
+normalize_line_endings = "unix"
+format_docstrings = true
+format_markdown = true
+long_to_short_function_def = true
+conditional_to_if = true
+annotate_untyped_fields_with_any = true
+
+# stronger style preferences, but still should be OK with Blue
+whitespace_in_kwargs = true
+whitespace_typedefs = true
