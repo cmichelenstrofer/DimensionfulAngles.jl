@@ -3,6 +3,8 @@
 # Adapted from UnitfulUS.jl/src/usmacro.jl
 # Copyright (c) 2017, California Institute of Technology. All rights reserved.
 
+const allowed_funcs = [:*, :/, :^, :sqrt, :√, :+, :-, ://]
+
 """
     macro ua_str(unit)
 
@@ -24,8 +26,6 @@ macro ua_str(unit)
     ex = Meta.parse(unit)
     esc(_replace_value(ex))
 end
-
-const allowed_funcs = [:*, :/, :^, :sqrt, :√, :+, :-, ://]
 
 function _replace_value(ex::Expr)
     if ex.head == :call
@@ -54,7 +54,8 @@ end
 
 function _replace_value(sym::Symbol)
     s = Symbol(sym, :ᵃ)
-    if !(isdefined(UnitfulAngleDimension, s) && _ustrcheck_bool(getfield(UnitfulAngleDimension, s)))
+    ustrcheck = _ustrcheck_bool(getfield(UnitfulAngleDimension, s))
+    if !(ustrcheck && isdefined(UnitfulAngleDimension, s))
         error("Symbol $s could not be found in UnitfulAngleDimension.")
     end
     return getfield(UnitfulAngleDimension, s)
@@ -62,8 +63,8 @@ end
 
 _replace_value(literal::Number) = literal
 
+_ustrcheck_bool(x) = false
 _ustrcheck_bool(x::Number) = true
 _ustrcheck_bool(x::Unitlike) = true
 _ustrcheck_bool(x::Quantity) = true
 _ustrcheck_bool(x::MixedUnits) = true
-_ustrcheck_bool(x) = false

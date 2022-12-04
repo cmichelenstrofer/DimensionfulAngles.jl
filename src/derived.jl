@@ -1,6 +1,6 @@
 # Units and functionalities for derived dimensions of Angle
 
-## SOLID ANGLE
+# solid angle
 @derived_dimension SolidAngle 𝐀*𝐀 true
 
 """
@@ -18,8 +18,7 @@ Dimension: [`UnitfulAngleDimension.𝐀`](@ref)."
 """
 @unit srᵃ "sr" Steradianᵃ 1radᵃ*radᵃ true true
 
-
-## ANGULAR VELOCITY & ACCELERATION, & ANGULAR FREQUENCY
+# angular velocity & acceleration, and relation to angular frequency
 @derived_dimension AngularVelocity 𝐀*𝐓^-1 true
 @derived_dimension AngularAcceleration 𝐀*𝐓^-2 true
 
@@ -37,7 +36,6 @@ See also [`UnitfulAngleDimension.radᵃ`](@ref).
 """
 @unit rpsᵃ "rps" RevolutionsPerSecondᵃ 1turnᵃ/s      false
 
-
 """
     rpmᵃ
 
@@ -51,7 +49,6 @@ Dimension: 𝐀 𝐓⁻¹.
 See also [`UnitfulAngleDimension.radᵃ`](@ref).
 """
 @unit rpmᵃ "rps" RevolutionsPerMinuteᵃ 1turnᵃ/minute false
-
 
 """
     Periodic()

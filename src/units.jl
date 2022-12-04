@@ -25,11 +25,11 @@ end
 # based on degree
 @doc _unit_docstr("arcminute", "minute of arc", "1°/60", "°")
 @unit arcminuteᵃ "′" Arcminuteᵃ °ᵃ//60 false
-has_unit_spacing(u::Units{(Unit{:Arcminuteᵃ, 𝐀}(0, 1//1),), 𝐀}) = false
+Unitful.has_unit_spacing(u::Units{(Unit{:Arcminuteᵃ, 𝐀}(0, 1//1),), 𝐀}) = false
 
 @doc _unit_docstr("arcsecond", "second of arc", "1°/3600", "°")
 @unit arcsecondᵃ "″" Arcsecondᵃ °ᵃ//3600 false
-has_unit_spacing(u::Units{(Unit{:Arcsecondᵃ, 𝐀}(0, 1//1),), 𝐀}) = false
+Unitful.has_unit_spacing(u::Units{(Unit{:Arcsecondᵃ, 𝐀}(0, 1//1),), 𝐀}) = false
 
 # based on radian
 @doc _unit_docstr("diameterPart", "diameter part", "1/60 rad", "rad")
@@ -79,7 +79,6 @@ has_unit_spacing(u::Units{(Unit{:Arcsecondᵃ, 𝐀}(0, 1//1),), 𝐀}) = false
 @doc _unit_docstr("grad", "gradian", "1/400 turn", "turn")
 @unit gradᵃ "ᵍ" Gradianᵃ turnᵃ//400 false
 
-
 # astronomy
 """
     $asᵃ
@@ -89,7 +88,8 @@ The arcsecond, a unit of angle defined as 1°/3600.
 This is an alternative symbol for [`UnitfulAngleDimension.$arcsecondᵃ`](@ref) common in
 astronomy.
 Unlike `arcsecondᵃ`, `asᵃ` accepts SI prefixes.
-`UnitfulAngles.` has similar implementation, which differs in that it contains units of angle.
+`UnitfulAngles` has similar implementation, which differs in that it contains units of
+angle.
 
 !!! note "Abbreviation conflicts with `Unitful.jl`"
     - both attoseconds and arcseconds are abbreviated as `as`.
@@ -103,16 +103,15 @@ See also [`UnitfulAngleDimension.arcsecondᵃ`](@ref).
 
 @doc _unit_docstr("ʰ", "hour", "1/24 turn", "turn", "Equivalent to `hourAngleᵃ`.")
 @unit ʰᵃ "ʰ" HourAstro turnᵃ//24 false
-has_unit_spacing(u::Units{(Unit{:HourAstro, 𝐀}(0, 1//1),), 𝐀}) = false
+Unitful.has_unit_spacing(u::Units{(Unit{:HourAstro, 𝐀}(0, 1//1),), 𝐀}) = false
 
 @doc _unit_docstr("ᵐ", "minute", "1ʰ/60", "ʰ")
 @unit ᵐᵃ "ᵐ" MinuteAstro ʰᵃ//60 false
-has_unit_spacing(u::Units{(Unit{:MinuteAstro, 𝐀}(0, 1//1),), 𝐀}) = false
+Unitful.has_unit_spacing(u::Units{(Unit{:MinuteAstro, 𝐀}(0, 1//1),), 𝐀}) = false
 
 @doc _unit_docstr("ˢ", "second", "1ʰ/3600", "ʰ")
 @unit ˢᵃ "ˢ" SecondAstro ʰᵃ//3600 false
-has_unit_spacing(u::Units{(Unit{:SecondAstro, 𝐀}(0, 1//1),), 𝐀}) = false
-
+Unitful.has_unit_spacing(u::Units{(Unit{:SecondAstro, 𝐀}(0, 1//1),), 𝐀}) = false
 
 # display other unit formats
 """

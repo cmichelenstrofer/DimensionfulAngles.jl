@@ -25,8 +25,7 @@ julia> cos(45ua"°")
 """
 module UnitfulAngleDimension
 
-import Unitful: has_unit_spacing
-
+using Unitful: Unitful  # extend: has_unit_spacing,
 using Unitful: minute, promotion, rad, s, 𝐓
 using Unitful: Dimension, DimensionlessQuantity, Frequency, FrequencyFreeUnits, MixedUnits,
     NoDims, NoUnits, Number, Quantity, Time, Unitlike, Unit, Units
@@ -34,6 +33,7 @@ using Unitful: @dimension, @refunit, @derived_dimension, @unit
 using Unitful: dimension, register, ustrip
 using UnitfulEquivalences: Equivalence, @eqrelation
 using DocStringExtensions: EXPORTS
+# using Base: Base  # See `base.jl` for extended functions in Base
 
 export @ua_str
 
@@ -90,9 +90,9 @@ julia> 1ua"°"
 ```
 """
 @unit °ᵃ "°" Degreeᵃ radᵃ*π/180 false
-has_unit_spacing(u::Units{(Unit{:Degreeᵃ, 𝐀}(0, 1//1),), 𝐀}) = false
+Unitful.has_unit_spacing(u::Units{(Unit{:Degreeᵃ, 𝐀}(0, 1//1),), 𝐀}) = false
 
-# constant
+# constants
 """
     θ₀
 
