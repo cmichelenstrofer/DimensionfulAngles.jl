@@ -14,4 +14,4 @@ Extends Unitful.jl to include *angle* as a dimension
   <img src="https://contrib.rocks/image?repo=cmichelenstrofer/UnitfulAngleDimension.jl" />
 </a>
 
-*Made with [contrib.rocks](https://contrib.rocks).*
+<sub>*Made with [contrib.rocks](https://contrib.rocks).*</sub>
