@@ -17,7 +17,7 @@ function _unit_docstr(symb, name, def, ref, add = "")
 
     Dimension: 𝐀.
 
-    See also [`UnitfulAngleDimension.$(ref)ᵃ`](@ref).
+    See also [`DimensionfulAngles.$(ref)ᵃ`](@ref).
     """
     return docs
 end
@@ -85,7 +85,7 @@ Unitful.has_unit_spacing(u::Units{(Unit{:Arcsecondᵃ, 𝐀}(0, 1 // 1),), 𝐀}
 
 The arcsecond, a unit of angle defined as 1°/3600.
 
-This is an alternative symbol for [`UnitfulAngleDimension.$arcsecondᵃ`](@ref) common in
+This is an alternative symbol for [`DimensionfulAngles.$arcsecondᵃ`](@ref) common in
 astronomy.
 Unlike `arcsecondᵃ`, `asᵃ` accepts SI prefixes.
 `UnitfulAngles` has similar implementation, which differs in that it contains units of
@@ -97,7 +97,7 @@ angle.
 
 Dimension: 𝐀.
 
-See also [`UnitfulAngleDimension.arcsecondᵃ`](@ref).
+See also [`DimensionfulAngles.arcsecondᵃ`](@ref).
 """
 @unit asᵃ "as" ArcsecondAstro 1arcsecondᵃ true true
 
@@ -122,7 +122,7 @@ Print an angle in hours (h), minutes (m), and seconds (s) as hʰmᵐsˢ.
 # Example
 
 ```jldoctest
-julia> UnitfulAngleDimension.show_hms(20.2ua"°")
+julia> DimensionfulAngles.show_hms(20.2ua"°")
 1ʰ 20ᵐ 48.00000000000026ˢ
 ```
 """
@@ -143,7 +143,7 @@ d°m′s″.
 # Example
 
 ```jldoctest
-julia> UnitfulAngleDimension.show_dms(20.2ua"°")
+julia> DimensionfulAngles.show_dms(20.2ua"°")
 20° 11′ 59.99999999999746″
 ```
 """

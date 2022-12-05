@@ -9,7 +9,7 @@ const allowed_funcs = [:*, :/, :^, :sqrt, :√, :+, :-, ://]
     macro ua_str(unit)
 
 String macro to easily recall units with angular dimension located in the
-`UnitfulAngleDimension` package. Although all unit symbols in that package are suffixed
+`DimensionfulAngles` package. Although all unit symbols in that package are suffixed
 with `ᵃ`, the suffix should not be used when using this macro.
 
 Note that what goes inside must be parsable as a valid Julia expression.
@@ -56,11 +56,11 @@ end
 
 function _replace_value(sym::Symbol)
     s = Symbol(sym, :ᵃ)
-    ustrcheck = _ustrcheck_bool(getfield(UnitfulAngleDimension, s))
-    if !(ustrcheck && isdefined(UnitfulAngleDimension, s))
-        error("Symbol $s could not be found in UnitfulAngleDimension.")
+    ustrcheck = _ustrcheck_bool(getfield(DimensionfulAngles, s))
+    if !(ustrcheck && isdefined(DimensionfulAngles, s))
+        error("Symbol $s could not be found in DimensionfulAngles.")
     end
-    return getfield(UnitfulAngleDimension, s)
+    return getfield(DimensionfulAngles, s)
 end
 
 _replace_value(literal::Number) = literal

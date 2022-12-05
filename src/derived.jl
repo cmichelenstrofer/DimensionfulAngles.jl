@@ -14,7 +14,7 @@ Unlike `Unitful.rad`, which follows SI and is therefor dimensionless,
 `radᵃ` has dimensions of Angle.
 Accepts SI prefixes.
 
-Dimension: [`UnitfulAngleDimension.𝐀`](@ref)."
+Dimension: [`DimensionfulAngles.𝐀`](@ref)."
 """
 @unit srᵃ "sr" Steradianᵃ (1radᵃ * radᵃ) true true
 
@@ -32,7 +32,7 @@ Does not accepts SI prefixes.
 
 Dimension: 𝐀 𝐓⁻¹.
 
-See also [`UnitfulAngleDimension.radᵃ`](@ref).
+See also [`DimensionfulAngles.radᵃ`](@ref).
 """
 @unit rpsᵃ "rps" RevolutionsPerSecondᵃ (1turnᵃ / s) false
 
@@ -46,7 +46,7 @@ Does not accepts SI prefixes.
 
 Dimension: 𝐀 𝐓⁻¹.
 
-See also [`UnitfulAngleDimension.radᵃ`](@ref).
+See also [`DimensionfulAngles.radᵃ`](@ref).
 """
 @unit rpmᵃ "rps" RevolutionsPerMinuteᵃ (1turnᵃ / minute) false
 
@@ -66,7 +66,7 @@ according to the relation ``f = ω/2π = 1/T``, where
 ```jldoctest
 julia> using Unitful
 julia> using Unitful: s, Hz
-julia> using UnitfulAngleDimension: radᵃ as rad, Periodic
+julia> using DimensionfulAngles: radᵃ as rad, Periodic
 
 julia> uconvert(s, 10Hz, Periodic())
 0.1 s

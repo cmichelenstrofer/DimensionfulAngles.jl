@@ -2,7 +2,7 @@
 Extends Unitful.jl to include Angle as an independent dimension in order to facilitate
 [dispatching](https://docs.julialang.org/en/v1/manual/methods/#Methods).
 
-Please see the [Documentation](https://cmichelenstrofer.github.io/UnitfulAngleDimension/)
+Please see the [Documentation](https://cmichelenstrofer.github.io/DimensionfulAngles/)
 for more information.
 
 !!! note "Not SI"
@@ -25,7 +25,7 @@ julia> cos(45ua"°")
 0.7071067811865476
 ```
 """
-module UnitfulAngleDimension
+module DimensionfulAngles
 
 using Unitful: Unitful  # extend: has_unit_spacing,
 using Unitful: minute, promotion, rad, s, 𝐓
@@ -62,7 +62,7 @@ Unlike `Unitful.rad`, which follows SI and is therefor dimensionless,
 `radᵃ` has dimensions of Angle.
 Accepts SI prefixes.
 
-Dimension: [`UnitfulAngleDimension.𝐀`](@ref).
+Dimension: [`DimensionfulAngles.𝐀`](@ref).
 
 # Examples
 
@@ -84,7 +84,7 @@ Unlike `Unitful.°`, which follows SI and is therefor dimensionless,
 `°ᵃ` has dimensions of Angle.
 Does not accepts SI prefixes.
 
-Dimension: [`UnitfulAngleDimension.𝐀`](@ref).
+Dimension: [`DimensionfulAngles.𝐀`](@ref).
 
 # Examples
 
@@ -107,7 +107,7 @@ Used as the defining constant of Angle dimension in several proposed SI extensio
 
 Dimensions: 𝐀.
 
-See also [`UnitfulAngleDimension.radᵃ`](@ref).
+See also [`DimensionfulAngles.radᵃ`](@ref).
 """
 const θ₀ = (1//1)radᵃ
 
@@ -120,7 +120,7 @@ include("derived.jl")  # units and functionalities for derived dimensions
 # register
 const localpromotion = promotion
 function __init__()
-    register(UnitfulAngleDimension)
+    register(DimensionfulAngles)
     merge!(promotion, localpromotion)
     return nothing
 end

@@ -1,3 +1,3 @@
-# UnitfulAngleDimension.jl
+# DimensionfulAngles.jl
 
-Documentation for UnitfulAngleDimension.jl
+Documentation for DimensionfulAngles.jl

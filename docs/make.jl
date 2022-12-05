@@ -1,10 +1,10 @@
 using Documenter
-using UnitfulAngleDimension
+using DimensionfulAngles
 
 makedocs(
-    sitename = "UnitfulAngleDimension",
+    sitename = "DimensionfulAngles",
     format = Documenter.HTML(),
-    modules = [UnitfulAngleDimension]
+    modules = [DimensionfulAngles]
 )
 
 # Documenter can also automatically deploy documentation to gh-pages.

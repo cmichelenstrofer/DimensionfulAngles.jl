@@ -1,6 +1,6 @@
 using TemplateDefault
 using Test
 
-@testset "TemplateDefault.jl" begin
+@testset "DimensionfulAngles.jl" begin
     # Write your tests here.
 end
