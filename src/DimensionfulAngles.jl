@@ -32,7 +32,7 @@ using Unitful: minute, promotion, rad, s, 𝐓
 using Unitful: Dimension, DimensionlessQuantity, Frequency, FrequencyFreeUnits, MixedUnits,
     NoDims, NoUnits, Number, Quantity, Time, Unitlike, Unit, Units
 using Unitful: @dimension, @refunit, @derived_dimension, @unit
-using Unitful: dimension, register, ustrip
+using Unitful: dimension, register, uconvert, ustrip
 using UnitfulEquivalences: Equivalence, @eqrelation
 using DocStringExtensions: EXPORTS
 # using Base: Base  # See `base.jl` for extended functions in Base
