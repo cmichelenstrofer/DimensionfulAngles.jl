@@ -1,0 +1,54 @@
+# Extension of `Base` functions
+
+One of the goals of this project is to extend all functions in Julia `Base` and the
+*standard library* that make sense to use quantities with dimensionful angles.
+Please let us know of any function we missed through a GitHub
+[issue](https://github.com/cmichelenstrofer/DimensionfulAngles.jl/issues).
+
+The functions in `Base` currently extended to accept dimensionful angle arguments are:
+
+- trigonometric functions: `sin`, `cos`, `tan`, `cot`, `sec`, `csc`, `sincos`, `sinpi`,
+    `cospi`, `sincospi`, `sind`, `cosd`, `tand`, `cotd`, `secd`, `cscd`, `sincosd`
+- hyperbolic functions: `sinh`, `cosh`, `tanh`, `coth`, `sech`, `csch`
+- exponential functions: `exp`, `expm1`, `cis`, `cispi`
+- Sinc functions: `sinc`, `cosc`
+- Utilities: `deg2rad`, `rad2deg`, `mod2pi`, `rem2pi`
+
+For example
+
+```jldoctest
+julia> using DimensionfulAngles
+
+julia> angle = 10.52ua"°"
+10.52°
+
+julia> cos(angle)
+0.9831912354632536
+
+julia> rem2pi(angle, RoundNearest)
+10.52°
+
+julia> rem2pi(angle + 360ua"°", RoundNearest)
+10.519999999999992°
+```
+
+Additionally, several inverse functions in base are extended to return quantities with
+dimensionful angles when requested.
+This is requested by providing a unit as the first argument.
+For instance
+
+```jldocs
+julia> using DimensionfulAngles
+
+julia> acos(ua"°", 0.9831912354632536)
+10.52000000000001°
+```
+
+The functions in `Base` that are currently extended to accept units as their first argument
+and return values with those units are:
+
+- inverse trigonometric: `asin`, `acos`, `atan`, `acot`, `asec`, `acsc`, `asind`, `acosd`,
+    `atan`, `acotd`, `asecd`, `acscd`
+- inverse hyperbolic: `asinh`, `acosh`, `atanh`, `acoth`, `asech`, `acsch`
+- logarithmic: `log`, `log1p`
+- phase angle of a complex number: `angle`

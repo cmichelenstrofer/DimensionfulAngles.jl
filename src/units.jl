@@ -85,7 +85,7 @@ Unitful.has_unit_spacing(u::Units{(Unit{:Arcsecondᵃ, 𝐀}(0, 1 // 1),), 𝐀}
 
 The arcsecond, a unit of angle defined as 1°/3600.
 
-This is an alternative symbol for [`DimensionfulAngles.$arcsecondᵃ`](@ref) common in
+This is an alternative symbol for [`DimensionfulAngles.arcsecondᵃ`](@ref) common in
 astronomy.
 Unlike `arcsecondᵃ`, `asᵃ` accepts SI prefixes.
 `UnitfulAngles` has similar implementation, which differs in that it contains units of
@@ -115,9 +115,25 @@ Unitful.has_unit_spacing(u::Units{(Unit{:SecondAstro, 𝐀}(0, 1 // 1),), 𝐀})
 
 # display other unit formats
 """
+    hms(x::Angle)
+
+Convert an angle to units of hours (360°/24) (h), minutes of an hour (m), and seconds of an
+hour (s) as hʰmᵐsˢ.
+
+Three values are returned.
+"""
+function hms(x::Angle)
+    h = trunc(Int, ustrip(x |> ʰᵃ))ʰᵃ
+    m = trunc(Int, ustrip((x - h) |> ᵐᵃ))ᵐᵃ
+    s = (x - h - m) |> ˢᵃ
+    return (h, m, s)
+end
+
+"""
     show_hms(x::Angle)
 
-Print an angle in hours (h), minutes (m), and seconds (s) as hʰmᵐsˢ.
+Print an angle in hours (360°/24) (h), minutes of an hour (m), and seconds of an hour (s) as
+hʰmᵐsˢ.
 
 # Example
 
@@ -127,11 +143,24 @@ julia> DimensionfulAngles.show_hms(20.2ua"°")
 ```
 """
 function show_hms(x::Angle)
-    h = trunc(Int, ustrip(x |> ʰᵃ))ʰᵃ
-    m = trunc(Int, ustrip((x - h) |> ᵐᵃ))ᵐᵃ
-    s = (x - h - m) |> ˢᵃ
-    print("$(h.val)ʰ $(m.val)ᵐ $(s.val)ˢ")
+    h, m, s = hms(x)
+    print("$h $m $s")
     return nothing
+end
+
+"""
+    dms(x::Angle)
+
+Convert an angle to units of degree (d), minutes of a degree (m), and seconds of a degree
+(s) as d°m′s″.
+
+Three values are returned.
+"""
+function dms(x::Angle)
+    d = trunc(Int, ustrip(x |> °ᵃ))°ᵃ
+    m = trunc(Int, ustrip((x - d) |> arcminuteᵃ))arcminuteᵃ
+    s = (x - d - m) |> arcsecondᵃ
+    return (d, m, s)
 end
 
 """
@@ -148,9 +177,7 @@ julia> DimensionfulAngles.show_dms(20.2ua"°")
 ```
 """
 function show_dms(x::Angle)
-    d = trunc(Int, ustrip(x |> °ᵃ))°ᵃ
-    m = trunc(Int, ustrip((x - d) |> arcminuteᵃ))arcminuteᵃ
-    s = (x - d - m) |> arcsecondᵃ
-    print("$(d.val)° $(m.val)′ $(s.val)″")
+    d, m, s = dms(x)
+    print("$d $m $s")
     return nothing
 end

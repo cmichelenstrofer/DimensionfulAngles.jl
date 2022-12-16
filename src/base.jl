@@ -21,7 +21,7 @@ const pi_ver = (:sin, :cos, :sincos, :cis)
 
 # functions with a *d version
 const deg_ver = (:sin, :cos, :tan, :cot, :sec, :csc, :sincos)
-const deg_ver_inv = (:asin, :acos, :atan, :cot, :asec, :acsc)
+const deg_ver_inv = (:asin, :acos, :atan, :acot, :asec, :acsc)
 
 # angle units with exact conversions to π rad (halfTurn)
 const units_pi = (
@@ -75,5 +75,5 @@ Base.atan(u::_U, y::Number, x::Number) = uconvert(u, atan(y, x) * radᵃ)
 # utilities
 Base.deg2rad(d::Quantity{T, 𝐀, typeof(°ᵃ)}) where {T} = deg2rad(ustrip(°ᵃ, d))radᵃ
 Base.rad2deg(r::Quantity{T, 𝐀, typeof(radᵃ)}) where {T} = rad2deg(ustrip(radᵃ, r))°ᵃ
-Base.mod2pi(x::Angle) = mod2pi(_normalize(x)) |> unit(x)
-Base.rem2pi(x::Angle) = rem2pi(_normalize(x)) |> unit(x)
+Base.mod2pi(x::Angle) = mod2pi(_normalize(x))*radᵃ |> unit(x)
+Base.rem2pi(x::Angle, r) = rem2pi(_normalize(x), r)*radᵃ |> unit(x)

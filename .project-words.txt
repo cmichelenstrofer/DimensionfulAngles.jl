@@ -2,7 +2,9 @@ Angleᵃ
 Arcminute
 Arcsecond
 Astro
+Bramwell
 Degreeᵃ
+Eder
 Gagnon
 Gradian
 Gradianᵃ
@@ -10,13 +12,14 @@ Hexacontade
 Michelén
 Minuteᵃ
 Nondimensionalizes
-Ströfer
 Partᵃ
 Pointᵃ
 Positionᵃ
+Quincey
 Radianᵃ
 Secondᵃ
 Steradianᵃ
+Ströfer
 Turnᵃ
 Unitful
 Unitlike
@@ -34,7 +37,10 @@ gradᵃ
 hexacontadeᵃ
 hʰmᵐsˢ
 localpromotion
+milliarcsecond
+millisteradian
 mrad
+msrᵃ
 octantᵃ
 prefixable
 quadrantᵃ

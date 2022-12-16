@@ -10,11 +10,11 @@ The steradian, a unit of spherical angle.
 
 There are 4π sr in a sphere.
 The steradian is the SI unit of solid angle.
-Unlike `Unitful.rad`, which follows SI and is therefor dimensionless,
-`radᵃ` has dimensions of Angle.
+Unlike `Unitful.sr`, which follows SI and is therefor dimensionless,
+`srᵃ` has dimensions of Angle squared.
 Accepts SI prefixes.
 
-Dimension: [`DimensionfulAngles.𝐀`](@ref)."
+Dimension: `𝐀²`."
 """
 @unit srᵃ "sr" Steradianᵃ (1radᵃ * radᵃ) true true
 
@@ -65,7 +65,9 @@ according to the relation ``f = ω/2π = 1/T``, where
 
 ```jldoctest
 julia> using Unitful
+
 julia> using Unitful: s, Hz
+
 julia> using DimensionfulAngles: radᵃ as rad, Periodic
 
 julia> uconvert(s, 10Hz, Periodic())
