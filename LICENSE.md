@@ -1,5 +1,4 @@
-The MIT License (MIT)
-=====================
+# The MIT License (MIT)
 
 Copyright © 2022 [Carlos A. Michelén Ströfer](https://github.com/cmichelenstrofer) and [contributors](https://github.com/cmichelenstrofer/DimensionfulAngles.jl/contributors).
 

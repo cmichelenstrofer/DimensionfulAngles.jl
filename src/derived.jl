@@ -73,7 +73,7 @@ julia> using DimensionfulAngles: radᵃ as rad, Periodic
 julia> uconvert(s, 10Hz, Periodic())
 0.1 s
 
-julia> uconvert(rad/s, 1Hz, Periodic())
+julia> uconvert(rad / s, 1Hz, Periodic())
 6.283185307179586 rad s⁻¹
 ```
 """

@@ -7,12 +7,12 @@ Please let us know of any function we missed through a GitHub
 
 The functions in `Base` currently extended to accept dimensionful angle arguments are:
 
-- trigonometric functions: `sin`, `cos`, `tan`, `cot`, `sec`, `csc`, `sincos`, `sinpi`,
+  - trigonometric functions: `sin`, `cos`, `tan`, `cot`, `sec`, `csc`, `sincos`, `sinpi`,
     `cospi`, `sincospi`, `sind`, `cosd`, `tand`, `cotd`, `secd`, `cscd`, `sincosd`
-- hyperbolic functions: `sinh`, `cosh`, `tanh`, `coth`, `sech`, `csch`
-- exponential functions: `exp`, `expm1`, `cis`, `cispi`
-- Sinc functions: `sinc`, `cosc`
-- Utilities: `deg2rad`, `rad2deg`, `mod2pi`, `rem2pi`
+  - hyperbolic functions: `sinh`, `cosh`, `tanh`, `coth`, `sech`, `csch`
+  - exponential functions: `exp`, `expm1`, `cis`, `cispi`
+  - Sinc functions: `sinc`, `cosc`
+  - Utilities: `deg2rad`, `rad2deg`, `mod2pi`, `rem2pi`
 
 For example
 
@@ -47,8 +47,8 @@ julia> acos(ua"°", 0.9831912354632536)
 The functions in `Base` that are currently extended to accept units as their first argument
 and return values with those units are:
 
-- inverse trigonometric: `asin`, `acos`, `atan`, `acot`, `asec`, `acsc`, `asind`, `acosd`,
+  - inverse trigonometric: `asin`, `acos`, `atan`, `acot`, `asec`, `acsc`, `asind`, `acosd`,
     `atan`, `acotd`, `asecd`, `acscd`
-- inverse hyperbolic: `asinh`, `acosh`, `atanh`, `acoth`, `asech`, `acsch`
-- logarithmic: `log`, `log1p`
-- phase angle of a complex number: `angle`
+  - inverse hyperbolic: `asinh`, `acosh`, `atanh`, `acoth`, `asech`, `acsch`
+  - logarithmic: `log`, `log1p`
+  - phase angle of a complex number: `angle`

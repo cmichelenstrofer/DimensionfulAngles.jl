@@ -2,17 +2,42 @@
 
 # functions of (dimensionless) angle in Base
 const functions = (
-    :sin, :cos, :tan, :cot, :sec, :csc, :sincos, # trigonometric
-    :sinh, :cosh, :tanh, :coth, :sech, :csch,    # hyperbolic
-    :exp, :expm1, :cis,                          # exponential
-    :sinc, :cosc                                 # sinc
+    :sin,
+    :cos,
+    :tan,
+    :cot,
+    :sec,
+    :csc,
+    :sincos, # trigonometric
+    :sinh,
+    :cosh,
+    :tanh,
+    :coth,
+    :sech,
+    :csch,    # hyperbolic
+    :exp,
+    :expm1,
+    :cis,                          # exponential
+    :sinc,
+    :cosc,                                 # sinc
 )
 
 # functions returning (dimensionless) angle in Base
 const inverses = (
-    :asin, :acos, :atan, :acot, :asec, :acsc,       # trigonometric
-    :asinh, :acosh, :atanh, :acoth, :asech, :acsch, # hyperbolic
-    :log, :log1p,                                   # exponential
+    :asin,
+    :acos,
+    :atan,
+    :acot,
+    :asec,
+    :acsc,       # trigonometric
+    :asinh,
+    :acosh,
+    :atanh,
+    :acoth,
+    :asech,
+    :acsch, # hyperbolic
+    :log,
+    :log1p,                                   # exponential
     :angle,                                         # phase angle of complex number
 )
 
@@ -25,8 +50,21 @@ const deg_ver_inv = (:asin, :acos, :atan, :acot, :asec, :acsc)
 
 # angle units with exact conversions to π rad (halfTurn)
 const units_pi = (
-    doubleTurnᵃ, turnᵃ, halfTurnᵃ, quadrantᵃ, sextantᵃ, octantᵃ, clockPositionᵃ, hourAngleᵃ,
-    compassPointᵃ, hexacontadeᵃ, bradᵃ, gradᵃ, ʰᵃ, ᵐᵃ, ˢᵃ,
+    doubleTurnᵃ,
+    turnᵃ,
+    halfTurnᵃ,
+    quadrantᵃ,
+    sextantᵃ,
+    octantᵃ,
+    clockPositionᵃ,
+    hourAngleᵃ,
+    compassPointᵃ,
+    hexacontadeᵃ,
+    bradᵃ,
+    gradᵃ,
+    ʰᵃ,
+    ᵐᵃ,
+    ˢᵃ,
 )
 
 # angle units with exact conversions to degrees °
@@ -75,5 +113,5 @@ Base.atan(u::_U, y::Number, x::Number) = uconvert(u, atan(y, x) * radᵃ)
 # utilities
 Base.deg2rad(d::Quantity{T, 𝐀, typeof(°ᵃ)}) where {T} = deg2rad(ustrip(°ᵃ, d))radᵃ
 Base.rad2deg(r::Quantity{T, 𝐀, typeof(radᵃ)}) where {T} = rad2deg(ustrip(radᵃ, r))°ᵃ
-Base.mod2pi(x::Angle) = mod2pi(_normalize(x))*radᵃ |> unit(x)
-Base.rem2pi(x::Angle, r) = rem2pi(_normalize(x), r)*radᵃ |> unit(x)
+Base.mod2pi(x::Angle) = mod2pi(_normalize(x)) * radᵃ |> unit(x)
+Base.rem2pi(x::Angle, r) = rem2pi(_normalize(x), r) * radᵃ |> unit(x)
