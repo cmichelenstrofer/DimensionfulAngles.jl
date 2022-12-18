@@ -48,20 +48,19 @@ DimensionfulAngles.ˢᵃ
 
 ## Display
 Most of the time we want to express an angle in a single unit.
-However, in some fields it is common to express them in mixed units.
-*Dimensionful.jl* provides two functions to display an angle in two different systems.
-These are [`DimensionfulAngles.show_dms`](@ref) and [`DimensionfulAngles.show_hms`](@ref).
-Additionally [`DimensionfulAngles.dms`](@ref) and [`DimensionfulAngles.hms`](@ref) return these values rather than display them.
+However, in some fields it is common to express them in a
+[sexagesimal](https://en.wikipedia.org/wiki/Sexagesimal) system.
+*Dimensionful.jl* provides the function [`DimensionfulAngles.show_sexagesimal`](@ref) to
+display an angle in two different sexagesimal systems.
+The function [`DimensionfulAngles.sexagesimal`](@ref) returns these values rather than displaying them.
 
 !!! note
 
     minutes/seconds of a degree are distinct from minutes/seconds of an hour.
 
 ```@docs
-DimensionfulAngles.dms
-DimensionfulAngles.show_dms
-DimensionfulAngles.hms
-DimensionfulAngles.show_hms
+DimensionfulAngles.sexagesimal
+DimensionfulAngles.show_sexagesimal
 ```
 
 For most units, a space is inserted between the value and the unit, which is the default behavior from *Unitful.jl*.

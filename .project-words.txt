@@ -48,6 +48,7 @@ radᵃ
 refunit
 rpmᵃ
 rpsᵃ
+sexagecimal
 sextantᵃ
 symb
 uamacro

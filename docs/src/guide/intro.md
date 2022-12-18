@@ -14,7 +14,7 @@ At its core, [`DimensionfulAngles`](@ref) defines:
 The unit `radᵃ` is prefixable, and therefore defines many other units, which are documented in [Prefixed units](@ref intro_prefixed).
 
 The units in this package are appended the superscript `ᵃ` to differentiate them from the units in [Unitful.jl](https://painterqubits.github.io/Unitful.jl/stable/) and [UnitfulAngles.jl](https://github.com/yakir12/UnitfulAngles.jl), which have the same name but are non-dimensional.
-The [`@ua_str`](@ref) is the only thing exported by the *DimensionfulAngles.jl* package and provides an easier way to access these units without having to type the superscript `ᵃ`.
+The [`@ua_str`](@ref) provides an easier way to access these units without having to type the superscript `ᵃ`.
 For example, both of these are equivalent:
 
 ```jldoctest

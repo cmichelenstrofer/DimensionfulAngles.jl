@@ -1,13 +1,11 @@
-# push!(LOAD_PATH,"../")  # delete before push
-# push!(LOAD_PATH,"../src")  # delete before push
 using Documenter
 using DocumenterCitations
 using DimensionfulAngles
 using Unitful
 
-DocMeta.setdocmeta!(
-    DimensionfulAngles, :DocTestSetup, :(using DimensionfulAngles); recursive=true
-)
+# DocMeta.setdocmeta!(
+    # DimensionfulAngles, :DocTestSetup, :(using DimensionfulAngles); recursive=true
+# )
 bib = CitationBibliography(joinpath(@__DIR__, "references.bib"))
 
 function _filter_prefixed(base, x; exceptions=[nothing,])
@@ -26,7 +24,6 @@ end
 makedocs(
     bib,
     sitename = "DimensionfulAngles",
-    # format = Documenter.HTML(prettyurls = false), # remove pu before push
     format = Documenter.HTML(),
     modules = [DimensionfulAngles],
     pages = [

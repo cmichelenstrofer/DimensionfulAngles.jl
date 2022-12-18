@@ -15,6 +15,8 @@ $(EXPORTS)
 # Examples
 
 ```jldoctest
+julia> using DimensionfulAngles
+
 julia> 1.0ua"turn"
 1.0 τ
 
@@ -27,6 +29,8 @@ julia> cos(45ua"°")
 """
 module DimensionfulAngles
 
+# using Base: Base  # extend: see `base.jl` for full list of functions extended
+using DocStringExtensions: EXPORTS
 using Unitful: Unitful  # extend: has_unit_spacing,
 using Unitful: minute, promotion, rad, s, 𝐓
 using Unitful: Dimension, DimensionlessQuantity, Frequency, FrequencyFreeUnits, MixedUnits,
@@ -34,10 +38,11 @@ using Unitful: Dimension, DimensionlessQuantity, Frequency, FrequencyFreeUnits, 
 using Unitful: @dimension, @refunit, @derived_dimension, @unit
 using Unitful: dimension, register, uconvert, unit, ustrip
 using UnitfulEquivalences: Equivalence, @eqrelation
-using DocStringExtensions: EXPORTS
-# using Base: Base  # See `base.jl` for extended functions in Base
 
 export @ua_str
+export θ₀
+export Periodic
+export sexagesimal, show_sexagesimal
 
 """
     𝐀
@@ -67,6 +72,8 @@ Dimension: [`DimensionfulAngles.𝐀`](@ref).
 # Examples
 
 ```jldoctest
+julia> using DimensionfulAngles
+
 julia> 1.0ua"rad" + 20.0ua"mrad"
 1.02 rad
 ```
@@ -89,14 +96,16 @@ Dimension: [`DimensionfulAngles.𝐀`](@ref).
 # Examples
 
 ```jldoctest
+julia> using DimensionfulAngles
+
 julia> 1ua"°"
 1°
 ```
 """
 @unit °ᵃ "°" Degreeᵃ (1radᵃ * π / 180) false
-Unitful.has_unit_spacing(u::Units{(Unit{:Degreeᵃ, 𝐀}(0, 1 // 1),), 𝐀}) = false
+Unitful.has_unit_spacing(u::Units{(Unit{:Degreeᵃ, 𝐀}(0, 1//1),), 𝐀}) = false
 
-# constants
+# Constants
 """
     θ₀
 
@@ -108,16 +117,31 @@ Used as the defining constant of Angle dimension in several proposed SI extensio
 Dimensions: 𝐀.
 
 See also [`DimensionfulAngles.radᵃ`](@ref).
+
+# Examples
+
+```jldoctest
+julia> using DimensionfulAngles
+
+julia> θ₀
+1//1 rad
+
+julia> θ₀ |> ua"°"
+57.29577951308232°
+
+julia> 2.1ua"rad" / θ₀
+2.1
+```
 """
 const θ₀ = (1//1)radᵃ
 
-# other functionalities
-include("units.jl") # other units of angle
-include("base.jl") # extend Base functions for units of angle
-include("uamacro.jl")  # string macro for using dimensionful units
-include("derived.jl")  # units and functionalities for derived dimensions
+# Other functionalities.
+include("units.jl")  # Other units of angle.
+include("base.jl")  # Extend Base functions for units of angle.
+include("uamacro.jl")  # String macro for using dimensionful units.
+include("derived.jl")  # Units and functionalities for derived dimensions.
 
-# register
+# Register new units and dimensions with Unitful.jl.
 const localpromotion = promotion
 function __init__()
     register(DimensionfulAngles)

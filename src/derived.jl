@@ -1,6 +1,6 @@
-# Units and functionalities for derived dimensions of Angle
+# Units and functionalities for derived dimensions of Angle.
 
-# solid angle
+# Solid angle
 @derived_dimension SolidAngle (𝐀 * 𝐀) true
 
 """
@@ -18,7 +18,7 @@ Dimension: `𝐀²`."
 """
 @unit srᵃ "sr" Steradianᵃ (1radᵃ * radᵃ) true true
 
-# angular velocity & acceleration, and relation to angular frequency
+# Angular velocity, angular acceleration, and angular frequency.
 @derived_dimension AngularVelocity (𝐀 * 𝐓^-1) true
 @derived_dimension AngularAcceleration (𝐀 * 𝐓^-2) true
 
@@ -66,14 +66,12 @@ according to the relation ``f = ω/2π = 1/T``, where
 ```jldoctest
 julia> using Unitful
 
-julia> using Unitful: s, Hz
+julia> using DimensionfulAngles
 
-julia> using DimensionfulAngles: radᵃ as rad, Periodic
-
-julia> uconvert(s, 10Hz, Periodic())
+julia> uconvert(u"s", 10u"Hz", Periodic())
 0.1 s
 
-julia> uconvert(rad/s, 1Hz, Periodic())
+julia> uconvert(u"radᵃ/s", 1u"Hz", Periodic())
 6.283185307179586 rad s⁻¹
 ```
 """
