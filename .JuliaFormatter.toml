@@ -11,7 +11,3 @@ format_markdown = true
 long_to_short_function_def = true
 conditional_to_if = true
 annotate_untyped_fields_with_any = true
-
-# stronger style preferences, but still should be OK with Blue
-whitespace_in_kwargs = true
-whitespace_typedefs = true

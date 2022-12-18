@@ -50,13 +50,13 @@ export sexagesimal, show_sexagesimal
 A dimension representing Angle.
 
 !!! note "Not SI"
+
     *Angle* is not an SI base dimension.
 """
 @dimension 𝐀 "𝐀" Angle true
 
 # SI units
 """
-
     radᵃ
 
 The radian, a unit of angle.
@@ -103,7 +103,7 @@ julia> 1ua"°"
 ```
 """
 @unit °ᵃ "°" Degreeᵃ (1radᵃ * π / 180) false
-Unitful.has_unit_spacing(u::Units{(Unit{:Degreeᵃ, 𝐀}(0, 1//1),), 𝐀}) = false
+Unitful.has_unit_spacing(u::Units{(Unit{:Degreeᵃ,𝐀}(0, 1//1),),𝐀}) = false
 
 # Constants
 """

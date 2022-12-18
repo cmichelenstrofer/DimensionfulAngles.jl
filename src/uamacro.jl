@@ -36,7 +36,7 @@ function _replace_value(ex::Expr)
         if !(ex.args[1] in allowed_funcs)
             error(
                 "$(ex.args[1]) is not a valid function call when parsing a unit." *
-                "Only the following functions are allowed: $allowed_funcs"
+                "Only the following functions are allowed: $allowed_funcs.",
             )
         end
 

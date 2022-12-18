@@ -92,7 +92,7 @@ end
 # Better implementation when using degrees, using the *d version of functions.
 for _f in _DEG_VER, _u in _UNITS_DEG
     _fd = Symbol("$(_f)d")
-    _Q = @eval Quantity{T, 𝐀, typeof($_u)} where {T}
+    _Q = @eval Quantity{T,𝐀,typeof($_u)} where {T}
     @eval global Base.$_f(x::$_Q) = $_fd(_normalize_deg(x))
     @eval global Base.$_fd(x::$_Q) = $_fd(_normalize_deg(x))
     @eval global Base.$_f(x::AbstractMatrix{$_Q}) = $_fd(_normalize_deg.(x))
@@ -102,7 +102,7 @@ end
 # Better implementation when using π, using the *pi version of functions.
 for _f in _PI_VER, _u in _UNITS_PI
     _fp = Symbol("$(_f)pi")
-    _Q = @eval Quantity{T, 𝐀, typeof($_u)} where {T}
+    _Q = @eval Quantity{T,𝐀,typeof($_u)} where {T}
     @eval global Base.$_f(x::$_Q) = $_fp(_normalize_pi(x))
     @eval global Base.$_fp(x::$_Q) = $_fp(_normalize_pi(x))
     @eval global Base.$_f(x::AbstractMatrix{$_Q}) = $_fp(_normalize_pi.(x))
@@ -125,9 +125,9 @@ Base.atan(u::AngleUnits, y::Number, x::Number) = uconvert(u, atan(y, x) * radᵃ
 Base.atand(u::AngleUnits, y::Number, x::Number) = uconvert(u, atand(y, x) * °ᵃ)
 
 # Conversions
-Base.deg2rad(x::Quantity{T, 𝐀, typeof(°ᵃ)}) where {T} = deg2rad(ustrip(°ᵃ, x))radᵃ
-Base.rad2deg(x::Quantity{T, 𝐀, typeof(radᵃ)}) where {T} = rad2deg(ustrip(radᵃ, x))°ᵃ
+Base.deg2rad(x::Quantity{T,𝐀,typeof(°ᵃ)}) where {T} = deg2rad(ustrip(°ᵃ, x))radᵃ
+Base.rad2deg(x::Quantity{T,𝐀,typeof(radᵃ)}) where {T} = rad2deg(ustrip(radᵃ, x))°ᵃ
 
 # Division/remainder
-Base.mod2pi(x::Angle) = mod2pi(_normalize(x))*radᵃ |> unit(x)
-Base.rem2pi(x::Angle, r) = rem2pi(_normalize(x), r)*radᵃ |> unit(x)
+Base.mod2pi(x::Angle) = mod2pi(_normalize(x)) * radᵃ |> unit(x)
+Base.rem2pi(x::Angle, r) = rem2pi(_normalize(x), r) * radᵃ |> unit(x)
