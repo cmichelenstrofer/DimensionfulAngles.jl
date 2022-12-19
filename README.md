@@ -9,10 +9,11 @@ Extends [Unitful.jl](https://painterqubits.github.io/Unitful.jl/) to include *an
 > **Warning**
 > This package is under development and not ready for use. When ready, it will be registered in the [General Registry](https://github.com/JuliaRegistries/General) as `v0.1.0`.
 
-#! format: off
+<!-- #! format: off -->
 <details><summary><h3>Installation ⚙</h3></summary>
 <p>
 Install DimensionfulAngles.jl the usual way Julia packages are installed, i.e., using Julia package manager:
+
 ```julia
 using Pkg
 Pkg.add("DimensionfulAngles")
@@ -25,15 +26,15 @@ pkg > add("DimensionfulAngles")
 ```
 </p>
 </details>
-#! format: on
+<!-- #! format: on -->
 
-#! format: off
+<!-- #! format: off -->
 <details><summary><h3>Documentation 📜</h3></summary>
 <p>
 The full documentation can be found at https://cmichelenstrofer.github.io/DimensionfulAngles/.
 </p>
 </details>
-#! format: on
+<!-- #! format: on -->
 
 ## Basic Usage
 
@@ -100,13 +101,14 @@ Contributions are welcome! 🎊 Please see the [contribution guidelines](https:/
 
       + [UnitfulAngles.jl](https://github.com/yakir12/UnitfulAngles.jl/blob/master/LICENSE.md): Copyright (c) 2017: Yakir Luc Gagnon.
       + [UnitfulUS.jl](https://github.com/PainterQubits/UnitfulUS.jl/blob/master/LICENSE.md): Copyright (c) 2017, California Institute of Technology. All rights reserved.
+
   - The name *DimensionfulAngles* was suggested by [@sostock](https://github.com/sostock).
   - This is an open source project. Thanks to [all who have contributed](https://github.com/cmichelenstrofer/DimensionfulAngles.jl/contributors)! 🎊🎊🎊
 
-#! format: off
+<!-- #! format: off -->
 <a href="https://github.com/cmichelenstrofer/DimensionfulAngles.jl/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=cmichelenstrofer/DimensionfulAngles.jl" />
 </a>
 
 <sub>*Made with [contrib.rocks](https://contrib.rocks).*</sub>
-#! format: on
+<!-- #! format: on -->
