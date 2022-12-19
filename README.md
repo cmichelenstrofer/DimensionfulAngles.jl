@@ -1,5 +1,5 @@
 # DimensionfulAngles.jl
-[![Code Style: Blue](https://img.shields.io/badge/code%20style-blue-4495d1.svg)](https://github.com/invenia/BlueStyle)
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![](https://img.shields.io/badge/docs-stable-blue.svg)](https://cmichelenstrofer.github.io/DimensionfulAngles.jl/stable)
 [![](https://img.shields.io/badge/docs-dev-blue.svg)](https://cmichelenstrofer.github.io/DimensionfulAngles.jl/dev)
 
