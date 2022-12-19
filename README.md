@@ -9,7 +9,6 @@ Extends [Unitful.jl](https://painterqubits.github.io/Unitful.jl/) to include *an
 > **Warning**
 > This package is under development and not ready for use. When ready, it will be registered in the [General Registry](https://github.com/JuliaRegistries/General) as `v0.1.0`.
 
-<!-- #! format: off -->
 <details><summary><h3>Installation ⚙</h3></summary>
 <p>
 Install DimensionfulAngles.jl the usual way Julia packages are installed, i.e., using Julia package manager:
@@ -26,15 +25,12 @@ pkg > add("DimensionfulAngles")
 ```
 </p>
 </details>
-<!-- #! format: on -->
 
-<!-- #! format: off -->
 <details><summary><h3>Documentation 📜</h3></summary>
 <p>
 The full documentation can be found at https://cmichelenstrofer.github.io/DimensionfulAngles/.
 </p>
 </details>
-<!-- #! format: on -->
 
 ## Basic Usage
 
@@ -105,10 +101,8 @@ Contributions are welcome! 🎊 Please see the [contribution guidelines](https:/
   - The name *DimensionfulAngles* was suggested by [@sostock](https://github.com/sostock).
   - This is an open source project. Thanks to [all who have contributed](https://github.com/cmichelenstrofer/DimensionfulAngles.jl/contributors)! 🎊🎊🎊
 
-<!-- #! format: off -->
 <a href="https://github.com/cmichelenstrofer/DimensionfulAngles.jl/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=cmichelenstrofer/DimensionfulAngles.jl" />
 </a>
 
 <sub>*Made with [contrib.rocks](https://contrib.rocks).*</sub>
-<!-- #! format: on -->
