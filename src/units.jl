@@ -5,7 +5,7 @@
 #
 # Partly based on Wikipedia's Angle units table (https://en.wikipedia.org/wiki/Angle#Units).
 
-function _unit_docstr(symb, name, def, ref, add="")
+function _unit_docstr(symb, name, def, ref, add = "")
     docs = """
         $(symb)ᵃ
 
@@ -30,13 +30,13 @@ end
 @doc _unit_docstr("arcminute", "minute of arc", "1°/60", "°")
 @unit arcminuteᵃ "′" Arcminuteᵃ (1°ᵃ//60) false
 #! format: on
-Unitful.has_unit_spacing(u::Units{(Unit{:Arcminuteᵃ, 𝐀}(0, 1//1),), 𝐀}) = false
+Unitful.has_unit_spacing(u::Units{(Unit{:Arcminuteᵃ, 𝐀}(0, 1 // 1),), 𝐀}) = false
 
 #! format: off
 @doc _unit_docstr("arcsecond", "second of arc", "1°/3600", "°")
 @unit arcsecondᵃ "″" Arcsecondᵃ (1°ᵃ//3600) false
 #! format: on
-Unitful.has_unit_spacing(u::Units{(Unit{:Arcsecondᵃ, 𝐀}(0, 1//1),), 𝐀}) = false
+Unitful.has_unit_spacing(u::Units{(Unit{:Arcsecondᵃ, 𝐀}(0, 1 // 1),), 𝐀}) = false
 
 # Based on radian
 #! format: off
@@ -128,19 +128,19 @@ See also [`DimensionfulAngles.arcsecondᵃ`](@ref).
 @doc _unit_docstr("ʰ", "hour", "1/24 turn", "turn", "Equivalent to `hourAngleᵃ`.")
 @unit ʰᵃ "ʰ" HourAstro (1turnᵃ//24) false
 #! format: on
-Unitful.has_unit_spacing(u::Units{(Unit{:HourAstro, 𝐀}(0, 1//1),), 𝐀}) = false
+Unitful.has_unit_spacing(u::Units{(Unit{:HourAstro, 𝐀}(0, 1 // 1),), 𝐀}) = false
 
 #! format: off
 @doc _unit_docstr("ᵐ", "minute", "1ʰ/60", "ʰ")
 @unit ᵐᵃ "ᵐ" MinuteAstro (1ʰᵃ//60) false
 #! format: on
-Unitful.has_unit_spacing(u::Units{(Unit{:MinuteAstro, 𝐀}(0, 1//1),), 𝐀}) = false
+Unitful.has_unit_spacing(u::Units{(Unit{:MinuteAstro, 𝐀}(0, 1 // 1),), 𝐀}) = false
 
 #! format: off
 @doc _unit_docstr("ˢ", "second", "1ʰ/3600", "ʰ")
 @unit ˢᵃ "ˢ" SecondAstro (1ʰᵃ//3600) false
 #! format: on
-Unitful.has_unit_spacing(u::Units{(Unit{:SecondAstro, 𝐀}(0, 1//1),), 𝐀}) = false
+Unitful.has_unit_spacing(u::Units{(Unit{:SecondAstro, 𝐀}(0, 1 // 1),), 𝐀}) = false
 
 # Display other unit formats.
 """
@@ -150,7 +150,7 @@ Convert an angle to the triple (unit, minutes of unit, seconds of unit), where u
 either degree (`°ᵃ`) or hour angle (`ʰᵃ`).
 
 !!! note
-
+    
     Minutes and seconds of a degree are different from minutes and seconds of an hour angle.
     In both cases a minute is 1/60ᵗʰ of the base unit and a second is 1/60ᵗʰ of that.
 
@@ -162,11 +162,11 @@ julia> using DimensionfulAngles
 julia> sexagesimal(20.2ua"°")
 (20°, 11′, 59″)
 
-julia> sexagesimal(20.2ua"°"; unit=ua"ʰ")
+julia> sexagesimal(20.2ua"°"; unit = ua"ʰ")
 (1ʰ, 20ᵐ, 48ˢ)
 ```
 """
-function sexagesimal(x::Angle; base_unit::AngleUnits=°ᵃ)
+function sexagesimal(x::Angle; base_unit::AngleUnits = °ᵃ)
     base_unit in [°ᵃ, ʰᵃ] || throw(ArgumentError("`unit` must be `°ᵃ` or `ʰᵃ`."))
     base_unit == °ᵃ && ((minute_unit, second_unit) = (arcminuteᵃ, arcsecondᵃ))
     base_unit == ʰᵃ && ((minute_unit, second_unit) = (ᵐᵃ, ˢᵃ))
@@ -191,12 +191,12 @@ julia> using DimensionfulAngles
 julia> show_sexagesimal(20.2ua"°")
 20° 11′ 59.99999999999746″
 
-julia> show_sexagesimal(20.2ua"°"; unit=:hour)
+julia> show_sexagesimal(20.2ua"°"; unit = :hour)
 1ʰ 20ᵐ 48.00000000000026ˢ
 ```
 """
-function show_sexagesimal(x::Angle; unit::Symbol=:degree)
-    base, minute, second = sexagesimal(x; unit=unit)
+function show_sexagesimal(x::Angle; unit::Symbol = :degree)
+    base, minute, second = sexagesimal(x; unit = unit)
     print("$base $minute $second")
     return nothing
 end

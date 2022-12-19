@@ -4,28 +4,27 @@ The concept of dimensions has some limitations (see [SI-Brochure_2019](@cite), [
 Several such proposals include [Eder_1982](@cite), [Quincey_2021](@cite), [Leonard_2021](@cite), and references therein.
 
 ## Summary of proposals
+
 The exact form of the proposals and their effects on the equations of physics are all different, but most (i) include angle as a base dimension, (ii) use a "fundamental" constant, typically equal to one radian, to modify the equations of physics, (iii) define solid angle as a derived dimension equal to angle squared, and (iii) take different approaches to which equations or quantity units to modify.
 
 Some examples of how common equations would be modified in such systems, using ``θ₀=1rad``:
 
-- Trigonometric functions:
+  - Trigonometric functions:
+    
+      + ``cos(θ) → cos(θ/θ₀)``
+      + ``cos(ωt+φ) → cos([ωt+φ]/θ₀``
 
-    - ``cos(θ) → cos(θ/θ₀)``
-    - ``cos(ωt+φ) → cos([ωt+φ]/θ₀``
-
-- Angular frequency and frequency:
-
-    - ``ω=2πf → ω=2πfθ₀``
-
-- Arc length ``s`` and other kinematic equations:
-
-    - ``s=rθ → s=rθ/θ₀``
-
-- For dynamic equations there's more variability between the different proposals.
+  - Angular frequency and frequency:
+    
+      + ``ω=2πf → ω=2πfθ₀``
+  - Arc length ``s`` and other kinematic equations:
+    
+      + ``s=rθ → s=rθ/θ₀``
+  - For dynamic equations there's more variability between the different proposals.
     As an example, [Quincey_2021](@cite) would modify torque (and its unit) while leaving the units of work intact, as
-
-    - ``T=(𝐫×𝐅) → T=(𝐫×𝐅)/θ₀``
-    - ``W=Tθ``
+    
+      + ``T=(𝐫×𝐅) → T=(𝐫×𝐅)/θ₀``
+      + ``W=Tθ``
 
 ## *DimensionfulAngles.jl*'s relation to these proposals
 

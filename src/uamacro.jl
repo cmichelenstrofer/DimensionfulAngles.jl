@@ -40,13 +40,13 @@ function _replace_value(ex::Expr)
             )
         end
 
-        for i in 2:length(ex.args)
+        for i = 2:length(ex.args)
             if typeof(ex.args[i]) == Symbol || typeof(ex.args[i]) == Expr
                 ex.args[i] = _replace_value(ex.args[i])
             end
         end
     elseif ex.head == :tuple
-        for i in 1:length(ex.args)
+        for i = 1:length(ex.args)
             typeof(ex.args[i]) == Symbol || error("only use symbols inside the tuple.")
             ex.args[i] = _replace_value(ex.args[i])
         end

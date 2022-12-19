@@ -33,8 +33,20 @@ module DimensionfulAngles
 using DocStringExtensions: EXPORTS
 using Unitful: Unitful  # extend: has_unit_spacing,
 using Unitful: minute, promotion, rad, s, 𝐓
-using Unitful: Dimension, DimensionlessQuantity, Frequency, FrequencyFreeUnits, MixedUnits,
-    NoDims, NoUnits, Number, Quantity, Time, Unitlike, Unit, Units
+using Unitful:
+    Dimension,
+    DimensionlessQuantity,
+    Frequency,
+    FrequencyFreeUnits,
+    MixedUnits,
+    NoDims,
+    NoUnits,
+    Number,
+    Quantity,
+    Time,
+    Unitlike,
+    Unit,
+    Units
 using Unitful: @dimension, @refunit, @derived_dimension, @unit
 using Unitful: dimension, register, uconvert, unit, ustrip
 using UnitfulEquivalences: Equivalence, @eqrelation
@@ -50,7 +62,7 @@ export sexagesimal, show_sexagesimal
 A dimension representing Angle.
 
 !!! note "Not SI"
-
+    
     *Angle* is not an SI base dimension.
 """
 @dimension 𝐀 "𝐀" Angle true
@@ -103,7 +115,7 @@ julia> 1ua"°"
 ```
 """
 @unit °ᵃ "°" Degreeᵃ (1radᵃ * π / 180) false
-Unitful.has_unit_spacing(u::Units{(Unit{:Degreeᵃ,𝐀}(0, 1//1),),𝐀}) = false
+Unitful.has_unit_spacing(u::Units{(Unit{:Degreeᵃ, 𝐀}(0, 1 // 1),), 𝐀}) = false
 
 # Constants
 """
@@ -133,7 +145,7 @@ julia> 2.1ua"rad" / θ₀
 2.1
 ```
 """
-const θ₀ = (1//1)radᵃ
+const θ₀ = (1 // 1)radᵃ
 
 # Other functionalities.
 include("units.jl")  # Other units of angle.
