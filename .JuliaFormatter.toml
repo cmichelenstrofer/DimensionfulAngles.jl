@@ -19,3 +19,5 @@ short_to_long_function_def = true
 conditional_to_if = true
 long_to_short_function_def = true
 separate_kwargs_with_semicolon = true
+always_for_in = true
+
