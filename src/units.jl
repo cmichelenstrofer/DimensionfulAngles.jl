@@ -22,16 +22,24 @@ function _unit_docstr(symb, name, def, ref, add="")
     return docs
 end
 
+# TODO: remove the `#! format: off/on` after
+#   https://github.com/domluna/JuliaFormatter.jl/issues/663 is fixed.
+
 # Based on degree
+#! format: off
 @doc _unit_docstr("arcminute", "minute of arc", "1°/60", "°")
 @unit arcminuteᵃ "′" Arcminuteᵃ (1°ᵃ//60) false
+#! format: on
 Unitful.has_unit_spacing(u::Units{(Unit{:Arcminuteᵃ, 𝐀}(0, 1//1),), 𝐀}) = false
 
+#! format: off
 @doc _unit_docstr("arcsecond", "second of arc", "1°/3600", "°")
 @unit arcsecondᵃ "″" Arcsecondᵃ (1°ᵃ//3600) false
+#! format: on
 Unitful.has_unit_spacing(u::Units{(Unit{:Arcsecondᵃ, 𝐀}(0, 1//1),), 𝐀}) = false
 
 # Based on radian
+#! format: off
 @doc _unit_docstr("diameterPart", "diameter part", "1/60 rad", "rad")
 @unit diameterPartᵃ "diameterPart" DiameterPartᵃ (1radᵃ//60) false
 
@@ -92,6 +100,7 @@ Unitful.has_unit_spacing(u::Units{(Unit{:Arcsecondᵃ, 𝐀}(0, 1//1),), 𝐀}) 
 
 @doc _unit_docstr("grad", "gradian", "1/400 turn", "turn")
 @unit gradᵃ "ᵍ" Gradianᵃ (1turnᵃ//400) false
+#! format: on
 
 # Astronomy
 """
@@ -115,16 +124,22 @@ See also [`DimensionfulAngles.arcsecondᵃ`](@ref).
 """
 @unit asᵃ "as" ArcsecondAstro 1arcsecondᵃ true true
 
+#! format: off
 @doc _unit_docstr("ʰ", "hour", "1/24 turn", "turn", "Equivalent to `hourAngleᵃ`.")
 @unit ʰᵃ "ʰ" HourAstro (1turnᵃ//24) false
+#! format: on
 Unitful.has_unit_spacing(u::Units{(Unit{:HourAstro, 𝐀}(0, 1//1),), 𝐀}) = false
 
+#! format: off
 @doc _unit_docstr("ᵐ", "minute", "1ʰ/60", "ʰ")
 @unit ᵐᵃ "ᵐ" MinuteAstro (1ʰᵃ//60) false
+#! format: on
 Unitful.has_unit_spacing(u::Units{(Unit{:MinuteAstro, 𝐀}(0, 1//1),), 𝐀}) = false
 
+#! format: off
 @doc _unit_docstr("ˢ", "second", "1ʰ/3600", "ʰ")
 @unit ˢᵃ "ˢ" SecondAstro (1ʰᵃ//3600) false
+#! format: on
 Unitful.has_unit_spacing(u::Units{(Unit{:SecondAstro, 𝐀}(0, 1//1),), 𝐀}) = false
 
 # Display other unit formats.
