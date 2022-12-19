@@ -3,9 +3,9 @@
 *DimensionfulAngles.jl* also defines derived dimensions that include angle.
 These are:
 
-- [`DimensionfulAngles.SolidAngle`](@ref)
-- [`DimensionfulAngles.AngularVelocity`](@ref)
-- [`DimensionfulAngles.AngularAcceleration`](@ref).
+  - [`DimensionfulAngles.SolidAngle`](@ref)
+  - [`DimensionfulAngles.AngularVelocity`](@ref)
+  - [`DimensionfulAngles.AngularAcceleration`](@ref).
 
 This allows, among other things, dispatching on these derived dimensions.
 
@@ -29,9 +29,12 @@ DimensionfulAngles.srᵃ
 ```
 
 ## Angular velocity and acceleration
+
 Content:
-- [Angular velocity and acceleration](@ref)
-    - [Periodic equivalence](@ref)
+
+  - [Angular velocity and acceleration](@ref)
+    
+      + [Periodic equivalence](@ref)
 
 [Angular velocity](https://en.wikipedia.org/wiki/Angular_frequency) has dimensions of angle over time `𝐀/𝐓` and can be used to measure different quantities such as rotational velocity, rotational speed, and angular frequency of a phase angle.
 Two units of angular velocity are defined: the revolutions per second (RPS) and the revolutions per minute (RPM), provided as [`DimensionfulAngles.rpsᵃ`](@ref) and [`DimensionfulAngles.rpmᵃ`](@ref) respectively.
@@ -47,6 +50,7 @@ DimensionfulAngles.rpmᵃ
 ```
 
 ### Periodic equivalence
+
 For periodic responses there are several analogous ways to measure the repeat period: period `T` (`𝐓`, `s`), frequency `f` (`1/𝐓`, `Hz=1/s`), or angular frequency `ω` (`𝐀/𝐓`, `rad/s`).
 These are [related by](https://en.wikipedia.org/wiki/Angular_frequency)
 
@@ -58,12 +62,14 @@ These are [related by](https://en.wikipedia.org/wiki/Angular_frequency)
 DimensionfulAngles.Periodic
 ```
 
-
 ## [Syntax](@id derived_syntax)
+
 Contents:
-- [Syntax](@ref derived_syntax)
-    - [Syntax provided by *Unitful.jl*](@ref derived_unitful)
-    - [Prefixed Units](@ref derived_prefixed)
+
+  - [Syntax](@ref derived_syntax)
+    
+      + [Syntax provided by *Unitful.jl*](@ref derived_unitful)
+      + [Prefixed Units](@ref derived_prefixed)
 
 ### [Syntax provided by *Unitful.jl*](@id derived_unitful)
 

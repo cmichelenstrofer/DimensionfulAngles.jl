@@ -1,13 +1,14 @@
 # Angle as a dimension?
+
 While *angle* is not an SI base dimension, it can be convenient to treat it as dimension in computer systems.
 A few points about base dimensions:
 
-1. The choice of base dimensions is largely a matter of convention.
-2. Dimensionless quantities cannot be used in dimensional analysis, such as checking the dimensional consistency of equations.
-
+ 1. The choice of base dimensions is largely a matter of convention.
+ 2. Dimensionless quantities cannot be used in dimensional analysis, such as checking the dimensional consistency of equations.
 
 Point 1 above means it is not "wrong" to use a system with 8 base dimensions with angle as one of them.
 For instance, the [SI Brochure](https://www.bipm.org/en/publications/si-brochure) states:
+
 > Physical  quantities  can  be  organized in  a  system  of  dimensions,  where  the  system  used  is   decided  by  convention.
 
 and
@@ -19,6 +20,7 @@ In practice this means we have to be very careful when dealing with dimensionles
 Here are some motivating examples using [Unitful.jl](https://painterqubits.github.io/Unitful.jl/).
 
 ## Example- Dimensional Consistency
+
 Trying to add *quantities* with different dimensions results in an error.
 
 ```jldoctest
@@ -36,6 +38,7 @@ ERROR: DimensionError: 2 m and 5 are not dimensionally compatible.
 ```
 
 However this does not work with dimensionless quantities such as angles.
+
 ```jldoctest
 julia> using Unitful
 
@@ -62,9 +65,11 @@ julia> using Unitful
 julia> 1u"°" + 1u"rad"
 1.0174532925199433
 ```
+
 where the results has no units (converted to units of `1`).
 
 ## Example - Angular Frequency
+
 [Angular frequency](https://en.wikipedia.org/wiki/Angular_frequency) is a common way to describe the frequency of a periodic response.
 It is a measure of rotational rate (i.e. of the phase angle of the periodic waveform) and has units of (phase) angle over units of time (e.g. $rad/s = 1/s$).
 The frequency on the other hand is defined as one over the period and has units of 1 over time (e.g. $Hz = 1/s$).
@@ -73,6 +78,7 @@ And although they are physically different quantities they are used in practice 
 The fact that frequency and angular frequency have the same units and are used to describe the same thing is often the source of many embarrassing mistakes.
 
 The [SI Brochure](https://www.bipm.org/en/publications/si-brochure) states:
+
 > The  SI  unit  of  frequency  is  hertz,  the  SI  unit  of  angular  velocity  and  angular  frequency  is  radian  per  second,   and  the  SI  unit  of  activity  is  becquerel,  implying  counts  per  second.   Although it is formally correct to write all three of these units as the reciprocal second, the  use of the different names emphasizes the different nature of the quantities concerned.
 
 We might naively try to convert between these as though it were merely a unit-conversion:
@@ -87,6 +93,7 @@ julia> uconvert(u"rad/s", 1u"Hz")
 which results in the wrong answer (the equivalent angular frequency is $2π~rad$) and no error message.
 
 ## Example - Multiple Dispatch
+
 One of the main features of Julia is multiple dispatch.
 *Unitful.jl* allows you to dispatch on dimensions, defining functions that can take quantities with any units of the dispatched dimension.
 This ability can **not** be used for angular dimensions, and we have to either (1)dispatch on *no dimension* or (2) dispatch on an union of all angle units.
