@@ -11,7 +11,7 @@ normalize_line_endings = "unix"
 # scope
 format_docstrings = true
 format_markdown = true
-ignore = ["LICENCE.md",]
+ignore = ["LICENSE.md",]
 
 # modify code in these additional cases
 import_to_using = true
