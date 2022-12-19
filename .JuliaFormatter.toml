@@ -1,13 +1,21 @@
 
-style = "blue"
-
-# Use of pipes in Unitful ecosystem for unit conversion. E.g. `1° |> rad`.
-pipe_to_function_call = false
-
-# preferences that should not violate/interfere with Blue
+# Use, whitespaces, after, commas, Always! :)
+whitespace_typedefs = true
+whitespace_ops_in_indices = true
+whitespace_in_kwargs = true
+remove_extra_newlines = true
+indent_submodule = true
+align_matrix = true
 normalize_line_endings = "unix"
+
+# scope
 format_docstrings = true
 format_markdown = true
-long_to_short_function_def = true
+ignore = ["./LICENCE.md",]
+
+# modify code in these additional cases
+import_to_using = true
+short_to_long_function_def = true
 conditional_to_if = true
-annotate_untyped_fields_with_any = true
+long_to_short_function_def = true
+separate_kwargs_with_semicolon = true
