@@ -40,7 +40,8 @@ The full documentation can be found at https://cmichelenstrofer.github.io/Dimens
 
 Use *DimensionfulAngles.jl* for units containing angles and *Unitful.jl* for all other units.
 The units in *DimensionfulAngles.jl* are differentiated from their dimensionless counterparts with a subscript `ᵃ`.
-Simply add this subscript to any angle units to make it dimensionful.
+Simply add this subscript to any angle units to make it dimensionful. 
+In Julia environments this can be typed as `\^a<tab>`.
 
 ```julia
 julia> using Unitful
