@@ -1,13 +1,14 @@
 # DimensionfulAngles.jl
 
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
-[![Link to documentation for latest stable version.](https://img.shields.io/badge/docs-stable-blue.svg)](https://cmichelenstrofer.github.io/DimensionfulAngles.jl/stable)
-[![Link to documentation for latest development version on the main branch.](https://img.shields.io/badge/docs-dev-blue.svg)](https://cmichelenstrofer.github.io/DimensionfulAngles.jl/dev)
+<!-- 
+[![Link to documentation for the latest stable version.](https://img.shields.io/badge/docs-stable-blue.svg)](https://cmichelenstrofer.github.io/DimensionfulAngles.jl/stable)
+[![Link to documentation for the latest development version on the main branch.](https://img.shields.io/badge/docs-dev-blue.svg)](https://cmichelenstrofer.github.io/DimensionfulAngles.jl/dev)
+[![ColPrac: Contributor's Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributor's%20Guide-blueviolet)](https://github.com/SciML/ColPrac) 
+[![SciML Code Style](https://img.shields.io/static/v1?label=code%20style&message=SciML&color=9558b2&labelColor=389826)](https://github.com/SciML/SciMLStyle)
+-->
 
 Extends [Unitful.jl](https://painterqubits.github.io/Unitful.jl/) to include *angle* as a dimension and allow [dispatching](https://docs.julialang.org/en/v1/manual/methods/) on *angles*.
-
-> **Warning**
-> This package is under development and not ready for use. When ready, it will be registered in the [General Registry](https://github.com/JuliaRegistries/General) as `v0.1.0`.
 
 <details><summary><h3>Installation ⚙</h3></summary>
 <p>
@@ -29,6 +30,9 @@ pkg > add("DimensionfulAngles")
 <details><summary><h3>Documentation 📜</h3></summary>
 <p>
 The full documentation can be found at https://cmichelenstrofer.github.io/DimensionfulAngles/.
+  
+<a href="https://cmichelenstrofer.github.io/DimensionfulAngles.jl/stable"><img src="https://img.shields.io/badge/docs-stable-blue.svg" alt="Link to documentation for the latest stable version."></a>
+<a href="https://cmichelenstrofer.github.io/DimensionfulAngles.jl/dev"><img src="https://img.shields.io/badge/docs-dev-blue.svg" alt="Link to documentation for the latest development version on the main branch."></a>
 </p>
 </details>
 
@@ -36,7 +40,8 @@ The full documentation can be found at https://cmichelenstrofer.github.io/Dimens
 
 Use *DimensionfulAngles.jl* for units containing angles and *Unitful.jl* for all other units.
 The units in *DimensionfulAngles.jl* are differentiated from their dimensionless counterparts with a subscript `ᵃ`.
-Simply add this subscript to any angle units to make it dimensionful.
+Simply add this subscript to any angle units to make it dimensionful. 
+In Julia environments this can be typed as `\^a<tab>`.
 
 ```julia
 julia> using Unitful
@@ -89,7 +94,11 @@ julia> angular_velocity = 1.2rad / s
 
 ## Contributing
 
-Contributions are welcome! 🎊 Please see the [contribution guidelines](https://github.com/cmichelenstrofer/.github/blob/cf2b03ed168df77a60c596d2d1a98192dded00fb/CONTRIBUTING.md) for ways to contribute to the project.
+Contributions are welcome! 🎊 Please see the [contribution guidelines](https://github.com/cmichelenstrofer/.github/blob/cf2b03ed168df77a60c596d2d1a98192dded00fb/CONTRIBUTING.md) for ways to contribute to the project. 
+We also follow the ColPrac and (loosely) the SciML Style. 
+
+[![ColPrac: Contributor's Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributor's%20Guide-blueviolet)](https://github.com/SciML/ColPrac) 
+[![SciML Code Style](https://img.shields.io/static/v1?label=code%20style&message=SciML&color=9558b2&labelColor=389826)](https://github.com/SciML/SciMLStyle)
 
 ## Acknowledgments
 
