@@ -3,9 +3,6 @@ using DocumenterCitations
 using DimensionfulAngles
 using Unitful
 
-# DocMeta.setdocmeta!(
-# DimensionfulAngles, :DocTestSetup, :(using DimensionfulAngles); recursive=true
-# )
 bib = CitationBibliography(joinpath(@__DIR__, "references.bib"))
 
 function _filter_prefixed(base, x; exceptions = [nothing])

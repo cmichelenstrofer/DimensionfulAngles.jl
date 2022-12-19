@@ -33,20 +33,8 @@ module DimensionfulAngles
 using DocStringExtensions: EXPORTS
 using Unitful: Unitful  # extend: has_unit_spacing,
 using Unitful: minute, promotion, rad, s, 𝐓
-using Unitful:
-    Dimension,
-    DimensionlessQuantity,
-    Frequency,
-    FrequencyFreeUnits,
-    MixedUnits,
-    NoDims,
-    NoUnits,
-    Number,
-    Quantity,
-    Time,
-    Unitlike,
-    Unit,
-    Units
+using Unitful: Dimension, DimensionlessQuantity, Frequency, FrequencyFreeUnits, MixedUnits
+using Unitful: NoDims, NoUnits, Number, Quantity, Time, Unitlike, Unit, Units
 using Unitful: @dimension, @refunit, @derived_dimension, @unit
 using Unitful: dimension, register, uconvert, unit, ustrip
 using UnitfulEquivalences: Equivalence, @eqrelation
@@ -62,7 +50,7 @@ export sexagesimal, show_sexagesimal
 A dimension representing Angle.
 
 !!! note "Not SI"
-    
+
     *Angle* is not an SI base dimension.
 """
 @dimension 𝐀 "𝐀" Angle true

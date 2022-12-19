@@ -1,4 +1,4 @@
-using TemplateDefault
+using DimensionfulAngles
 using Test
 
 @testset "DimensionfulAngles.jl" begin

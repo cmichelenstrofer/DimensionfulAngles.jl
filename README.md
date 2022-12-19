@@ -1,8 +1,8 @@
 # DimensionfulAngles.jl
 
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
-[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://cmichelenstrofer.github.io/DimensionfulAngles.jl/stable)
-[![](https://img.shields.io/badge/docs-dev-blue.svg)](https://cmichelenstrofer.github.io/DimensionfulAngles.jl/dev)
+[![Link to documentation for latest stable version.](https://img.shields.io/badge/docs-stable-blue.svg)](https://cmichelenstrofer.github.io/DimensionfulAngles.jl/stable)
+[![Link to documentation for latest development version on the main branch.](https://img.shields.io/badge/docs-dev-blue.svg)](https://cmichelenstrofer.github.io/DimensionfulAngles.jl/dev)
 
 Extends [Unitful.jl](https://painterqubits.github.io/Unitful.jl/) to include *angle* as a dimension and allow [dispatching](https://docs.julialang.org/en/v1/manual/methods/) on *angles*.
 
@@ -23,15 +23,15 @@ or in the Pkg REPL (enter from the Julia REPL with `]`):
 ```julia
 pkg > add("DimensionfulAngles")
 ```
-
 </p>
 </details>
+
 <details><summary><h3>Documentation 📜</h3></summary>
 <p>
 The full documentation can be found at https://cmichelenstrofer.github.io/DimensionfulAngles/.
-
 </p>
 </details>
+
 ## Basic Usage
 
 Use *DimensionfulAngles.jl* for units containing angles and *Unitful.jl* for all other units.
@@ -94,7 +94,7 @@ Contributions are welcome! 🎊 Please see the [contribution guidelines](https:/
 ## Acknowledgments
 
   - Some portions of this software are adapted from:
-    
+
       + [UnitfulAngles.jl](https://github.com/yakir12/UnitfulAngles.jl/blob/master/LICENSE.md): Copyright (c) 2017: Yakir Luc Gagnon.
       + [UnitfulUS.jl](https://github.com/PainterQubits/UnitfulUS.jl/blob/master/LICENSE.md): Copyright (c) 2017, California Institute of Technology. All rights reserved.
   - The name *DimensionfulAngles* was suggested by [@sostock](https://github.com/sostock).
@@ -103,4 +103,5 @@ Contributions are welcome! 🎊 Please see the [contribution guidelines](https:/
 <a href="https://github.com/cmichelenstrofer/DimensionfulAngles.jl/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=cmichelenstrofer/DimensionfulAngles.jl" />
 </a>
+
 <sub>*Made with [contrib.rocks](https://contrib.rocks).*</sub>

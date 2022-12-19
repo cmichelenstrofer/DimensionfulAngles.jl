@@ -5,7 +5,7 @@
 #
 # Partly based on Wikipedia's Angle units table (https://en.wikipedia.org/wiki/Angle#Units).
 
-function _unit_docstr(symb, name, def, ref, add = "")
+function __unit_docstr(symb, name, def, ref, add = "")
     docs = """
         $(symb)ᵃ
 
@@ -27,23 +27,23 @@ end
 
 # Based on degree
 #! format: off
-@doc _unit_docstr("arcminute", "minute of arc", "1°/60", "°")
+@doc __unit_docstr("arcminute", "minute of arc", "1°/60", "°")
 @unit arcminuteᵃ "′" Arcminuteᵃ (1°ᵃ//60) false
 #! format: on
 Unitful.has_unit_spacing(u::Units{(Unit{:Arcminuteᵃ, 𝐀}(0, 1 // 1),), 𝐀}) = false
 
 #! format: off
-@doc _unit_docstr("arcsecond", "second of arc", "1°/3600", "°")
+@doc __unit_docstr("arcsecond", "second of arc", "1°/3600", "°")
 @unit arcsecondᵃ "″" Arcsecondᵃ (1°ᵃ//3600) false
 #! format: on
 Unitful.has_unit_spacing(u::Units{(Unit{:Arcsecondᵃ, 𝐀}(0, 1 // 1),), 𝐀}) = false
 
 # Based on radian
 #! format: off
-@doc _unit_docstr("diameterPart", "diameter part", "1/60 rad", "rad")
+@doc __unit_docstr("diameterPart", "diameter part", "1/60 rad", "rad")
 @unit diameterPartᵃ "diameterPart" DiameterPartᵃ (1radᵃ//60) false
 
-@doc _unit_docstr(
+@doc __unit_docstr(
     "turn",
     "turn",
     "2π rad",
@@ -53,28 +53,28 @@ Unitful.has_unit_spacing(u::Units{(Unit{:Arcsecondᵃ, 𝐀}(0, 1 // 1),), 𝐀}
 @unit turnᵃ "τ" Turnᵃ (2π * radᵃ) false
 
 # Based on the turn
-@doc _unit_docstr("doubleTurn", "double turn", "2 turn", "turn")
+@doc __unit_docstr("doubleTurn", "double turn", "2 turn", "turn")
 @unit doubleTurnᵃ "§" DoubleTurnᵃ 2turnᵃ false
 
-@doc _unit_docstr("halfTurn", "half turn", "1/2 turn", "turn")
+@doc __unit_docstr("halfTurn", "half turn", "1/2 turn", "turn")
 @unit halfTurnᵃ "π" HalfTurnᵃ (1turnᵃ//2) false
 
-@doc _unit_docstr("quadrant", "quadrant", "1/4 turn", "turn")
+@doc __unit_docstr("quadrant", "quadrant", "1/4 turn", "turn")
 @unit quadrantᵃ "⦜" Quadrantᵃ (1turnᵃ//4) false
 
-@doc _unit_docstr("sextant", "sextant", "1/6 turn", "turn")
+@doc __unit_docstr("sextant", "sextant", "1/6 turn", "turn")
 @unit sextantᵃ "sextant" Sextantᵃ (1turnᵃ//6) false
 
-@doc _unit_docstr("octant", "octant", "1/8 turn", "turn")
+@doc __unit_docstr("octant", "octant", "1/8 turn", "turn")
 @unit octantᵃ "octant" Octantᵃ (1turnᵃ//8) false
 
-@doc _unit_docstr("clockPosition", "clock position", "1/12 turn", "turn")
+@doc __unit_docstr("clockPosition", "clock position", "1/12 turn", "turn")
 @unit clockPositionᵃ "clockPosition" ClockPositionᵃ (1turnᵃ//12) false
 
-@doc _unit_docstr("hourAngle", "hour angle", "1/24 turn", "turn")
+@doc __unit_docstr("hourAngle", "hour angle", "1/24 turn", "turn")
 @unit hourAngleᵃ "hourAngle" HourAngleᵃ (1turnᵃ//24) false
 
-@doc _unit_docstr(
+@doc __unit_docstr(
     "compassPoint",
     "compass point",
     "1/32 turn",
@@ -86,10 +86,10 @@ Unitful.has_unit_spacing(u::Units{(Unit{:Arcsecondᵃ, 𝐀}(0, 1 // 1),), 𝐀}
 )
 @unit compassPointᵃ "compassPoint" CompassPointᵃ (1turnᵃ//32) false
 
-@doc _unit_docstr("hexacontade", "hexacontade", "1/60 turn", "turn")
+@doc __unit_docstr("hexacontade", "hexacontade", "1/60 turn", "turn")
 @unit hexacontadeᵃ "hexacontade" Hexacontadeᵃ (1turnᵃ//60) false
 
-@doc _unit_docstr(
+@doc __unit_docstr(
     "brad",
     "binary radian",
     "1/256 turn",
@@ -98,7 +98,7 @@ Unitful.has_unit_spacing(u::Units{(Unit{:Arcsecondᵃ, 𝐀}(0, 1 // 1),), 𝐀}
 )
 @unit bradᵃ "brad" BinaryRadianᵃ (1turnᵃ//256) false
 
-@doc _unit_docstr("grad", "gradian", "1/400 turn", "turn")
+@doc __unit_docstr("grad", "gradian", "1/400 turn", "turn")
 @unit gradᵃ "ᵍ" Gradianᵃ (1turnᵃ//400) false
 #! format: on
 
@@ -125,19 +125,19 @@ See also [`DimensionfulAngles.arcsecondᵃ`](@ref).
 @unit asᵃ "as" ArcsecondAstro 1arcsecondᵃ true true
 
 #! format: off
-@doc _unit_docstr("ʰ", "hour", "1/24 turn", "turn", "Equivalent to `hourAngleᵃ`.")
+@doc __unit_docstr("ʰ", "hour", "1/24 turn", "turn", "Equivalent to `hourAngleᵃ`.")
 @unit ʰᵃ "ʰ" HourAstro (1turnᵃ//24) false
 #! format: on
 Unitful.has_unit_spacing(u::Units{(Unit{:HourAstro, 𝐀}(0, 1 // 1),), 𝐀}) = false
 
 #! format: off
-@doc _unit_docstr("ᵐ", "minute", "1ʰ/60", "ʰ")
+@doc __unit_docstr("ᵐ", "minute", "1ʰ/60", "ʰ")
 @unit ᵐᵃ "ᵐ" MinuteAstro (1ʰᵃ//60) false
 #! format: on
 Unitful.has_unit_spacing(u::Units{(Unit{:MinuteAstro, 𝐀}(0, 1 // 1),), 𝐀}) = false
 
 #! format: off
-@doc _unit_docstr("ˢ", "second", "1ʰ/3600", "ʰ")
+@doc __unit_docstr("ˢ", "second", "1ʰ/3600", "ʰ")
 @unit ˢᵃ "ˢ" SecondAstro (1ʰᵃ//3600) false
 #! format: on
 Unitful.has_unit_spacing(u::Units{(Unit{:SecondAstro, 𝐀}(0, 1 // 1),), 𝐀}) = false
@@ -150,7 +150,7 @@ Convert an angle to the triple (unit, minutes of unit, seconds of unit), where u
 either degree (`°ᵃ`) or hour angle (`ʰᵃ`).
 
 !!! note
-    
+
     Minutes and seconds of a degree are different from minutes and seconds of an hour angle.
     In both cases a minute is 1/60ᵗʰ of the base unit and a second is 1/60ᵗʰ of that.
 

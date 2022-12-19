@@ -26,10 +26,10 @@ julia> 1.0ua"rad" - 1.0ua"°"
 """
 macro ua_str(unit)
     ex = Meta.parse(unit)
-    return esc(_replace_value(ex))
+    return esc(__replace_value(ex))
 end
 
-function _replace_value(ex::Expr)
+function __replace_value(ex::Expr)
     ex.head in [:call, :tuple] || error("Expr head $(ex.head) must equal :call or :tuple")
     if ex.head == :call
         allowed_funcs = [:*, :/, :^, :sqrt, :√, :+, :-, ://]
@@ -42,22 +42,22 @@ function _replace_value(ex::Expr)
 
         for i = 2:length(ex.args)
             if typeof(ex.args[i]) == Symbol || typeof(ex.args[i]) == Expr
-                ex.args[i] = _replace_value(ex.args[i])
+                ex.args[i] = __replace_value(ex.args[i])
             end
         end
     elseif ex.head == :tuple
         for i = 1:length(ex.args)
             typeof(ex.args[i]) == Symbol || error("only use symbols inside the tuple.")
-            ex.args[i] = _replace_value(ex.args[i])
+            ex.args[i] = __replace_value(ex.args[i])
         end
     end
 
     return Core.eval(@__MODULE__, ex)
 end
 
-function _replace_value(sym::Symbol)
+function __replace_value(sym::Symbol)
     s = Symbol(sym, :ᵃ)
-    ustrcheck = _ustrcheck_bool(getfield(DimensionfulAngles, s))
+    ustrcheck = __ustrcheck_bool(getfield(DimensionfulAngles, s))
     if !(ustrcheck && isdefined(DimensionfulAngles, s))
         error("Symbol $s could not be found in DimensionfulAngles.")
     end
@@ -65,10 +65,10 @@ function _replace_value(sym::Symbol)
     return getfield(DimensionfulAngles, s)
 end
 
-_replace_value(literal::Number) = literal
+__replace_value(literal::Number) = literal
 
-_ustrcheck_bool(x) = false
-_ustrcheck_bool(x::Number) = true
-_ustrcheck_bool(x::Unitlike) = true
-_ustrcheck_bool(x::Quantity) = true
-_ustrcheck_bool(x::MixedUnits) = true
+__ustrcheck_bool(x) = false
+__ustrcheck_bool(x::Number) = true
+__ustrcheck_bool(x::Unitlike) = true
+__ustrcheck_bool(x::Quantity) = true
+__ustrcheck_bool(x::MixedUnits) = true
