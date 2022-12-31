@@ -1,10 +1,13 @@
 # DimensionfulAngles.jl
 
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
-[![Link to documentation for the latest stable version.](https://img.shields.io/badge/docs-stable-blue.svg)](https://cmichelenstrofer.github.io/DimensionfulAngles.jl/stable)
-[![Link to documentation for the latest development version on the main branch.](https://img.shields.io/badge/docs-dev-blue.svg)](https://cmichelenstrofer.github.io/DimensionfulAngles.jl/dev)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![CI](https://github.com/cmichelenstrofer/DimensionfulAngles.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/cmichelenstrofer/DimensionfulAngles.jl/actions/workflows/CI.yml)
+[![codecov](https://codecov.io/gh/cmichelenstrofer/DimensionfulAngles.jl/branch/main/graph/badge.svg?token=QI8L8PQ71T)](https://codecov.io/gh/cmichelenstrofer/DimensionfulAngles.jl)
 [![SciML Code Style](https://img.shields.io/static/v1?label=code%20style&message=SciML&color=9558b2&labelColor=389826)](https://github.com/SciML/SciMLStyle)
 [![ColPrac: Contributor's Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributor's%20Guide-blueviolet)](https://github.com/SciML/ColPrac) 
+
+[![Link to documentation for the latest stable version.](https://img.shields.io/badge/docs-stable-blue.svg)](https://cmichelenstrofer.github.io/DimensionfulAngles.jl/stable)
+[![Link to documentation for the latest development version on the main branch.](https://img.shields.io/badge/docs-dev-blue.svg)](https://cmichelenstrofer.github.io/DimensionfulAngles.jl/dev)
 
 Extends [Unitful.jl](https://painterqubits.github.io/Unitful.jl/) to include *angle* as a dimension and allow [dispatching](https://docs.julialang.org/en/v1/manual/methods/) on *angles*.
 
