@@ -38,7 +38,7 @@ The hour is defined as ``1/24`` of a full revolution.
 These are usually displayed as, e.g. `10ʰ 5ᵐ 13.2ˢ` (see [Display](@ref)).
 
 !!! note
-
+    
     minutes/seconds of a degree are distinct from minutes/seconds of an hour.
 
 ```@docs
@@ -76,7 +76,7 @@ For the following units, this space is removed (e.g., `10°` not `10 °`):
 Contents:
 
   - [Syntax](@ref units_syntax)
-
+    
       + [Prefixed Units](@ref units_prefixed)
 
 ```@docs
