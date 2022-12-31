@@ -1,7 +1,7 @@
 # Units and functionalities for derived dimensions of Angle.
 
 # Solid angle
-@derived_dimension SolidAngle (𝐀 * 𝐀) true
+@derived_dimension SolidAngle (𝐀*𝐀) true
 
 """
     srᵃ
@@ -16,11 +16,11 @@ Accepts SI prefixes.
 
 Dimension: `𝐀²`."
 """
-@unit srᵃ "sr" Steradianᵃ (1radᵃ * radᵃ) true true
+@unit srᵃ "sr" Steradianᵃ (1radᵃ*radᵃ) true true
 
 # Angular velocity, angular acceleration, and angular frequency.
-@derived_dimension AngularVelocity (𝐀 * 𝐓^-1) true
-@derived_dimension AngularAcceleration (𝐀 * 𝐓^-2) true
+@derived_dimension AngularVelocity (𝐀*𝐓^-1) true
+@derived_dimension AngularAcceleration (𝐀*𝐓^-2) true
 
 """
     rpsᵃ
@@ -34,7 +34,7 @@ Dimension: 𝐀 𝐓⁻¹.
 
 See also [`DimensionfulAngles.radᵃ`](@ref).
 """
-@unit rpsᵃ "rps" RevolutionsPerSecondᵃ (1turnᵃ / s) false
+@unit rpsᵃ "rps" RevolutionsPerSecondᵃ (1turnᵃ/s) false
 
 """
     rpmᵃ
@@ -48,7 +48,7 @@ Dimension: 𝐀 𝐓⁻¹.
 
 See also [`DimensionfulAngles.radᵃ`](@ref).
 """
-@unit rpmᵃ "rps" RevolutionsPerMinuteᵃ (1turnᵃ / minute) false
+@unit rpmᵃ "rps" RevolutionsPerMinuteᵃ (1turnᵃ/minute) false
 
 """
     Periodic()
@@ -76,6 +76,6 @@ julia> uconvert(u"radᵃ/s", 1u"Hz", Periodic())
 ```
 """
 struct Periodic <: Equivalence end
-@eqrelation Periodic (AngularVelocity / Frequency = 2π * radᵃ)
-@eqrelation Periodic (Frequency * Time = 1)
-@eqrelation Periodic (AngularVelocity * Time = 2π * radᵃ)
+@eqrelation Periodic (AngularVelocity / Frequency=2π * radᵃ)
+@eqrelation Periodic (Frequency * Time=1)
+@eqrelation Periodic (AngularVelocity * Time=2π * radᵃ)

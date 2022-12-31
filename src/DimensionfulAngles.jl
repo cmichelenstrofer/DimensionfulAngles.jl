@@ -6,6 +6,7 @@ See the [Documentation](https://cmichelenstrofer.github.io/DimensionfulAngles/) 
 information.
 
 !!! note "Not SI"
+
     *Angle* is not an SI base dimension.
 
 # Examples
@@ -38,10 +39,10 @@ export @ua_str
 export θ₀
 export Periodic
 export sexagesimal, show_sexagesimal
-export Angle, AngleUnits, AngleFreeUnits
-export SolidAngle, SolidAngleUnits, SolidAngleFreeUnits
-export AngularVelocity, AngularVelocityUnits, AngularVelocityFreeUnits
-export AngularAcceleration, AngularAccelerationUnits, AngularAccelerationFreeUnits
+# export Angle, AngleUnits, AngleFreeUnits
+# export SolidAngle, SolidAngleUnits, SolidAngleFreeUnits
+# export AngularVelocity, AngularVelocityUnits, AngularVelocityFreeUnits
+# export AngularAcceleration, AngularAccelerationUnits, AngularAccelerationFreeUnits
 
 """
     𝐀
@@ -101,7 +102,7 @@ julia> 1ua"°"
 1°
 ```
 """
-@unit °ᵃ "°" Degreeᵃ (1radᵃ * π / 180) false
+@unit °ᵃ "°" Degreeᵃ (1radᵃ * π/180) false
 Unitful.has_unit_spacing(u::Units{(Unit{:Degreeᵃ, 𝐀}(0, 1 // 1),), 𝐀}) = false
 
 # Constants

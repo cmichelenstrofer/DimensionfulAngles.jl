@@ -7,16 +7,16 @@ __normalize_pi(x::Angle) = ustrip(float(x) |> halfTurnᵃ)
 # __normalize_2pi(x::Angle) = ustrip(float(x) |> turnᵃ)
 
 # trigonometric
-for __f in (:sin, :cos, :tan, :cot, :sec, :csc, :cis, :sincos,)
+for __f in (:sin, :cos, :tan, :cot, :sec, :csc, :cis, :sincos)
     @eval Base.$__f(x::Angle) = $__f(__normalize(x))
     @eval Base.$__f(x::AbstractMatrix{Angle}) = $__f(__normalize.(x))
 end
 
 # Better implementation of some trig functions using *pi version.
-# Use units with exact conversion to π only.
+# For units with exact conversion to π only.
 for __u in (°ᵃ, arcminuteᵃ, arcsecondᵃ, asᵃ, doubleTurnᵃ, turnᵃ, halfTurnᵃ, quadrantᵃ,
             sextantᵃ, octantᵃ, clockPositionᵃ, hourAngleᵃ, compassPointᵃ, hexacontadeᵃ,
-            bradᵃ, gradᵃ, ʰᵃ, ᵐᵃ, ˢᵃ,)
+            bradᵃ, gradᵃ, ʰᵃ, ᵐᵃ, ˢᵃ)
     @eval __A = Quantity{T, 𝐀, typeof($__u)} where {T}
     Base.sin(x::__A) = sinpi(__normalize_pi(x))
     Base.cos(x::__A) = cospi(__normalize_pi(x))
@@ -26,24 +26,28 @@ end
 
 # define *pi functions for `HalfTurn`
 for __f in (:sinpi, :cospi, :cispi, :sincospi)
-    @eval Base.$__f(x::Angle) = throw(ArgumentError("argument must be in units of half-turn (π)"))
+    @eval function Base.$__f(x::Angle)
+        throw(ArgumentError("argument must be in units of half-turn (π)"))
+    end
     __A = Quantity{T, 𝐀, typeof(halfTurnᵃ)} where {T}
     @eval Base.$__f(x::$__A) = $__f(__normalize_pi(x))
 end
 
 # define *d functions for `°`
-for __f in (:sind, :cosd, :tand, :cotd, :secd, :cscd, :sincosd,)
+for __f in (:sind, :cosd, :tand, :cotd, :secd, :cscd, :sincosd)
     @eval Base.$__f(x::Angle) = throw(ArgumentError("argument must be in degrees"))
     @eval Base.$__f(x::Quantity{T, 𝐀, typeof(°ᵃ)} where {T}) = $__f(__normalize_d(x))
 end
 for __f in (:sind, :cosd, :tand)
-    @eval Base.$__f(x::AbstractMatrix{Angle}) = throw(ArgumentError( "argument must be in degrees"))
+    @eval function Base.$__f(x::AbstractMatrix{Angle})
+        throw(ArgumentError("argument must be in degrees"))
+    end
     __M = AbstractMatrix{Quantity{T, 𝐀, typeof(°ᵃ)} where {T}}
     @eval Base.$__f(x::$__M) = $__f(__normalize_d.(x))
 end
 
 # hyperbolic
-for __f in (:sinh, :cosh, :tanh, :coth, :sech, :csch,)
+for __f in (:sinh, :cosh, :tanh, :coth, :sech, :csch)
     @eval Base.$__f(x::Angle) = $__f(__normalize(x))
     @eval Base.$__f(x::AbstractMatrix{Angle}) = $__f(__normalize.(x))
 end
@@ -58,20 +62,20 @@ function call_if_imag(f, x)
     return f(__normalize.(x))
 end
 Base.exp(x::Angle) = throw(ArgumentError("argument must be complex"))
-Base.exp(x::Angle{T, U} where T<: Complex where U) = call_if_imag(exp, x)
-Base.exp(x::AbstractMatrix{Angle{T, U} where T<: Complex where U}) = call_if_imag(exp, x)
+Base.exp(x::Angle{T, U} where {T <: Complex} where {U}) = call_if_imag(exp, x)
+Base.exp(x::AbstractMatrix{Angle{T, U} where {T <: Complex} where U}) = call_if_imag(exp, x)
 Base.expm1(x::Angle) = throw(ArgumentError("argument must be complex"))
-Base.expm1(x::Angle{T, U} where T<: Complex where U) = call_if_imag(expm1, x)
+Base.expm1(x::Angle{T, U} where {T <: Complex} where {U}) = call_if_imag(expm1, x)
 
 # inverse trigonometric
-for __f in (:asin, :acos, :atan, :acot, :asec, :acsc,)
+for __f in (:asin, :acos, :atan, :acot, :asec, :acsc)
     @eval Base.$__f(u::AngleUnits, x::Number) = uconvert(u, $__f(x) * radᵃ)
     @eval Base.$__f(u::AngleUnits, x::AbstractMatrix) = uconvert.(u, $__f(x) * radᵃ)
 end
 Base.atan(u::AngleUnits, y::Number, x::Number) = uconvert(u, atan(y, x) * radᵃ)
 
 # inverse hyperbolic
-for __f in (:asinh, :acosh, :atanh, :acoth, :asech, :acsch,)
+for __f in (:asinh, :acosh, :atanh, :acoth, :asech, :acsch)
     @eval Base.$__f(u::AngleUnits, x::Number) = uconvert(u, $__f(x) * radᵃ)
     @eval Base.$__f(u::AngleUnits, x::AbstractMatrix) = uconvert.(u, $__f(x) * radᵃ)
 end

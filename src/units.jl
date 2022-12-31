@@ -22,35 +22,22 @@ function __unit_docstr(symb, name, def, ref, add = "")
     return docs
 end
 
-# TODO: remove the `#! format: off/on` after
-#   https://github.com/domluna/JuliaFormatter.jl/issues/663 is fixed.
-
 # Based on degree
-#! format: off
 @doc __unit_docstr("arcminute", "minute of arc", "1°/60", "°")
 @unit arcminuteᵃ "′" Arcminuteᵃ (1°ᵃ//60) false
-#! format: on
 Unitful.has_unit_spacing(u::Units{(Unit{:Arcminuteᵃ, 𝐀}(0, 1 // 1),), 𝐀}) = false
 
-#! format: off
 @doc __unit_docstr("arcsecond", "second of arc", "1°/3600", "°")
 @unit arcsecondᵃ "″" Arcsecondᵃ (1°ᵃ//3600) false
-#! format: on
 Unitful.has_unit_spacing(u::Units{(Unit{:Arcsecondᵃ, 𝐀}(0, 1 // 1),), 𝐀}) = false
 
 # Based on radian
-#! format: off
 @doc __unit_docstr("diameterPart", "diameter part", "1/60 rad", "rad")
 @unit diameterPartᵃ "diameterPart" DiameterPartᵃ (1radᵃ//60) false
 
-@doc __unit_docstr(
-    "turn",
-    "turn",
-    "2π rad",
-    "rad",
-    "Equivalent to a full cycle, revolution, or rotation."
-)
-@unit turnᵃ "τ" Turnᵃ (2π * radᵃ) false
+@doc __unit_docstr("turn", "turn", "2π rad", "rad",
+                   "Equivalent to a full cycle, revolution, or rotation.")
+@unit turnᵃ "τ" Turnᵃ (2π*radᵃ) false
 
 # Based on the turn
 @doc __unit_docstr("doubleTurn", "double turn", "2 turn", "turn")
@@ -74,33 +61,20 @@ Unitful.has_unit_spacing(u::Units{(Unit{:Arcsecondᵃ, 𝐀}(0, 1 // 1),), 𝐀}
 @doc __unit_docstr("hourAngle", "hour angle", "1/24 turn", "turn")
 @unit hourAngleᵃ "hourAngle" HourAngleᵃ (1turnᵃ//24) false
 
-@doc __unit_docstr(
-    "compassPoint",
-    "compass point",
-    "1/32 turn",
-    "turn",
-    (
-        "[Other compass point definitions]" *
-        "(https://en.wikipedia.org/wiki/Points_of_the_compass) also exist."
-    )
-)
+@doc __unit_docstr("compassPoint", "compass point", "1/32 turn", "turn",
+                   ("[Other compass point definitions]" *
+                    "(https://en.wikipedia.org/wiki/Points_of_the_compass) also exist."))
 @unit compassPointᵃ "compassPoint" CompassPointᵃ (1turnᵃ//32) false
 
 @doc __unit_docstr("hexacontade", "hexacontade", "1/60 turn", "turn")
 @unit hexacontadeᵃ "hexacontade" Hexacontadeᵃ (1turnᵃ//60) false
 
-@doc __unit_docstr(
-    "brad",
-    "binary radian",
-    "1/256 turn",
-    "turn",
-    "Also known as the binary degree."
-)
+@doc __unit_docstr("brad", "binary radian", "1/256 turn", "turn",
+                   "Also known as the binary degree.")
 @unit bradᵃ "brad" BinaryRadianᵃ (1turnᵃ//256) false
 
 @doc __unit_docstr("grad", "gradian", "1/400 turn", "turn")
 @unit gradᵃ "ᵍ" Gradianᵃ (1turnᵃ//400) false
-#! format: on
 
 # Astronomy
 """
@@ -124,22 +98,16 @@ See also [`DimensionfulAngles.arcsecondᵃ`](@ref).
 """
 @unit asᵃ "as" ArcsecondAstro 1arcsecondᵃ true true
 
-#! format: off
 @doc __unit_docstr("ʰ", "hour", "1/24 turn", "turn", "Equivalent to `hourAngleᵃ`.")
 @unit ʰᵃ "ʰ" HourAstro (1turnᵃ//24) false
-#! format: on
 Unitful.has_unit_spacing(u::Units{(Unit{:HourAstro, 𝐀}(0, 1 // 1),), 𝐀}) = false
 
-#! format: off
 @doc __unit_docstr("ᵐ", "minute", "1ʰ/60", "ʰ")
 @unit ᵐᵃ "ᵐ" MinuteAstro (1ʰᵃ//60) false
-#! format: on
 Unitful.has_unit_spacing(u::Units{(Unit{:MinuteAstro, 𝐀}(0, 1 // 1),), 𝐀}) = false
 
-#! format: off
 @doc __unit_docstr("ˢ", "second", "1ʰ/3600", "ʰ")
 @unit ˢᵃ "ˢ" SecondAstro (1ʰᵃ//3600) false
-#! format: on
 Unitful.has_unit_spacing(u::Units{(Unit{:SecondAstro, 𝐀}(0, 1 // 1),), 𝐀}) = false
 
 # Display other unit formats.
@@ -195,7 +163,7 @@ julia> show_sexagesimal(20.2ua"°"; base_unit = ua"ʰ")
 1ʰ 20ᵐ 48.00000000000026ˢ
 ```
 """
-function show_sexagesimal(x::Angle; base_unit::AngleUnits=°ᵃ)
+function show_sexagesimal(x::Angle; base_unit::AngleUnits = °ᵃ)
     base, minute, second = sexagesimal(x; base_unit = base_unit)
     print("$base $minute $second")
     return nothing

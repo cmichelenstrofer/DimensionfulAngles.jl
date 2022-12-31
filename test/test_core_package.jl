@@ -7,11 +7,13 @@ function test_uamacro(unit::Symbol)
     @eval case_ua = $(Meta.parse(""" ua"$unit" """))
     @eval case_direct = DimensionfulAngles.$unitᵃ
     @test case_ua === case_direct
+    return nothing
 end
 
 function test_uamacro_prefix(unit::Symbol)
     prefixed_units = Symbol.([prefix * "$unit" for prefix in values(Unitful.prefixdict)])
     test_uamacro.(prefixed_units)
+    return nothing
 end
 
 function test_prefixed_units(unit::Symbol)
@@ -22,14 +24,15 @@ function test_prefixed_units(unit::Symbol)
         @eval base_power = 10.0^$power * DimensionfulAngles.$unitᵃ
         @test prefixed ≈ base_power
     end
+    return nothing
 end
 
 @testset "Core" begin
     # angle dimension
     @test typeof(𝐀) === Unitful.Dimensions{(Unitful.Dimension{:Angle}(1),)}
     @test typeof(DimensionfulAngles.Angle) === UnionAll
-    @test DimensionfulAngles.AngleFreeUnits === FreeUnits{U, 𝐀} where U
-    @test DimensionfulAngles.AngleUnits === Units{U, 𝐀} where U
+    @test DimensionfulAngles.AngleFreeUnits === FreeUnits{U, 𝐀} where {U}
+    @test DimensionfulAngles.AngleUnits === Units{U, 𝐀} where {U}
 
     # rad
     @test isa(1ua"rad", DimensionfulAngles.Angle)
@@ -38,20 +41,20 @@ end
 
     # degree
     @test ua"°" === DimensionfulAngles.°ᵃ
-    @test 180ua"°" ≈ π*ua"rad"
+    @test 180ua"°" ≈ π * ua"rad"
 
     # constant θ₀
     @test θ₀ ≈ 1ua"rad"
 end
 
 @testset "Units" begin
-    for (unit, full_turn) in (:arcminuteᵃ => 360*60, :arcsecondᵃ => 360*3600,
-                              :diameterPartᵃ => 2π*60, :doubleTurnᵃ => 0.5, :turnᵃ => 1,
+    for (unit, full_turn) in (:arcminuteᵃ => 360 * 60, :arcsecondᵃ => 360 * 3600,
+                              :diameterPartᵃ => 2π * 60, :doubleTurnᵃ => 0.5, :turnᵃ => 1,
                               :halfTurnᵃ => 2, :quadrantᵃ => 4, :sextantᵃ => 6,
                               :octantᵃ => 8, :clockPositionᵃ => 12, :hourAngleᵃ => 24,
                               :compassPointᵃ => 32, :hexacontadeᵃ => 60, :bradᵃ => 256,
-                              :gradᵃ => 400, :ʰᵃ => 24, :ᵐᵃ => 24*60, :ˢᵃ => 24*3600,)
-        @test @eval $full_turn*DimensionfulAngles.$unit ≈ 1ua"turn"
+                              :gradᵃ => 400, :ʰᵃ => 24, :ᵐᵃ => 24 * 60, :ˢᵃ => 24 * 3600)
+        @test @eval $full_turn * DimensionfulAngles.$unit ≈ 1ua"turn"
         test_uamacro(Symbol("$unit"[1:prevind("$unit", lastindex("$unit"))]))
     end
 
@@ -77,7 +80,7 @@ end
     temp_file = tempname()
     open(temp_file, "w") do io
         redirect_stdout(io) do
-            show_sexagesimal(angle)
+            return show_sexagesimal(angle)
         end
     end
     s1, s2, s3 = sexagesimal(angle)
@@ -86,7 +89,7 @@ end
     temp_file = tempname()
     open(temp_file, "w") do io
         redirect_stdout(io) do
-            show_sexagesimal(angle; base_unit = ua"ʰ")
+            return show_sexagesimal(angle; base_unit = ua"ʰ")
         end
     end
     s1, s2, s3 = sexagesimal(angle; base_unit = ua"ʰ")
@@ -96,8 +99,8 @@ end
 @testset "Derived" begin
     # solid angle
     @test typeof(DimensionfulAngles.SolidAngle) === UnionAll
-    @test DimensionfulAngles.SolidAngleFreeUnits === Unitful.FreeUnits{U, 𝐀^2} where U
-    @test DimensionfulAngles.SolidAngleUnits === Unitful.Units{U, 𝐀^2} where U
+    @test DimensionfulAngles.SolidAngleFreeUnits === Unitful.FreeUnits{U, 𝐀^2} where {U}
+    @test DimensionfulAngles.SolidAngleUnits === Unitful.Units{U, 𝐀^2} where {U}
 
     @test 1ua"sr" == 1ua"rad*rad"
     test_uamacro_prefix(:sr)
@@ -106,12 +109,13 @@ end
 
     # angular velocity & acceleration
     @test typeof(DimensionfulAngles.AngularVelocity) === UnionAll
-    @test DimensionfulAngles.AngularVelocityFreeUnits === FreeUnits{U, 𝐀*𝐓^-1} where U
-    @test DimensionfulAngles.AngularVelocityUnits === Units{U, 𝐀*𝐓^-1} where U
+    @test DimensionfulAngles.AngularVelocityFreeUnits === FreeUnits{U, 𝐀 * 𝐓^-1} where {U}
+    @test DimensionfulAngles.AngularVelocityUnits === Units{U, 𝐀 * 𝐓^-1} where {U}
 
     @test typeof(DimensionfulAngles.AngularAcceleration) === UnionAll
-    @test DimensionfulAngles.AngularAccelerationFreeUnits === FreeUnits{U, 𝐀*𝐓^-2} where U
-    @test DimensionfulAngles.AngularAccelerationUnits === Units{U, 𝐀*𝐓^-2} where U
+    @test DimensionfulAngles.AngularAccelerationFreeUnits ===
+          FreeUnits{U, 𝐀 * 𝐓^-2} where {U}
+    @test DimensionfulAngles.AngularAccelerationUnits === Units{U, 𝐀 * 𝐓^-2} where {U}
 
     @test isa(1ua"rps", DimensionfulAngles.AngularVelocity)
     @test 1ua"rps" == 1u"turnᵃ / s"
@@ -123,7 +127,7 @@ end
 
     # periodic
     @test uconvert(u"radᵃ/s", 1u"Hz", Periodic()) ≈ (2π)u"radᵃ/s"
-    @test uconvert(u"Hz", 1u"radᵃ/s", Periodic()) ≈ (1/2π)u"Hz"
+    @test uconvert(u"Hz", 1u"radᵃ/s", Periodic()) ≈ (1 / 2π)u"Hz"
     @test uconvert(u"Hz", 10u"s", Periodic()) ≈ 0.1u"Hz"
     @test uconvert(u"s", 10u"Hz", Periodic()) ≈ 0.1u"s"
     @test uconvert(u"s", 2u"radᵃ/s", Periodic()) ≈ (π)u"s"

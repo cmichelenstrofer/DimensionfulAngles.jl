@@ -1,13 +1,12 @@
 
 style = "sciml"
 
-# # scope
-# format_docstrings = true
-# format_markdown = true
-# ignore = ["LICENSE.md", "README.md"]
+# scope
+format_docstrings = true
+format_markdown = true
+ignore = ["LICENSE.md", "README.md"]
 
 # ## additional options that do not violate the sciml style
-
 # # use whitespaces
 # indent_submodule = true
 # align_matrix = true

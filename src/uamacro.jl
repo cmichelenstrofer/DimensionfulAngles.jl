@@ -34,19 +34,17 @@ function __replace_value(ex::Expr)
     if ex.head == :call
         allowed_funcs = [:*, :/, :^, :sqrt, :√, :+, :-, ://]
         if !(ex.args[1] in allowed_funcs)
-            error(
-                "$(ex.args[1]) is not a valid function call when parsing a unit." *
-                "Only the following functions are allowed: $allowed_funcs.",
-            )
+            error("$(ex.args[1]) is not a valid function call when parsing a unit." *
+                  "Only the following functions are allowed: $allowed_funcs.")
         end
 
-        for i = 2:length(ex.args)
+        for i in 2:length(ex.args)
             if typeof(ex.args[i]) == Symbol || typeof(ex.args[i]) == Expr
                 ex.args[i] = __replace_value(ex.args[i])
             end
         end
     elseif ex.head == :tuple
-        for i = 1:length(ex.args)
+        for i in 1:length(ex.args)
             typeof(ex.args[i]) == Symbol || error("only use symbols inside the tuple.")
             ex.args[i] = __replace_value(ex.args[i])
         end
