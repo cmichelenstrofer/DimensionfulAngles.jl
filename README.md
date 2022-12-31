@@ -94,6 +94,7 @@ julia> angular_velocity = 1.2rad / s
 
 Contributions are welcome! 🎊 Please see the [contribution guidelines](https://github.com/cmichelenstrofer/.github/blob/cf2b03ed168df77a60c596d2d1a98192dded00fb/CONTRIBUTING.md) for ways to contribute to the project. 
 
+
 ## Acknowledgments
 
   - Some portions of this software are adapted from:
