@@ -39,7 +39,7 @@ export @ua_str
 export θ₀
 export Periodic
 export sexagesimal, show_sexagesimal
-# export Angle, AngleUnits, AngleFreeUnits
+# export 𝐀, Angle, AngleUnits, AngleFreeUnits
 # export SolidAngle, SolidAngleUnits, SolidAngleFreeUnits
 # export AngularVelocity, AngularVelocityUnits, AngularVelocityFreeUnits
 # export AngularAcceleration, AngularAccelerationUnits, AngularAccelerationFreeUnits

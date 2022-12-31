@@ -32,6 +32,10 @@ julia> rem2pi(angle + 360ua"°", RoundNearest)
 10.519999999999992°
 ```
 
+The functions with a `*d` version and `deg2rad` only accept angles in degrees and functions with a `*pi` version only accept angles in half turns.
+Similarly, `rad2deg` only accepts angles in radians.
+The functions `exp` and `expm1` only accept imaginary angles, that is `1im*θ` for some angle `θ`.
+
 Additionally, several inverse functions in base are extended to return quantities with
 dimensionful angles when requested.
 This is requested by providing a unit as the first argument.
@@ -47,8 +51,7 @@ julia> acos(ua"°", 0.9831912354632536)
 The functions in `Base` that are currently extended to accept units as their first argument
 and return values with those units are:
 
-  - inverse trigonometric: `asin`, `acos`, `atan`, `acot`, `asec`, `acsc`, `asind`, `acosd`,
-    `atan`, `acotd`, `asecd`, `acscd`
+  - inverse trigonometric: `asin`, `acos`, `atan`, `acot`, `asec`, `acsc`, `asind`, `acosd`, `acotd`, `asecd`, `acscd`, `atan(x, y)`
   - inverse hyperbolic: `asinh`, `acosh`, `atanh`, `acoth`, `asech`, `acsch`
   - logarithmic: `log`, `log1p`
   - phase angle of a complex number: `angle`

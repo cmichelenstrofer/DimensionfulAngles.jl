@@ -8,7 +8,7 @@ At its core, [`DimensionfulAngles`](@ref) defines:
   - the angle dimension [`DimensionfulAngles.𝐀`](@ref)
   - the reference unit radian [`DimensionfulAngles.radᵃ`](@ref) (SI unit of angle)
   - the degree [`DimensionfulAngles.°ᵃ`](@ref) (SI-accepted unit of angle)
-  - the "defining constant" [`DimensionfulAngles.θ₀`](@ref) equal to one radian.
+  - the *"defining constant"* [`θ₀`](@ref) equal to one radian.
   - the [`@ua_str`](@ref) macro for easily recalling units in the package
 
 The unit `radᵃ` is prefixable, and therefore defines many other units, which are documented in [Prefixed units](@ref intro_prefixed).
@@ -87,7 +87,7 @@ julia> what_am_i(angle)
 Contents:
 
   - [Syntax](@ref intro_syntax)
-    
+
       + [Syntax provided by *Unitful.jl*](@ref intro_unitful)
       + [Prefixed Units](@ref derived_prefixed)
 

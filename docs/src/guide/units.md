@@ -38,7 +38,7 @@ The hour is defined as ``1/24`` of a full revolution.
 These are usually displayed as, e.g. `10ʰ 5ᵐ 13.2ˢ` (see [Display](@ref)).
 
 !!! note
-    
+
     minutes/seconds of a degree are distinct from minutes/seconds of an hour.
 
 ```@docs
@@ -52,13 +52,9 @@ DimensionfulAngles.ˢᵃ
 Most of the time we want to express an angle in a single unit.
 However, in some fields it is common to express them in a
 [sexagesimal](https://en.wikipedia.org/wiki/Sexagesimal) system.
-*Dimensionful.jl* provides the function [`DimensionfulAngles.show_sexagesimal`](@ref) to
+*Dimensionful.jl* provides the function [`show_sexagesimal`](@ref) to
 display an angle in two different sexagesimal systems.
-The function [`DimensionfulAngles.sexagesimal`](@ref) returns these values rather than displaying them.
-
-!!! note
-    
-    minutes/seconds of a degree are distinct from minutes/seconds of an hour.
+The function [`sexagesimal`](@ref) returns these values rather than displaying them.
 
 ```@docs
 DimensionfulAngles.sexagesimal
@@ -80,7 +76,7 @@ For the following units, this space is removed (e.g., `10°` not `10 °`):
 Contents:
 
   - [Syntax](@ref units_syntax)
-    
+
       + [Prefixed Units](@ref units_prefixed)
 
 ```@docs

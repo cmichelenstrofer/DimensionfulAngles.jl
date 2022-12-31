@@ -11,7 +11,7 @@ This allows, among other things, dispatching on these derived dimensions.
 
 Several units are defined for these derived dimensions, including the steradian for solid angle and RPM for angular velocity.
 
-*DimensionfulAngles.jl* also provides [`DimensionfulAngles.Periodic`](@ref) a [UnitfulEquivalences.jl](https://sostock.github.io/UnitfulEquivalences.jl/stable/) `Equivalence` to convert between period, frequency, and angular frequency of a periodic response.
+*DimensionfulAngles.jl* also provides [`Periodic`](@ref) a [UnitfulEquivalences.jl](https://sostock.github.io/UnitfulEquivalences.jl/stable/) `Equivalence` to convert between period, frequency, and angular frequency of a periodic response.
 
 ## Solid Angle
 
@@ -33,7 +33,7 @@ DimensionfulAngles.srᵃ
 Content:
 
   - [Angular velocity and acceleration](@ref)
-    
+
       + [Periodic equivalence](@ref)
 
 [Angular velocity](https://en.wikipedia.org/wiki/Angular_frequency) has dimensions of angle over time `𝐀/𝐓` and can be used to measure different quantities such as rotational velocity, rotational speed, and angular frequency of a phase angle.
@@ -56,7 +56,7 @@ These are [related by](https://en.wikipedia.org/wiki/Angular_frequency)
 
 ``f = 1/T = ω/2π``.
 
-*DimensionfulAngles.jl* provides [`DimensionfulAngles.Periodic`](@ref) a [UnitfulEquivalences.jl](https://sostock.github.io/UnitfulEquivalences.jl/stable/) `Equivalence` to convert between period, frequency, and angular frequency of a periodic response.
+*DimensionfulAngles.jl* provides [`Periodic`](@ref) a [UnitfulEquivalences.jl](https://sostock.github.io/UnitfulEquivalences.jl/stable/) `Equivalence` to convert between period, frequency, and angular frequency of a periodic response.
 
 ```@docs
 DimensionfulAngles.Periodic
@@ -67,7 +67,7 @@ DimensionfulAngles.Periodic
 Contents:
 
   - [Syntax](@ref derived_syntax)
-    
+
       + [Syntax provided by *Unitful.jl*](@ref derived_unitful)
       + [Prefixed Units](@ref derived_prefixed)
 
