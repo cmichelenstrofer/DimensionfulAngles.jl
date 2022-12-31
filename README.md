@@ -1,14 +1,8 @@
-# DimensionfulAngles.jl
-
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![CI](https://github.com/cmichelenstrofer/DimensionfulAngles.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/cmichelenstrofer/DimensionfulAngles.jl/actions/workflows/CI.yml)
 [![codecov](https://codecov.io/gh/cmichelenstrofer/DimensionfulAngles.jl/branch/main/graph/badge.svg?token=QI8L8PQ71T)](https://codecov.io/gh/cmichelenstrofer/DimensionfulAngles.jl)
-[![SciML Code Style](https://img.shields.io/static/v1?label=code%20style&message=SciML&color=9558b2&labelColor=389826)](https://github.com/SciML/SciMLStyle)
-[![ColPrac: Contributor's Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributor's%20Guide-blueviolet)](https://github.com/SciML/ColPrac) 
 
-[![Link to documentation for the latest stable version.](https://img.shields.io/badge/docs-stable-blue.svg)](https://cmichelenstrofer.github.io/DimensionfulAngles.jl/stable)
-[![Link to documentation for the latest development version on the main branch.](https://img.shields.io/badge/docs-dev-blue.svg)](https://cmichelenstrofer.github.io/DimensionfulAngles.jl/dev)
-
+# DimensionfulAngles.jl
 Extends [Unitful.jl](https://painterqubits.github.io/Unitful.jl/) to include *angle* as a dimension and allow [dispatching](https://docs.julialang.org/en/v1/manual/methods/) on *angles*.
 
 <details><summary><h3>Installation ⚙</h3></summary>
@@ -29,8 +23,10 @@ pkg> add DimensionfulAngles
 </details>
 
 <details><summary><h3>Documentation 📜</h3></summary>
+<a href="https://cmichelenstrofer.github.io/DimensionfulAngles.jl/stable"><img src="https://img.shields.io/badge/docs-stable-blue.svg" alt="Documentation of latest stable release."/></a>
+<a href="https://cmichelenstrofer.github.io/DimensionfulAngles.jl/dev"><img src="https://img.shields.io/badge/docs-dev-blue.svg" alt="Documentation for the current code status in the <em>main</em> branch."/></a>
 <p>
-The full documentation can be found at https://cmichelenstrofer.github.io/DimensionfulAngles/.
+The full documentation can be found at https://cmichelenstrofer.github.io/DimensionfulAngles.
 </p>
 </details>
 
@@ -91,6 +87,9 @@ julia> angular_velocity = 1.2rad / s
 ```
 
 ## Contributing
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+[![ColPrac: Contributor's Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributor's%20Guide-blueviolet)](https://github.com/SciML/ColPrac)
+[![SciML Code Style](https://img.shields.io/static/v1?label=code%20style&message=SciML&color=9558b2&labelColor=389826)](https://github.com/SciML/SciMLStyle)
 
 Contributions are welcome! 🎊 Please see the [contribution guidelines](https://github.com/cmichelenstrofer/.github/blob/cf2b03ed168df77a60c596d2d1a98192dded00fb/CONTRIBUTING.md) for ways to contribute to the project. 
 
