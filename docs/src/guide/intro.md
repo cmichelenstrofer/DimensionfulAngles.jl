@@ -87,7 +87,7 @@ julia> what_am_i(angle)
 Contents:
 
   - [Syntax](@ref intro_syntax)
-
+    
       + [Syntax provided by *Unitful.jl*](@ref intro_unitful)
       + [Prefixed Units](@ref derived_prefixed)
 
