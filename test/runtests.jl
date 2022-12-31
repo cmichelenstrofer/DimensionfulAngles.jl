@@ -1,6 +1,7 @@
-using DimensionfulAngles
-using Test
+using Test, SafeTestsets, Documenter
 
-@testset "DimensionfulAngles.jl" begin
-    # Write your tests here.
+@time @testset "DimensionfulAngles.jl" begin
+    @time @safetestset "Test Core Package" begin include("test_core_package.jl") end
+    @time @safetestset "Test Base Functions" begin include("test_base_functions.jl") end
+    # TODO: documenter
 end

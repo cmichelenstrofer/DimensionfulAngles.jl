@@ -160,10 +160,10 @@ either degree (`°ᵃ`) or hour angle (`ʰᵃ`).
 julia> using DimensionfulAngles
 
 julia> sexagesimal(20.2ua"°")
-(20°, 11′, 59″)
+(20°, 11′, 59.99999999999746″)
 
-julia> sexagesimal(20.2ua"°"; unit = ua"ʰ")
-(1ʰ, 20ᵐ, 48ˢ)
+julia> sexagesimal(20.2ua"°"; base_unit = ua"ʰ")
+(1ʰ, 20ᵐ, 48.00000000000026ˢ)
 ```
 """
 function sexagesimal(x::Angle; base_unit::AngleUnits = °ᵃ)
@@ -172,7 +172,7 @@ function sexagesimal(x::Angle; base_unit::AngleUnits = °ᵃ)
     base_unit == ʰᵃ && ((minute_unit, second_unit) = (ᵐᵃ, ˢᵃ))
     base = trunc(Int, ustrip(x |> base_unit)) * base_unit
     minute = trunc(Int, ustrip((x - base) |> minute_unit)) * minute_unit
-    second = trunc(Int, ustrip((x - base - minute) |> second_unit)) * second_unit
+    second = ustrip((x - base - minute) |> second_unit) * second_unit
     return (base, minute, second)
 end
 
@@ -191,12 +191,12 @@ julia> using DimensionfulAngles
 julia> show_sexagesimal(20.2ua"°")
 20° 11′ 59.99999999999746″
 
-julia> show_sexagesimal(20.2ua"°"; unit = :hour)
+julia> show_sexagesimal(20.2ua"°"; base_unit = ua"ʰ")
 1ʰ 20ᵐ 48.00000000000026ˢ
 ```
 """
-function show_sexagesimal(x::Angle; unit::Symbol = :degree)
-    base, minute, second = sexagesimal(x; unit = unit)
+function show_sexagesimal(x::Angle; base_unit::AngleUnits=°ᵃ)
+    base, minute, second = sexagesimal(x; base_unit = base_unit)
     print("$base $minute $second")
     return nothing
 end

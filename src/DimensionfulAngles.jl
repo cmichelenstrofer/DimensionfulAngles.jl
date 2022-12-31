@@ -2,15 +2,11 @@
 Extends Unitful.jl to include Angle as an independent dimension in order to facilitate
 [dispatching](https://docs.julialang.org/en/v1/manual/methods/#Methods).
 
-Please see the [Documentation](https://cmichelenstrofer.github.io/DimensionfulAngles/)
-for more information.
+See the [Documentation](https://cmichelenstrofer.github.io/DimensionfulAngles/) for more
+information.
 
 !!! note "Not SI"
     *Angle* is not an SI base dimension.
-
-# Exports
-
-$(EXPORTS)
 
 # Examples
 
@@ -30,7 +26,6 @@ julia> cos(45ua"°")
 module DimensionfulAngles
 
 # using Base: Base  # extend: see `base.jl` for full list of functions extended
-using DocStringExtensions: EXPORTS
 using Unitful: Unitful  # extend: has_unit_spacing,
 using Unitful: minute, promotion, rad, s, 𝐓
 using Unitful: Dimension, DimensionlessQuantity, Frequency, FrequencyFreeUnits, MixedUnits
@@ -43,6 +38,10 @@ export @ua_str
 export θ₀
 export Periodic
 export sexagesimal, show_sexagesimal
+export Angle, AngleUnits, AngleFreeUnits
+export SolidAngle, SolidAngleUnits, SolidAngleFreeUnits
+export AngularVelocity, AngularVelocityUnits, AngularVelocityFreeUnits
+export AngularAcceleration, AngularAccelerationUnits, AngularAccelerationFreeUnits
 
 """
     𝐀

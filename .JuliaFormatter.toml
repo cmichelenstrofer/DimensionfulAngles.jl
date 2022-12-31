@@ -1,23 +1,21 @@
 
-# Use, whitespaces, after, commas, always! :)
-whitespace_typedefs = true
-whitespace_ops_in_indices = true
-whitespace_in_kwargs = true
-remove_extra_newlines = true
-indent_submodule = true
-align_matrix = true
-normalize_line_endings = "unix"
+style = "sciml"
 
-# scope
-format_docstrings = true
-format_markdown = true
-ignore = ["LICENSE.md", "README.md"]
+# # scope
+# format_docstrings = true
+# format_markdown = true
+# ignore = ["LICENSE.md", "README.md"]
 
-# modify code in these additional cases
-import_to_using = true
-short_to_long_function_def = true
-conditional_to_if = true
-long_to_short_function_def = true
-separate_kwargs_with_semicolon = true
-always_for_in = true
+# ## additional options that do not violate the sciml style
 
+# # use whitespaces
+# indent_submodule = true
+# align_matrix = true
+
+# # modify code in these additional cases
+# import_to_using = true
+# short_to_long_function_def = true
+# conditional_to_if = true
+# long_to_short_function_def = true
+# separate_kwargs_with_semicolon = true
+# always_use_return = true
