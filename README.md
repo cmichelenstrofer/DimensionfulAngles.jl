@@ -32,9 +32,29 @@ The full documentation can be found at https://cmichelenstrofer.github.io/Dimens
 
 <details><summary><h3>Citing 📝</h3></summary>
 <a href="https://zenodo.org/badge/latestdoi/488031226"><img src="https://zenodo.org/badge/488031226.svg" alt="DOI of latest version"/></a>
-<p>
 
+<p>
+If you use this code for your research please consider citing: 
 </p>
+
+<blockquote>
+Michelén Ströfer, C. A. (2022). DimensionfulAngles.jl (Version 0.1.0) [Computer software]. https://github.com/cmichelenstrofer/DimensionfulAngles.jl
+</blockquote>
+
+<p>BibTeX:
+<pre class="line-numbers">
+<code class="language-latex">
+@software{Michelen_Strofer_DimensionfulAngles_jl_2022,
+  author = {Michelén Ströfer, Carlos Alejandro},
+  doi = {10.5281/zenodo.7500588},
+  month = {12},
+  title = {{DimensionfulAngles.jl}},
+  url = {https://github.com/cmichelenstrofer/DimensionfulAngles.jl},
+  version = {0.1.0},
+  year = {2022}
+}
+</code>
+</pre>
 </details>
   
 ## Basic Usage
