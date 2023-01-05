@@ -142,7 +142,7 @@ include("uamacro.jl")  # String macro for using dimensionful units.
 include("derived.jl")  # Units and functionalities for derived dimensions.
 
 # Register new units and dimensions with Unitful.jl.
-const localpromotion = promotion
+const localpromotion = copy(promotion)
 function __init__()
     register(DimensionfulAngles)
     merge!(promotion, localpromotion)
