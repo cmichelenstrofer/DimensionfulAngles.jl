@@ -135,3 +135,13 @@ Contributions are welcome! 🎊 Please see the [contribution guidelines](https:/
 </a>
 
 <sub>*Made with [contrib.rocks](https://contrib.rocks).*</sub>
+
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
