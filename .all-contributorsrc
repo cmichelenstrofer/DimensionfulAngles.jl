@@ -1,0 +1,49 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "sostock",
+      "name": "Sebastian Stock",
+      "avatar_url": "https://avatars.githubusercontent.com/u/42280794?v=4",
+      "profile": "https://github.com/sostock",
+      "contributions": [
+        "ideas"
+      ],
+      "login": "cmichelenstrofer",
+      "name": "Carlos A. Michelén Ströfer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25060182?v=4",
+      "profile": "https://michelenstrofer.net",
+      "contributions": [
+        "code",
+        "doc",
+        "test",
+        "ideas"
+      ],
+      "login": "KristofferC",
+      "name": "Kristoffer Carlsson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1282691?v=4",
+      "profile": "https://kristofferc.github.io/",
+      "contributions": [
+        "maintenance"
+      ],
+      "login": "DanDeepPhase",
+      "name": "Daniel Boland",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13246120?v=4",
+      "profile": "https://github.com/DanDeepPhase",
+      "contributions": [
+        "ideas"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "DimensionfulAngles.jl",
+  "projectOwner": "cmichelenstrofer"
+}
