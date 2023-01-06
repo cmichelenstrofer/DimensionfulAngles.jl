@@ -33,7 +33,7 @@ DimensionfulAngles.srᵃ
 Content:
 
   - [Angular velocity and acceleration](@ref)
-
+    
       + [Periodic equivalence](@ref)
 
 [Angular velocity](https://en.wikipedia.org/wiki/Angular_frequency) has dimensions of angle over time `𝐀/𝐓` and can be used to measure different quantities such as rotational velocity, rotational speed, and angular frequency of a phase angle.
@@ -67,7 +67,7 @@ DimensionfulAngles.Periodic
 Contents:
 
   - [Syntax](@ref derived_syntax)
-
+    
       + [Syntax provided by *Unitful.jl*](@ref derived_unitful)
       + [Prefixed Units](@ref derived_prefixed)
 

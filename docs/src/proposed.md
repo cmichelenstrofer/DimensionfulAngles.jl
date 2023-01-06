@@ -10,19 +10,19 @@ The exact form of the proposals and their effects on the equations of physics ar
 Some examples of how common equations would be modified in such systems, using ``θ₀=1rad``:
 
   - Trigonometric functions:
-
+    
       + ``cos(θ) → cos(θ/θ₀)``
       + ``cos(ωt+φ) → cos([ωt+φ]/θ₀)``
 
   - Angular frequency and frequency:
-
+    
       + ``ω=2πf → ω=2πfθ₀``
   - Arc length ``s`` and other kinematic equations:
-
+    
       + ``s=rθ → s=rθ/θ₀``
   - For dynamic equations there's more variability between the different proposals.
     As an example, [Quincey_2021](@cite) would modify torque (and its unit) while leaving the units of work intact, as
-
+    
       + ``T=(𝐫×𝐅) → T=(𝐫×𝐅)/θ₀``
       + ``W=Tθ``
 
