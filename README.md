@@ -1,6 +1,8 @@
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![CI](https://github.com/cmichelenstrofer/DimensionfulAngles.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/cmichelenstrofer/DimensionfulAngles.jl/actions/workflows/CI.yml)
 [![codecov](https://codecov.io/gh/cmichelenstrofer/DimensionfulAngles.jl/branch/main/graph/badge.svg?token=QI8L8PQ71T)](https://codecov.io/gh/cmichelenstrofer/DimensionfulAngles.jl)
+[![deps](https://juliahub.com/docs/DimensionfulAngles/deps.svg)](https://juliahub.com/ui/Packages/DimensionfulAngles/Km6m8?page=2)
+[![dependencies](https://img.shields.io/badge/dependencies-2-blue)](https://juliahub.com/ui/Packages/DimensionfulAngles/Km6m8?page=1)
 
 # DimensionfulAngles.jl
 Extends [Unitful.jl](https://painterqubits.github.io/Unitful.jl/) to include *angle* as a dimension and allow [dispatching](https://docs.julialang.org/en/v1/manual/methods/) on *angles*.
