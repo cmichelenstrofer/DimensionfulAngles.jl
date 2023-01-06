@@ -1,0 +1,28 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "cmichelenstrofer",
+      "name": "Carlos A. Michelén Ströfer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25060182?v=4",
+      "profile": "https://michelenstrofer.net",
+      "contributions": [
+        "code",
+        "doc",
+        "test",
+        "ideas"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "DimensionfulAngles.jl",
+  "projectOwner": "cmichelenstrofer"
+}

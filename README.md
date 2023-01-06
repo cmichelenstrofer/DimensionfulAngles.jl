@@ -118,11 +118,10 @@ julia> angular_velocity = 1.2rad / s
 [![ColPrac: Contributor's Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributor's%20Guide-blueviolet)](https://github.com/SciML/ColPrac)
 [![SciML Code Style](https://img.shields.io/static/v1?label=code%20style&message=SciML&color=9558b2&labelColor=389826)](https://github.com/SciML/SciMLStyle)
 [![All Contributors](https://img.shields.io/github/all-contributors/cmichelenstrofer/DimensionfulAngles.jl?color=ee8449&style=flat-square)](#contributors)
-
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 Contributions are welcome! 🎊 Please see the [contribution guidelines](https://github.com/cmichelenstrofer/.github/blob/main/CONTRIBUTING.md) for ways to contribute to the project. 
-
-This project follows the [all-contributors](https://allcontributors.org) specification.
-Contributions of any kind are welcome!
 
 ## Acknowledgments
 
@@ -133,13 +132,26 @@ Some portions of this software are adapted from:
 
 ## Contributors
 
-Thanks go to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://michelenstrofer.net"><img src="https://avatars.githubusercontent.com/u/25060182?v=4?s=100" width="100px;" alt="Carlos A. Michelén Ströfer"/><br /><sub><b>Carlos A. Michelén Ströfer</b></sub></a><br /><a href="https://github.com/cmichelenstrofer/DimensionfulAngles.jl/commits?author=cmichelenstrofer" title="Code">💻</a> <a href="https://github.com/cmichelenstrofer/DimensionfulAngles.jl/commits?author=cmichelenstrofer" title="Documentation">📖</a> <a href="https://github.com/cmichelenstrofer/DimensionfulAngles.jl/commits?author=cmichelenstrofer" title="Tests">⚠️</a> <a href="#ideas-cmichelenstrofer" title="Ideas, Planning, & Feedback">🤔</a></td>
+    </tr>
+  </tbody>
+</table>
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+=======
 <!-- ALL-CONTRIBUTORS-LIST:END -->
