@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "KristofferC",
+      "name": "Kristoffer Carlsson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1282691?v=4",
+      "profile": "https://kristofferc.github.io/",
+      "contributions": [
+        "maintenance"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "DimensionfulAngles.jl",
+  "projectOwner": "cmichelenstrofer"
+}
