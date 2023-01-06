@@ -1,4 +1,7 @@
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![CI](https://github.com/cmichelenstrofer/DimensionfulAngles.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/cmichelenstrofer/DimensionfulAngles.jl/actions/workflows/CI.yml)
 [![codecov](https://codecov.io/gh/cmichelenstrofer/DimensionfulAngles.jl/branch/main/graph/badge.svg?token=QI8L8PQ71T)](https://codecov.io/gh/cmichelenstrofer/DimensionfulAngles.jl)
 
@@ -134,6 +137,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center"><a href="https://michelenstrofer.net"><img src="https://avatars.githubusercontent.com/u/25060182?v=4?s=100" width="100px;" alt="Carlos A. Michelén Ströfer"/><br /><sub><b>Carlos A. Michelén Ströfer</b></sub></a><br /><a href="https://github.com/cmichelenstrofer/DimensionfulAngles.jl/commits?author=cmichelenstrofer" title="Code">💻</a> <a href="https://github.com/cmichelenstrofer/DimensionfulAngles.jl/commits?author=cmichelenstrofer" title="Documentation">📖</a> <a href="https://github.com/cmichelenstrofer/DimensionfulAngles.jl/commits?author=cmichelenstrofer" title="Tests">⚠️</a> <a href="#ideas-cmichelenstrofer" title="Ideas, Planning, & Feedback">🤔</a></td>
       <td align="center"><a href="https://github.com/sostock"><img src="https://avatars.githubusercontent.com/u/42280794?v=4?s=100" width="100px;" alt="Sebastian Stock"/><br /><sub><b>Sebastian Stock</b></sub></a><br /><a href="https://github.com/PainterQubits/Unitful.jl/issues/570#:~:text=package%20(maybe%20called-,DimensionfulAngles.jl,-)%20that%20defines%20dimensions" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center"><a href="https://kristofferc.github.io/"><img src="https://avatars.githubusercontent.com/u/1282691?v=4?s=100" width="100px;" alt="Kristoffer Carlsson"/><br /><sub><b>Kristoffer Carlsson</b></sub></a><br /><a href="#maintenance-KristofferC" title="Maintenance">🚧</a></td>
     </tr>
   </tbody>
 </table>

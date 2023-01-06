@@ -23,6 +23,13 @@
         "doc",
         "test",
         "ideas"
+      ],
+      "login": "KristofferC",
+      "name": "Kristoffer Carlsson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1282691?v=4",
+      "profile": "https://kristofferc.github.io/",
+      "contributions": [
+        "maintenance"
       ]
     }
   ],
