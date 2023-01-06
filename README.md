@@ -117,25 +117,23 @@ julia> angular_velocity = 1.2rad / s
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 [![ColPrac: Contributor's Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributor's%20Guide-blueviolet)](https://github.com/SciML/ColPrac)
 [![SciML Code Style](https://img.shields.io/static/v1?label=code%20style&message=SciML&color=9558b2&labelColor=389826)](https://github.com/SciML/SciMLStyle)
+[![All Contributors](https://img.shields.io/github/all-contributors/cmichelenstrofer/DimensionfulAngles.jl?color=ee8449&style=flat-square)](#contributors)
 
 Contributions are welcome! 🎊 Please see the [contribution guidelines](https://github.com/cmichelenstrofer/.github/blob/main/CONTRIBUTING.md) for ways to contribute to the project. 
 
+This project follows the [all-contributors](https://allcontributors.org) specification.
+Contributions of any kind are welcome!
+
 ## Acknowledgments
 
-  - Some portions of this software are adapted from:
+Some portions of this software are adapted from:
 
       + [UnitfulAngles.jl](https://github.com/yakir12/UnitfulAngles.jl/blob/master/LICENSE.md): Copyright (c) 2017: Yakir Luc Gagnon.
       + [UnitfulUS.jl](https://github.com/PainterQubits/UnitfulUS.jl/blob/master/LICENSE.md): Copyright (c) 2017, California Institute of Technology. All rights reserved.
 
-  - The name *DimensionfulAngles* was suggested by [@sostock](https://github.com/sostock).
-  - This is an open source project. Thanks to [all who have contributed](https://github.com/cmichelenstrofer/DimensionfulAngles.jl/contributors)! 🎊🎊🎊
+## Contributors
 
-<a href="https://github.com/cmichelenstrofer/DimensionfulAngles.jl/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=cmichelenstrofer/DimensionfulAngles.jl" />
-</a>
-
-<sub>*Made with [contrib.rocks](https://contrib.rocks).*</sub>
-
+Thanks go to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
