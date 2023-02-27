@@ -17,7 +17,7 @@ end
 for __u in (°ᵃ, arcminuteᵃ, arcsecondᵃ, asᵃ, doubleTurnᵃ, turnᵃ, halfTurnᵃ, quadrantᵃ,
             sextantᵃ, octantᵃ, clockPositionᵃ, hourAngleᵃ, compassPointᵃ, hexacontadeᵃ,
             bradᵃ, gradᵃ, ʰᵃ, ᵐᵃ, ˢᵃ)
-    @eval __A = Quantity{T, 𝐀, typeof($__u)} where {T}
+    __A = Quantity{T, 𝐀, typeof(__u)} where {T}
     Base.sin(x::__A) = sinpi(__normalize_pi(x))
     Base.cos(x::__A) = cospi(__normalize_pi(x))
     Base.cis(x::__A) = cispi(__normalize_pi(x))
