@@ -62,8 +62,8 @@ Michelén Ströfer, C. A. (2022). DimensionfulAngles.jl (Version 0.1.0) [Compute
 ## Basic Usage
 
 Use *DimensionfulAngles.jl* for units containing angles and *Unitful.jl* for all other units.
-The units in *DimensionfulAngles.jl* are differentiated from their dimensionless counterparts with a subscript `ᵃ`.
-Simply add this subscript to any angle units to make it dimensionful. 
+The units in *DimensionfulAngles.jl* are differentiated from their dimensionless counterparts with a superscript `ᵃ`.
+Simply add this superscript to any angle units to make it dimensionful. 
 In Julia environments this can be typed as `\^a<tab>`.
 
 ```julia
@@ -85,7 +85,7 @@ julia> typeof(dimensionful_angle)
 Quantity{Int64, 𝐀, Unitful.FreeUnits{(rad,), 𝐀, nothing}}
 ```
 
-When defining quantities with units from *DimensionfulAngles.jl* you can use the `ua` string instead and omit the subscript `ᵃ`.
+When defining quantities with units from *DimensionfulAngles.jl* you can use the `ua` string instead and omit the superscript `ᵃ`.
 But when defining quantities with units from both it is more convenient to use the `u` string.
 
 ```julia
