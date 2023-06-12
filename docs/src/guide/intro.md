@@ -54,6 +54,18 @@ julia> 2.1rad / s
 2.1 rad s⁻¹
 ```
 
+Yet another way to import units is to import the *default* set of units, which includes
+all the
+[default units from `Unitful.jl`](https://painterqubits.github.io/Unitful.jl/stable/#Important-note-on-namespaces)
+but with angle units from `DimensionfulAngles.jl`.
+The units from `DimensionfulAngles.jl` are imported without the superscript `ᵃ` in their
+names.
+This is done as:
+
+```julia-repl
+julia> using DimensionfulAngles.DefaultSymbols
+```
+
 One of the main advantage of defining an angle dimension is to be able to dispatch on angles.
 This behavior and useful aliases are completely inherited from *Unitful.jl*.
 The most basic usage uses the automatically defined alias [`DimensionfulAngles.Angle`](@ref):
@@ -98,6 +110,7 @@ DimensionfulAngles.radᵃ
 DimensionfulAngles.°ᵃ
 DimensionfulAngles.θ₀
 @ua_str
+DimensionfulAngles.DefaultSymbols
 ```
 
 ### [Syntax provided by *Unitful.jl*](@id intro_unitful)

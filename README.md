@@ -36,7 +36,7 @@ The full documentation can be found at https://cmichelenstrofer.github.io/Dimens
 <a href="https://zenodo.org/badge/latestdoi/488031226"><img src="https://zenodo.org/badge/488031226.svg" alt="DOI of latest version"/></a>
 
 <p>
-If you use this code for your research please consider citing: 
+If you use this code for your research please consider citing:
 </p>
 
 <blockquote>
@@ -58,12 +58,12 @@ Michelén Ströfer, C. A. (2022). DimensionfulAngles.jl (Version 0.1.0) [Compute
 </code>
 </pre>
 </details>
-  
+
 ## Basic Usage
 
 Use *DimensionfulAngles.jl* for units containing angles and *Unitful.jl* for all other units.
 The units in *DimensionfulAngles.jl* are differentiated from their dimensionless counterparts with a subscript `ᵃ`.
-Simply add this subscript to any angle units to make it dimensionful. 
+Simply add this subscript to any angle units to make it dimensionful.
 In Julia environments this can be typed as `\^a<tab>`.
 
 ```julia
@@ -115,6 +115,13 @@ julia> angular_velocity = 1.2rad / s
 1.2 rad s⁻¹
 ```
 
+Another way of doing this is to  import all default units, which includes SI base and derived units from `Unitful.jl` with angle units from `DimensionfulAngles.jl`.
+This is done as
+
+```julia
+julia> using DimensionfulAngles.DefaultSymbols
+```
+
 ## Contributing
 <!-- 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
@@ -126,7 +133,7 @@ julia> angular_velocity = 1.2rad / s
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-Contributions are welcome! 🎊 Please see the [contribution guidelines](https://github.com/cmichelenstrofer/.github/blob/main/CONTRIBUTING.md) for ways to contribute to the project. 
+Contributions are welcome! 🎊 Please see the [contribution guidelines](https://github.com/cmichelenstrofer/.github/blob/main/CONTRIBUTING.md) for ways to contribute to the project.
 
 ### Contributors ✨
 
