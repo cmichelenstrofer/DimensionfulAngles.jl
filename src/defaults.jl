@@ -9,7 +9,7 @@ non_angle_units = filter(u -> !(u ∈ angle_units), Unitful.si_no_prefix)
 """
 Imports default units into the workspace.
 
-This replicates the behavior of `Unitful.DefaultSymbols`` in `Unitful.jl/src/pkgdefaults.jl`
+This replicates the behavior of `Unitful.DefaultSymbols` in `Unitful.jl/src/pkgdefaults.jl`
 but replaces `Unitful` Angles with `DimensionfulAngles` angles.
 
 # Examples
@@ -19,16 +19,24 @@ julia> using DimensionfulAngles.DefaultSymbols
 ```
 
 will bring the following into the calling namespace:
+
 - Dimensions 𝐋,𝐌,𝐓,𝐈,𝚯,𝐉,𝐍 and 𝐀
+
 - Base and derived SI units, with SI prefixes
-  - Candela conflicts with `Base.cd` so it is not brought in (Unitful.jl issue #102)
+
+    - Candela conflicts with `Base.cd` so it is not brought in (Unitful.jl issue #102)
+
 - Degrees: °
+
 All angles imported removing the ᵃ superscript.
 
-!!! note "Not SI"
+!!! note "Potential conflict with other packages"
 
     All angles are imported removing the ᵃ superscript.
-    This means `°` == `u"°ᵃ"` instead of `u"°"`.
+    This means, e.g., `°` == `u"°ᵃ"` instead of `u"°"`.
+    This may cause conflicts with other packages that assume angles are the dimensionless
+    ones from `Unitful`.
+
 """
 baremodule DefaultSymbols
     import Unitful

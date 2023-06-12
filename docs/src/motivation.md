@@ -90,13 +90,13 @@ julia> uconvert(u"rad/s", 1u"Hz")
 1 rad s⁻¹
 ```
 
-which results in the wrong answer (the equivalent angular frequency is $2π~rad$) and no error message.
+which results in the wrong answer (the equivalent angular frequency is $2π~rad/s$) and no error message.
 
 ## Example - Multiple Dispatch
 
 One of the main features of Julia is multiple dispatch.
 *Unitful.jl* allows you to dispatch on dimensions, defining functions that can take quantities with any units of the dispatched dimension.
-This ability can **not** be used for angular dimensions, and we have to either (1)dispatch on *no dimension* or (2) dispatch on an union of all angle units.
+This ability can **not** be used for angular dimensions, and we have to either (1) dispatch on *no dimension* or (2) dispatch on an union of all angle units.
 The former would work for all dimensionless quantities not just angles, and the latter can become cumbersome with a large number of units when considering prefixes and additional units in [UnitfulAngles.jl](https://github.com/yakir12/UnitfulAngles.jl).
 
 ```jldoctest
