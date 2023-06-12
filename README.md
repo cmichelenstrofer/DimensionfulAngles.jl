@@ -130,7 +130,7 @@ julia> using DimensionfulAngles.DefaultSymbols
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
 -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Contributions are welcome! 🎊 Please see the [contribution guidelines](https://github.com/cmichelenstrofer/.github/blob/main/CONTRIBUTING.md) for ways to contribute to the project.
@@ -145,10 +145,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tbody>
     <tr>
-      <td align="center"><a href="https://michelenstrofer.net"><img src="https://avatars.githubusercontent.com/u/25060182?v=4?s=100" width="100px;" alt="Carlos A. Michelén Ströfer"/><br /><sub><b>Carlos A. Michelén Ströfer</b></sub></a><br /><a href="https://github.com/cmichelenstrofer/DimensionfulAngles.jl/commits?author=cmichelenstrofer" title="Code">💻</a> <a href="https://github.com/cmichelenstrofer/DimensionfulAngles.jl/commits?author=cmichelenstrofer" title="Documentation">📖</a> <a href="https://github.com/cmichelenstrofer/DimensionfulAngles.jl/commits?author=cmichelenstrofer" title="Tests">⚠️</a> <a href="#ideas-cmichelenstrofer" title="Ideas, Planning, & Feedback">🤔</a></td>
-      <td align="center"><a href="https://github.com/sostock"><img src="https://avatars.githubusercontent.com/u/42280794?v=4?s=100" width="100px;" alt="Sebastian Stock"/><br /><sub><b>Sebastian Stock</b></sub></a><br /><a href="https://github.com/PainterQubits/Unitful.jl/issues/570#:~:text=package%20(maybe%20called-,DimensionfulAngles.jl,-)%20that%20defines%20dimensions" title="Ideas, Planning, & Feedback">🤔</a></td>
-      <td align="center"><a href="https://kristofferc.github.io/"><img src="https://avatars.githubusercontent.com/u/1282691?v=4?s=100" width="100px;" alt="Kristoffer Carlsson"/><br /><sub><b>Kristoffer Carlsson</b></sub></a><br /><a href="https://github.com/cmichelenstrofer/DimensionfulAngles.jl/commits?author=KristofferC" title="Maintenance">🚧</a></td>
-      <td align="center"><a href="https://github.com/DanDeepPhase"><img src="https://avatars.githubusercontent.com/u/13246120?v=4?s=100" width="100px;" alt="Daniel Boland"/><br /><sub><b>Daniel Boland</b></sub></a><br /><a href="#ideas-DanDeepPhase" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/DanDeepPhase"><img src="https://avatars.githubusercontent.com/u/13246120?v=4?s=100" width="100px;" alt="Daniel Boland"/><br /><sub><b>Daniel Boland</b></sub></a><br /><a href="#ideas-DanDeepPhase" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/devel-chm"><img src="https://avatars.githubusercontent.com/u/789881?v=4?s=100" width="100px;" alt="devel-chm"/><br /><sub><b>devel-chm</b></sub></a><br /><a href="https://github.com/cmichelenstrofer/DimensionfulAngles.jl/commits?author=devel-chm" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
