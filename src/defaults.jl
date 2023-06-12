@@ -3,9 +3,6 @@
 # Adapted from Unitful.jl/src/pkgdefaults.jl
 # Copyright (c) 2016: California Institute of Technology and other contributors.
 
-angle_units = (:rad,:sr)
-non_angle_units = filter(u -> !(u ∈ angle_units), Unitful.si_no_prefix)
-
 """
 Imports default units into the workspace.
 
@@ -41,6 +38,10 @@ All angles imported removing the ᵃ superscript.
 baremodule DefaultSymbols
     import Unitful
     import DimensionfulAngles
+    using Base: filter, ∈, !
+
+    __angle_units = (:rad,:sr)
+    __non_angle_units = filter(u -> !(u ∈ __angle_units), Unitful.si_no_prefix)
 
     # Unitful Dimensions
     for u in (:𝐋,:𝐌,:𝐓,:𝐈,:𝚯,:𝐉,:𝐍)
@@ -54,12 +55,12 @@ baremodule DefaultSymbols
 
     for p in Unitful.si_prefixes
         # Unitful units
-        for u in DimensionfulAngles.non_angle_units
+        for u in __non_angle_units
             Core.eval(DefaultSymbols, Expr(:import, Expr(:(.), :Unitful, Symbol(p,u))))
             Core.eval(DefaultSymbols, Expr(:export, Symbol(p,u)))
         end
         # DimensionfulAngles units
-        for u in DimensionfulAngles.angle_units
+        for u in __angle_units
             DAname = Symbol(p,u,:ᵃ)
             name   = Symbol(p,u)
             Core.eval(DefaultSymbols, Expr(:import, Expr(:(.), :DimensionfulAngles, DAname)))
