@@ -85,7 +85,7 @@ The arcsecond, a unit of angle defined as 1°/3600.
 This is an alternative symbol for [`DimensionfulAngles.arcsecondᵃ`](@ref) common in
 astronomy.
 Unlike `arcsecondᵃ`, `asᵃ` accepts SI prefixes.
-`UnitfulAngles` has similar implementation, which differs in that it contains units of
+`UnitfulAngles` has similar implementation; this differs in that it contains units of
 angle.
 
 !!! note "Abbreviation conflicts with `Unitful.jl`"
