@@ -140,6 +140,7 @@ include("units.jl")  # Other units of angle.
 include("base.jl")  # Extend Base functions for units of angle.
 include("uamacro.jl")  # String macro for using dimensionful units.
 include("derived.jl")  # Units and functionalities for derived dimensions.
+include("defaults.jl") # Submodule to flood workspace with unit types.
 
 # Register new units and dimensions with Unitful.jl.
 const localpromotion = copy(promotion)

@@ -1,6 +1,8 @@
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![CI](https://github.com/cmichelenstrofer/DimensionfulAngles.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/cmichelenstrofer/DimensionfulAngles.jl/actions/workflows/CI.yml)
 [![codecov](https://codecov.io/gh/cmichelenstrofer/DimensionfulAngles.jl/branch/main/graph/badge.svg?token=QI8L8PQ71T)](https://codecov.io/gh/cmichelenstrofer/DimensionfulAngles.jl)
+[![deps](https://juliahub.com/docs/DimensionfulAngles/deps.svg)](https://juliahub.com/ui/Packages/DimensionfulAngles/Km6m8?page=2)
+[![dependencies](https://img.shields.io/badge/dependencies-2-blue)](https://juliahub.com/ui/Packages/DimensionfulAngles/Km6m8?page=1)
 
 # DimensionfulAngles.jl
 Extends [Unitful.jl](https://painterqubits.github.io/Unitful.jl/) to include *angle* as a dimension and allow [dispatching](https://docs.julialang.org/en/v1/manual/methods/) on *angles*.
@@ -34,7 +36,7 @@ The full documentation can be found at https://cmichelenstrofer.github.io/Dimens
 <a href="https://zenodo.org/badge/latestdoi/488031226"><img src="https://zenodo.org/badge/488031226.svg" alt="DOI of latest version"/></a>
 
 <p>
-If you use this code for your research please consider citing: 
+If you use this code for your research please consider citing:
 </p>
 
 <blockquote>
@@ -56,12 +58,12 @@ Michelén Ströfer, C. A. (2022). DimensionfulAngles.jl (Version 0.1.0) [Compute
 </code>
 </pre>
 </details>
-  
+
 ## Basic Usage
 
 Use *DimensionfulAngles.jl* for units containing angles and *Unitful.jl* for all other units.
-The units in *DimensionfulAngles.jl* are differentiated from their dimensionless counterparts with a subscript `ᵃ`.
-Simply add this subscript to any angle units to make it dimensionful. 
+The units in *DimensionfulAngles.jl* are differentiated from their dimensionless counterparts with a superscript `ᵃ`.
+Simply add this superscript to any angle units to make it dimensionful. 
 In Julia environments this can be typed as `\^a<tab>`.
 
 ```julia
@@ -83,7 +85,7 @@ julia> typeof(dimensionful_angle)
 Quantity{Int64, 𝐀, Unitful.FreeUnits{(rad,), 𝐀, nothing}}
 ```
 
-When defining quantities with units from *DimensionfulAngles.jl* you can use the `ua` string instead and omit the subscript `ᵃ`.
+When defining quantities with units from *DimensionfulAngles.jl* you can use the `ua` string instead and omit the superscript `ᵃ`.
 But when defining quantities with units from both it is more convenient to use the `u` string.
 
 ```julia
@@ -113,14 +115,25 @@ julia> angular_velocity = 1.2rad / s
 1.2 rad s⁻¹
 ```
 
+Another way of doing this is to  import all default units, which includes SI base and derived units from `Unitful.jl` with angle units from `DimensionfulAngles.jl`.
+This is done as
+
+```julia
+julia> using DimensionfulAngles.DefaultSymbols
+```
+
 ## Contributing
+<!-- 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 [![ColPrac: Contributor's Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributor's%20Guide-blueviolet)](https://github.com/SciML/ColPrac)
-[![SciML Code Style](https://img.shields.io/static/v1?label=code%20style&message=SciML&color=9558b2&labelColor=389826)](https://github.com/SciML/SciMLStyle)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![SciML Code Style](https://img.shields.io/static/v1?label=code%20style&message=SciML&color=9558b2&labelColor=389826)](https://github.com/SciML/SciMLStyle)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
+-->
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-Contributions are welcome! 🎊 Please see the [contribution guidelines](https://github.com/cmichelenstrofer/.github/blob/main/CONTRIBUTING.md) for ways to contribute to the project. 
+Contributions are welcome! 🎊 Please see the [contribution guidelines](https://github.com/cmichelenstrofer/.github/blob/main/CONTRIBUTING.md) for ways to contribute to the project.
 
 ### Contributors ✨
 

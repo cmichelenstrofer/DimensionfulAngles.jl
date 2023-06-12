@@ -133,3 +133,9 @@ end
     @test uconvert(u"s", 2u"radᵃ/s", Periodic()) ≈ (π)u"s"
     @test uconvert(u"radᵃ/s", (π)u"s", Periodic()) ≈ 2u"radᵃ/s"
 end
+
+@testset "DefaultSymbols" begin
+    @test typeof(DimensionfulAngles.DefaultSymbols) == Module
+    @test dimension(DimensionfulAngles.DefaultSymbols.rad) == DimensionfulAngles.𝐀
+    @test dimension(DimensionfulAngles.DefaultSymbols.°) == DimensionfulAngles.𝐀
+end
