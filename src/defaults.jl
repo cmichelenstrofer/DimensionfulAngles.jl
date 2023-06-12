@@ -1,18 +1,35 @@
-#########
-
-# This replicates the behavior of Unitful.DefaultSymbols in Unitful: pkgdefaults.jl but  
-# replacing Uniful Angles with DimensionfulAngles
-# `using DimensionfulAngles.DefaultSymbols` will bring the following into the calling namespace:
-# - Dimensions 𝐋,𝐌,𝐓,𝐈,𝚯,𝐉,𝐍 and 𝐀
-# - Base and derived SI units, with SI prefixes
-#   - Candela conflicts with `Base.cd` so it is not brought in (issue #102)
-# - Degrees: ° 
-# all angles imported removing the ᵃ
-# note, this means that ° == u"°ᵃ" and ° != u"°"
+# Submodule for importing default units
+#
+# Adapted from Unitful.jl/src/pkgdefaults.jl
+# Copyright (c) 2016: California Institute of Technology and other contributors.
 
 angle_units = (:rad,:sr)
 non_angle_units = filter(u -> !(u ∈ angle_units), Unitful.si_no_prefix)
 
+"""
+Imports default units into the workspace.
+
+This replicates the behavior of `Unitful.DefaultSymbols`` in `Unitful.jl/src/pkgdefaults.jl`
+but replaces `Unitful` Angles with `DimensionfulAngles` angles.
+
+# Examples
+
+```julia-repl
+julia> using DimensionfulAngles.DefaultSymbols
+```
+
+will bring the following into the calling namespace:
+- Dimensions 𝐋,𝐌,𝐓,𝐈,𝚯,𝐉,𝐍 and 𝐀
+- Base and derived SI units, with SI prefixes
+  - Candela conflicts with `Base.cd` so it is not brought in (Unitful.jl issue #102)
+- Degrees: °
+All angles imported removing the ᵃ superscript.
+
+!!! note "Not SI"
+
+    All angles are imported removing the ᵃ superscript.
+    This means `°` == `u"°ᵃ"` instead of `u"°"`.
+"""
 baremodule DefaultSymbols
     import Unitful
     import DimensionfulAngles
