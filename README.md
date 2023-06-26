@@ -115,11 +115,14 @@ julia> angular_velocity = 1.2rad / s
 1.2 rad s⁻¹
 ```
 
+### Default Symbols
 Another way of doing this is to  import all default units, which includes SI base and derived units from `Unitful.jl` with angle units from `DimensionfulAngles.jl`.
 This is done as
 
 ```julia
 julia> using DimensionfulAngles.DefaultSymbols
+
+julia> angular_velocity = 1.2rad / s
 ```
 
 ## Contributing
