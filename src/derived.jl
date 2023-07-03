@@ -76,6 +76,10 @@ julia> uconvert(u"radᵃ/s", 1u"Hz", Periodic())
 ```
 """
 struct Periodic <: Equivalence end
-@eqrelation Periodic (AngularVelocity / Frequency=2π * radᵃ)
-@eqrelation Periodic (Frequency * Time=1)
-@eqrelation Periodic (AngularVelocity * Time=2π * radᵃ)
+@eqrelation Periodic (AngularVelocity / Frequency = 2π * radᵃ)
+@eqrelation Periodic (Frequency * Time = 1)
+@eqrelation Periodic (AngularVelocity * Time = 2π * radᵃ)
+# so that it defaults to `uconvert` behavior
+@eqrelation Periodic (AngularVelocity / AngularVelocity = 1)
+@eqrelation Periodic (Frequency / Frequency = 1)
+@eqrelation Periodic (Time / Time = 1)

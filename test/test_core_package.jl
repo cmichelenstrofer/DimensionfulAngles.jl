@@ -132,6 +132,9 @@ end
     @test uconvert(u"s", 10u"Hz", Periodic()) ≈ 0.1u"s"
     @test uconvert(u"s", 2u"radᵃ/s", Periodic()) ≈ (π)u"s"
     @test uconvert(u"radᵃ/s", (π)u"s", Periodic()) ≈ 2u"radᵃ/s"
+    @test uconvert(u"radᵃ/s", 10u"radᵃ/s", Periodic()) ≈ 10u"radᵃ/s"
+    @test uconvert(u"1/s", 10u"1/s", Periodic()) ≈ 10u"1/s"
+    @test uconvert(u"s", 10u"s", Periodic()) ≈ 10u"s"
 end
 
 @testset "DefaultSymbols" begin
