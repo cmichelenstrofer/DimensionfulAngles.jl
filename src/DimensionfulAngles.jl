@@ -28,9 +28,10 @@ module DimensionfulAngles
 
 # using Base: Base  # extend: see `base.jl` for full list of functions extended
 using Unitful: Unitful  # extend: has_unit_spacing,
-using Unitful: minute, promotion, rad, s, 𝐓
-using Unitful: Dimension, DimensionlessQuantity, Frequency, FrequencyFreeUnits, MixedUnits
-using Unitful: NoDims, NoUnits, Number, Quantity, Time, Unitlike, Unit, Units
+using Unitful: minute, promotion, rad, s, 𝐓, 𝐋
+using Unitful: Dimension, DimensionlessQuantity, Frequency, FrequencyFreeUnits, Length
+using Unitful: MixedUnits, NoDims, NoUnits, Number, Quantity, Time, Unitlike, Unit, Units
+using Unitful: Wavenumber
 using Unitful: @dimension, @refunit, @derived_dimension, @unit
 using Unitful: dimension, register, uconvert, unit, ustrip
 using UnitfulEquivalences: Equivalence, @eqrelation
@@ -43,6 +44,9 @@ export sexagesimal, show_sexagesimal
 # export SolidAngle, SolidAngleUnits, SolidAngleFreeUnits
 # export AngularVelocity, AngularVelocityUnits, AngularVelocityFreeUnits
 # export AngularAcceleration, AngularAccelerationUnits, AngularAccelerationFreeUnits
+# export AngularPeriod, AngularPeriodUnits, AngularPeriodFreeUnits
+# export AngularWavenumber, AngularWavenumberUnits, AngularWavenumberUnits
+# export AngularWavelength, AngularWavelengthUnits, AngularWavelengthFreeUnits
 
 """
     𝐀

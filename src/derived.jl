@@ -50,6 +50,12 @@ See also [`DimensionfulAngles.radᵃ`](@ref).
 """
 @unit rpmᵃ "rps" RevolutionsPerMinuteᵃ (1turnᵃ/minute) false
 
+# Angular wavenumber, angular wavelength, angular period
+@derived_dimension AngularWavenumber (𝐀*𝐋^-1) true
+@derived_dimension AngularWavelength (𝐋*𝐀^-1) true
+@derived_dimension AngularPeriod (𝐓*𝐀^-1) true
+
+# periodic equivalence for both temporal and spatial frequency
 """
     Periodic()
 
@@ -76,10 +82,27 @@ julia> uconvert(u"radᵃ/s", 1u"Hz", Periodic())
 ```
 """
 struct Periodic <: Equivalence end
+# temporal
 @eqrelation Periodic (AngularVelocity / Frequency = 2π * radᵃ)
 @eqrelation Periodic (Frequency * Time = 1)
 @eqrelation Periodic (AngularVelocity * Time = 2π * radᵃ)
-# so that it defaults to `uconvert` behavior
-@eqrelation Periodic (AngularVelocity / AngularVelocity = 1)
+@eqrelation Periodic (AngularVelocity * AngularPeriod = 1)
+@eqrelation Periodic (Time / AngularPeriod = 2π * radᵃ)
+@eqrelation Periodic (AngularPeriod * Frequency = 1/(2π * radᵃ))
+# spatial
+@eqrelation Periodic (AngularWavenumber / Wavenumber = 2π * radᵃ)
+@eqrelation Periodic (Wavenumber * Length = 1)
+@eqrelation Periodic (AngularWavenumber * Length = 2π * radᵃ)
+@eqrelation Periodic (AngularWavenumber * AngularWavelength = 1)
+@eqrelation Periodic (Length / AngularWavelength = 2π * radᵃ)
+@eqrelation Periodic (AngularWavelength * Wavenumber = 1/(2π * radᵃ))
+# default to `uconvert` behavior, temporal
 @eqrelation Periodic (Frequency / Frequency = 1)
 @eqrelation Periodic (Time / Time = 1)
+@eqrelation Periodic (AngularVelocity / AngularVelocity = 1)
+@eqrelation Periodic (AngularPeriod / AngularPeriod = 1)
+# default to `uconvert` behavior, spatial
+@eqrelation Periodic (Wavenumber / Wavenumber = 1)
+@eqrelation Periodic (Length / Length = 1)
+@eqrelation Periodic (AngularWavenumber / AngularWavenumber = 1)
+@eqrelation Periodic (AngularWavelength / AngularWavelength = 1)

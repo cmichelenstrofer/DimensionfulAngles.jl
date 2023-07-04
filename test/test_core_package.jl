@@ -1,5 +1,5 @@
 using Test, DimensionfulAngles, Unitful
-using Unitful: 𝐓, FreeUnits, Units
+using Unitful: 𝐓, 𝐋, FreeUnits, Units
 using DimensionfulAngles: 𝐀
 
 function test_uamacro(unit::Symbol)
@@ -125,16 +125,53 @@ end
     test_uamacro(:rpm)
     @test isa(1u"radᵃ/s^2", DimensionfulAngles.AngularAcceleration)
 
-    # periodic
+    # angular wavenumber, angular wavelength, angular period
+    @test typeof(DimensionfulAngles.AngularWavenumber) === UnionAll
+    @test DimensionfulAngles.AngularWavenumberFreeUnits === FreeUnits{U, 𝐀 * 𝐋^-1} where {U}
+    @test DimensionfulAngles.AngularWavenumberUnits === Units{U, 𝐀 * 𝐋^-1} where {U}
+
+    @test typeof(DimensionfulAngles.AngularWavelength) === UnionAll
+    @test DimensionfulAngles.AngularWavelengthFreeUnits === FreeUnits{U, 𝐀^-1 * 𝐋} where {U}
+    @test DimensionfulAngles.AngularWavelengthUnits === Units{U, 𝐀^-1 * 𝐋} where {U}
+
+    @test typeof(DimensionfulAngles.AngularPeriod) === UnionAll
+    @test DimensionfulAngles.AngularPeriodFreeUnits === FreeUnits{U, 𝐀^-1 * 𝐓} where {U}
+    @test DimensionfulAngles.AngularPeriodUnits === Units{U, 𝐀^-1 * 𝐓} where {U}
+
+    # periodic: temporal
     @test uconvert(u"radᵃ/s", 1u"Hz", Periodic()) ≈ (2π)u"radᵃ/s"
     @test uconvert(u"Hz", 1u"radᵃ/s", Periodic()) ≈ (1 / 2π)u"Hz"
     @test uconvert(u"Hz", 10u"s", Periodic()) ≈ 0.1u"Hz"
     @test uconvert(u"s", 10u"Hz", Periodic()) ≈ 0.1u"s"
     @test uconvert(u"s", 2u"radᵃ/s", Periodic()) ≈ (π)u"s"
     @test uconvert(u"radᵃ/s", (π)u"s", Periodic()) ≈ 2u"radᵃ/s"
-    @test uconvert(u"radᵃ/s", 10u"radᵃ/s", Periodic()) ≈ 10u"radᵃ/s"
-    @test uconvert(u"1/s", 10u"1/s", Periodic()) ≈ 10u"1/s"
+    @test uconvert(u"s/radᵃ", 10u"radᵃ/s", Periodic()) ≈ 0.1u"s/radᵃ"
+    @test uconvert(u"radᵃ/s", 10u"s/radᵃ", Periodic()) ≈ 0.1u"radᵃ/s"
+    @test uconvert(u"s/radᵃ", 1u"s", Periodic()) ≈ (1 / 2π)u"s/radᵃ"
+    @test uconvert(u"s", 1u"s/radᵃ", Periodic()) ≈ (2π)u"s"
+    @test uconvert(u"s/radᵃ", 1u"Hz", Periodic()) ≈ (1 / 2π)u"s/radᵃ"
+    @test uconvert(u"Hz", 1u"s/radᵃ", Periodic()) ≈ (1 / 2π)u"Hz"
+    @test uconvert(u"Hz", 10u"Hz", Periodic()) ≈ 10u"1/s"
     @test uconvert(u"s", 10u"s", Periodic()) ≈ 10u"s"
+    @test uconvert(u"radᵃ/s", 10u"radᵃ/s", Periodic()) ≈ 10u"radᵃ/s"
+    @test uconvert(u"s/radᵃ", 10u"s/radᵃ", Periodic()) ≈ 10u"s/radᵃ"
+    # periodic: spatial
+    @test uconvert(u"radᵃ/m", 1u"1/m", Periodic()) ≈ (2π)u"radᵃ/m"
+    @test uconvert(u"m^-1", 1u"radᵃ/m", Periodic()) ≈ (1 / 2π)u"1/m"
+    @test uconvert(u"m^-1", 10u"m", Periodic()) ≈ 0.1u"1/m"
+    @test uconvert(u"m", 10u"m^-1", Periodic()) ≈ 0.1u"m"
+    @test uconvert(u"m", 2u"radᵃ/m", Periodic()) ≈ (π)u"m"
+    @test uconvert(u"radᵃ/m", (π)u"m", Periodic()) ≈ 2u"radᵃ/m"
+    @test uconvert(u"m/radᵃ", 10u"radᵃ/m", Periodic()) ≈ 0.1u"m/radᵃ"
+    @test uconvert(u"radᵃ/m", 10u"m/radᵃ", Periodic()) ≈ 0.1u"radᵃ/m"
+    @test uconvert(u"m/radᵃ", 1u"m", Periodic()) ≈ (1 / 2π)u"m/radᵃ"
+    @test uconvert(u"m", 1u"m/radᵃ", Periodic()) ≈ (2π)u"m"
+    @test uconvert(u"m/radᵃ", 1u"m^-1", Periodic()) ≈ (1 / 2π)u"m/radᵃ"
+    @test uconvert(u"m^-1", 1u"m/radᵃ", Periodic()) ≈ (1 / 2π)u"1/m"
+    @test uconvert(u"m^-1", 10u"m^-1", Periodic()) ≈ 10u"1/m"
+    @test uconvert(u"m", 10u"m", Periodic()) ≈ 10u"m"
+    @test uconvert(u"radᵃ/m", 10u"radᵃ/m", Periodic()) ≈ 10u"radᵃ/m"
+    @test uconvert(u"m/radᵃ", 10u"m/radᵃ", Periodic()) ≈ 10u"m/radᵃ"
 end
 
 @testset "DefaultSymbols" begin
