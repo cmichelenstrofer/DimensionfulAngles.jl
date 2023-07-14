@@ -28,7 +28,7 @@ pkg> add DimensionfulAngles
 <a href="https://cmichelenstrofer.github.io/DimensionfulAngles.jl/stable"><img src="https://img.shields.io/badge/docs-stable-blue.svg" alt="Documentation of latest stable release."/></a>
 <a href="https://cmichelenstrofer.github.io/DimensionfulAngles.jl/dev"><img src="https://img.shields.io/badge/docs-dev-blue.svg" alt="Documentation for the current code status in the <em>main</em> branch."/></a>
 <p>
-The full documentation can be found at https://cmichelenstrofer.github.io/DimensionfulAngles.
+The full documentation can be found at https://cmichelenstrofer.github.io/DimensionfulAngles/stable.
 </p>
 </details>
 
