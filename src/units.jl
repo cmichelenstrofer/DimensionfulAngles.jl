@@ -35,6 +35,7 @@ Unitful.has_unit_spacing(u::Units{(Unit{:Arcsecondᵃ, 𝐀}(0, 1 // 1),), 𝐀}
 @doc __unit_docstr("diameterPart", "diameter part", "1/60 rad", "rad")
 @unit diameterPartᵃ "diameterPart" DiameterPartᵃ (1radᵃ//60) false
 
+# Turn
 @doc __unit_docstr("turn", "turn", "2π rad", "rad",
                    "Equivalent to a full cycle, revolution, or rotation.")
 @unit turnᵃ "τ" Turnᵃ (2π*radᵃ) false
@@ -112,7 +113,7 @@ Unitful.has_unit_spacing(u::Units{(Unit{:SecondAstro, 𝐀}(0, 1 // 1),), 𝐀})
 
 # Display other unit formats.
 """
-    sexagesimal(x::Angle; unit::AngleUnits=°ᵃ)
+    sexagesimal(x::Angle; base_unit::AngleUnits=°ᵃ)
 
 Convert an angle to the triple (unit, minutes of unit, seconds of unit), where unit is
 either degree (`°ᵃ`) or hour angle (`ʰᵃ`).
@@ -145,7 +146,7 @@ function sexagesimal(x::Angle; base_unit::AngleUnits = °ᵃ)
 end
 
 """
-    show_sexagesimal(x::Angle; unit::AngleUnits=°ᵃ)
+    show_sexagesimal(x::Angle; base_unit::AngleUnits=°ᵃ)
 
 Print an angle in units (u), minutes of unit (m), and seconds of unit (s) where unit is
 either degree (`°ᵃ`) or hour angle (`ʰ`).
