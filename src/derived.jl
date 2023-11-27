@@ -48,7 +48,7 @@ Dimension: 𝐀 𝐓⁻¹.
 
 See also [`DimensionfulAngles.radᵃ`](@ref).
 """
-@unit rpmᵃ "rps" RevolutionsPerMinuteᵃ (1turnᵃ/minute) false
+@unit rpmᵃ "rpm" RevolutionsPerMinuteᵃ (1turnᵃ/minute) false
 
 # Angular wavenumber, angular wavelength, angular period
 @derived_dimension AngularWavenumber (𝐀*𝐋^-1) true

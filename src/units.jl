@@ -36,9 +36,11 @@ Unitful.has_unit_spacing(u::Units{(Unit{:Arcsecondᵃ, 𝐀}(0, 1 // 1),), 𝐀}
 @unit diameterPartᵃ "diameterPart" DiameterPartᵃ (1radᵃ//60) false
 
 # Turn
-@doc __unit_docstr("turn", "turn", "2π rad", "rad",
-                   "Equivalent to a full cycle, revolution, or rotation.")
-@unit turnᵃ "τ" Turnᵃ (2π*radᵃ) false
+@doc __unit_docstr(
+    "turn", "turn", "2π rad", "rad",
+    "Equivalent to a full cycle, revolution, or rotation."
+)
+@unit turnᵃ "τ" Turnᵃ (360°ᵃ) false
 
 # Based on the turn
 @doc __unit_docstr("doubleTurn", "double turn", "2 turn", "turn")
