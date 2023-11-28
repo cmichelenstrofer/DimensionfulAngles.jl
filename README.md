@@ -63,7 +63,7 @@ Michelén Ströfer, C. A. (2022). DimensionfulAngles.jl (Version 0.1.0) [Compute
 
 Use *DimensionfulAngles.jl* for units containing angles and *Unitful.jl* for all other units.
 The units in *DimensionfulAngles.jl* are differentiated from their dimensionless counterparts with a superscript `ᵃ`.
-Simply add this superscript to any angle units to make it dimensionful. 
+Simply add this superscript to any angle units to make it dimensionful.
 In Julia environments this can be typed as `\^a<tab>`.
 
 ```julia
@@ -125,8 +125,30 @@ julia> using DimensionfulAngles.DefaultSymbols
 julia> angular_velocity = 1.2rad / s
 ```
 
+### Converting to/from `Unitful.jl`
+To convert a quantity to or from `Unitful.jl` use the `uconvert` function with first
+argument either `:Unitful` or `:DimensionfulAngles`.
+For example:
+
+```julia
+julia> using Unitful, DimensionfulAngles
+
+julia> ω = 3.2u"radᵃ/s"
+3.2 rad s⁻¹
+
+julia> ω̄ = uconvert(:Unitful, ω)
+3.2 rad s⁻¹
+
+julia> dimension(ω)
+𝐀 𝐓⁻¹
+
+julia> dimension(ω̄)
+𝐓⁻¹
+```
+
+
 ## Contributing
-<!-- 
+<!--
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 [![ColPrac: Contributor's Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributor's%20Guide-blueviolet)](https://github.com/SciML/ColPrac)
 [![SciML Code Style](https://img.shields.io/static/v1?label=code%20style&message=SciML&color=9558b2&labelColor=389826)](https://github.com/SciML/SciMLStyle)
