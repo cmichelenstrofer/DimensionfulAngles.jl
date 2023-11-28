@@ -3,6 +3,8 @@ using DocumenterCitations
 using DimensionfulAngles
 using Unitful
 
+ENV["UNITFUL_FANCY_EXPONENTS"] = true
+
 bib = CitationBibliography(joinpath(@__DIR__, "references.bib"))
 
 function _filter_prefixed(base, x; exceptions = [nothing])
