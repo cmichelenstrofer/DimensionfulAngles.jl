@@ -18,7 +18,7 @@ The units in this package are appended the superscript `ᵃ` to differentiate th
 The [`@ua_str`](@ref) provides an easier way to access these units without having to type the superscript `ᵃ`.
 For example, both of these are equivalent:
 
-```jldoctest
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using Unitful
 
 julia> using DimensionfulAngles
@@ -32,7 +32,7 @@ julia> 1.3ua"rad"
 
 The default `u` string can still be more convenient when defining quantities with mixed units, such as
 
-```jldoctest
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using Unitful
 
 julia> using DimensionfulAngles
@@ -44,7 +44,7 @@ julia> 2.1u"radᵃ/s"
 Alternatively it might be convenient to import the units you are using directly, renaming units from *DimensionfulAngles* to remove the superscript `ᵃ`.
 For example:
 
-```jldoctest
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using Unitful
 
 julia> using Unitful: m, s, kg
@@ -71,7 +71,7 @@ One of the main advantage of defining an angle dimension is to be able to dispat
 This behavior and useful aliases are completely inherited from *Unitful.jl*.
 The most basic usage uses the automatically defined alias [`DimensionfulAngles.Angle`](@ref):
 
-```jldoctest
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using Unitful
 
 julia> using DimensionfulAngles
@@ -98,7 +98,7 @@ julia> what_am_i(angle)
 Finally, we can convert quantities to or from `Unitful` using an extension of `uconvert`
 with first argument `:Unitful` or `:DimensionfulAngles`, as:
 
-```julia
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> ω = 3.2u"radᵃ/s"
 3.2 rad s⁻¹
 
