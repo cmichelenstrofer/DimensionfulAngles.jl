@@ -27,6 +27,7 @@ These include
   - A comprehensive list of angular units.
   - The `@ua_str` macro for easily accessing these units.
   - Derived dimensions and their units, including: solid angles, angular velocity/frequency, and angular acceleration.
+  - Conversion between `Unitful` and `DimensionfulAngles` quantities.
   - A [UnitfulEquivalences.jl](https://sostock.github.io/UnitfulEquivalences.jl/stable/) `Equivalence` to convert between period, frequency, and angular frequency of a periodic response.
   - A comprehensive extension of functions in `Base` that take angular quantities as inputs, or output angular quantities.
 
@@ -40,8 +41,8 @@ Such proposals do exist, and for completeness these are discussed in [Relation t
 
 These definitions are based on the [SI Brochure](https://www.bipm.org/en/publications/si-brochure).
 In particular note the distinction between a quantity (which has a value and a unit), its unit, and its dimension.
-A (base or derived) dimension has a unique standard SI unit, but the converse is not true.
-E.g. both torque and energy, two distinct quantities, have the same dimension.
+Any physical quantity hasa unique standard (coherent) SI unit and dimension, but the converse is not true.
+E.g. both torque and energy, two distinct quantities, have the same dimension and units.
 Also note the distinction between plane and phase angles as distinct quantities, and angular velocity and angular frequency as distinct quantities.
 
   - **Angle**: Either a plane or phase angle.

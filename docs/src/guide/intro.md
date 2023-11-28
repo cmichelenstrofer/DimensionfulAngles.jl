@@ -10,6 +10,7 @@ At its core, [`DimensionfulAngles`](@ref) defines:
   - the degree [`DimensionfulAngles.°ᵃ`](@ref) (SI-accepted unit of angle)
   - the *"defining constant"* [`θ₀`](@ref) equal to one radian.
   - the [`@ua_str`](@ref) macro for easily recalling units in the package
+  - extensions to `uconvert` to convert between `Unitful` and `DimensionfulAngles` quantities.
 
 The unit `radᵃ` is prefixable, and therefore defines many other units, which are documented in [Prefixed units](@ref intro_prefixed).
 
@@ -92,6 +93,23 @@ julia> what_am_i(my_height)
 
 julia> what_am_i(angle)
 "I am an angle."
+```
+
+Finally, we can convert quantities to or from `Unitful` using an extension of `uconvert`
+with first argument `:Unitful` or `:DimensionfulAngles`, as:
+
+```julia
+julia> ω = 3.2u"radᵃ/s"
+3.2 rad s⁻¹
+
+julia> ω̄ = uconvert(:Unitful, ω)
+3.2 rad s⁻¹
+
+julia> dimension(ω)
+𝐀 𝐓⁻¹
+
+julia> dimension(ω̄)
+𝐓⁻¹
 ```
 
 ## [Syntax](@id intro_syntax)

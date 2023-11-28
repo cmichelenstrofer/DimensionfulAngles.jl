@@ -15,6 +15,11 @@ and
 
 > For  historical  reasons the radian and steradian are treated as derived units
 
+Note that by including *angle* as a dimension we are dropping its definition as a ratio of
+lengths.
+This is what makes the SI angle dimensionless and would make this 8-dimension system
+incoherent (dimensions are not linearly independent).
+
 Point 2 means that we cannot (easily) differentiate between different dimensionless quantities.
 In practice this means we have to be very careful when dealing with dimensionless quantities.
 Here are some motivating examples using [Unitful.jl](https://painterqubits.github.io/Unitful.jl/).
