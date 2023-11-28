@@ -69,7 +69,7 @@ according to the relation ``f = ω/2π = 1/T``, where
 
 # Example
 
-```jldoctest; filter = r"(d*).(d{10})d+" => s"\1.\2"
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using Unitful
 
 julia> using DimensionfulAngles

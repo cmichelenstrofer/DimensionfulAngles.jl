@@ -11,7 +11,7 @@ information.
 
 # Examples
 
-```jldoctest; filter = r"(d*).(d{10})d+" => s"\1.\2"
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using DimensionfulAngles
 
 julia> 1.0ua"turn"
@@ -79,7 +79,7 @@ Dimension: [`DimensionfulAngles.𝐀`](@ref).
 
 # Examples
 
-```jldoctest; filter = r"(d*).(d{10})d+" => s"\1.\2"
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using DimensionfulAngles
 
 julia> 1.0ua"rad" + 20.0ua"mrad"
@@ -103,7 +103,7 @@ Dimension: [`DimensionfulAngles.𝐀`](@ref).
 
 # Examples
 
-```jldoctest; filter = r"(d*).(d{10})d+" => s"\1.\2"
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using DimensionfulAngles
 
 julia> 1ua"°"
@@ -128,7 +128,7 @@ See also [`DimensionfulAngles.radᵃ`](@ref).
 
 # Examples
 
-```jldoctest; filter = r"(d*).(d{10})d+" => s"\1.\2"
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using DimensionfulAngles
 
 julia> θ₀
@@ -154,7 +154,7 @@ It converts angle units and the following derived units: `sr`, `rpm`, `rps`).
 
 # Example
 
-```jldoctest; filter = r"(d*).(d{10})d+" => s"\1.\2"
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using Unitful, DimensionfulAngles
 
 julia> ω = 3.2u"radᵃ/s"

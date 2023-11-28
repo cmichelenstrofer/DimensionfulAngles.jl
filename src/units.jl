@@ -127,7 +127,7 @@ either degree (`°ᵃ`) or hour angle (`ʰᵃ`).
 
 # Example
 
-```jldoctest; filter = r"(d*).(d{10})d+" => s"\1.\2"
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using DimensionfulAngles
 
 julia> sexagesimal(20.2ua"°")
@@ -156,7 +156,7 @@ For degrees it is printed as `u° m′ s″` and for hour angle as `uʰ mᵐ sˢ
 
 # Example
 
-```jldoctest; filter = r"(d*).(d{10})d+" => s"\1.\2"
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using DimensionfulAngles
 
 julia> show_sexagesimal(20.2ua"°")
