@@ -144,37 +144,35 @@ julia> 2.1ua"rad" / θ₀
 const θ₀ = (1 // 1)radᵃ
 
 # Convert to/from Unitful (SI)
-function _convert_angles(x::Quantity, input_angle_unit::Units, input_dim::Dimensions,
-    output_angle_unit::Units, angle_units::NTuple{N, Units} where N,
-    )
-    # convert all units in `angle_units` to common `input_angle_unit` unit.
-    # cannot use `upreferred` because of `FixedUnits` and `ContextUnits`
-    AngularUnits = [
-        typeof(typeof(angle_unit).parameters[1][1]) for angle_unit in angle_units
-    ]
+"""
+    uconvert(s::Symbol, x::Quantity)
 
-    power = 0//1
-    input_units = 1
-    for iunit in typeof(x).parameters[3].parameters[1]
-        ipower = iunit.power
-        if typeof(iunit) ∈ AngularUnits
-            power += ipower
-            input_units *= uconvert(
-                input_angle_unit^ipower,
-                1Unitful.FreeUnits{(iunit,), input_dim^ipower, nothing}()
-            )
-        else
-            input_units *= (
-                1Unitful.FreeUnits{(iunit,), typeof(iunit).parameters[2]^ipower, nothing}()
-            )
-        end
-    end
-    input_units = unit(input_units)
-    x = uconvert(input_units, x)
-    # convert to output units/dimensions
-    return x*input_angle_unit^-power*output_angle_unit^power
-end
+Convert between DimensionfulAngles and Unitful angles (non-dimensional, SI).
+The Symbol `s` is either `:Unitful`, to convert to Unitful angles, or `DimensionfulAngles`
+to convert to DimensionfulAngles angles.
+It converts angle units and the following derived units: `sr`, `rpm`, `rps`).
 
+# Example
+
+```jldoctest
+julia> using Unitful, DimensionfulAngles
+
+julia> ω = 3.2u"radᵃ/s"
+3.2 rad s⁻¹
+
+julia> ω̄ = uconvert(:Unitful, ω)
+3.2 rad s⁻¹
+
+julia> dimension(ω)
+𝐀 𝐓⁻¹
+
+julia> dimension(ω̄)
+𝐓⁻¹
+
+julia> dimension(uconvert(:DimensionfulAngles, ω̄))
+𝐀 𝐓⁻¹
+```
+"""
 Unitful.uconvert(s::Symbol, x::Quantity) = Unitful.uconvert(Val{s}(), x)
 
 function Unitful.uconvert(s::Val{:Unitful}, x::Quantity)
@@ -204,6 +202,37 @@ function Unitful.uconvert(s::Val{:DimensionfulAngles}, x::Quantity)
     x = _convert_angles(x, rps, NoDims, rpsᵃ, (rps,))
     x = _convert_angles(x, rpm, NoDims, rpmᵃ, (rpm,))
     return x
+end
+
+function _convert_angles(x::Quantity, input_angle_unit::Units, input_dim::Dimensions,
+    output_angle_unit::Units, angle_units::NTuple{N, Units} where N,
+    )
+    # convert all units in `angle_units` to common `input_angle_unit` unit.
+    # cannot use `upreferred` because of `FixedUnits` and `ContextUnits`
+    AngularUnits = [
+        typeof(typeof(angle_unit).parameters[1][1]) for angle_unit in angle_units
+    ]
+
+    power = 0//1
+    input_units = 1
+    for iunit in typeof(x).parameters[3].parameters[1]
+        ipower = iunit.power
+        if typeof(iunit) ∈ AngularUnits
+            power += ipower
+            input_units *= uconvert(
+                input_angle_unit^ipower,
+                1Unitful.FreeUnits{(iunit,), input_dim^ipower, nothing}()
+            )
+        else
+            input_units *= (
+                1Unitful.FreeUnits{(iunit,), typeof(iunit).parameters[2]^ipower, nothing}()
+            )
+        end
+    end
+    input_units = unit(input_units)
+    x = uconvert(input_units, x)
+    # convert to output units/dimensions
+    return x*input_angle_unit^-power*output_angle_unit^power
 end
 
 # Other functionalities.
