@@ -14,7 +14,7 @@ Note that what goes inside must be parsable as a valid Julia expression.
 
 # Examples
 
-```jldoctest
+```jldoctest; filter = r"(d*).(d{10})d+" => s"\1.\2"
 julia> using DimensionfulAngles
 
 julia> 1.0ua"turn"
