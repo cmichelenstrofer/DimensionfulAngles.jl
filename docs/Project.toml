@@ -2,8 +2,10 @@
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 DocumenterCitations = "daee34ce-89f3-4625-b898-19384cb65244"
 Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
+UnitfulAngles = "6fb2a4bd-7999-5318-a3b2-8ad61056cd98"
 
 [compat]
 Documenter = "0.27.23"
 DocumenterCitations = "0.2.12"
 Unitful = "1.10"
+UnitfulAngles = "0.7"

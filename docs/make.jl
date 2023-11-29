@@ -2,6 +2,7 @@ using Documenter
 using DocumenterCitations
 using DimensionfulAngles
 using Unitful
+using UnitfulAngles
 
 ENV["UNITFUL_FANCY_EXPONENTS"] = true
 
