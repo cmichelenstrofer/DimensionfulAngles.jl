@@ -98,7 +98,7 @@ julia> what_am_i(angle)
 Finally, we can convert quantities to or from `Unitful` using an extension of `uconvert`
 with first argument `:Unitful` or `:DimensionfulAngles`, as:
 
-```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
+```jldoctest; setup = :(using DimensionfulAngles, Unitful), filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> ω = 3.2u"radᵃ/s"
 3.2 rad s⁻¹
 
