@@ -50,7 +50,7 @@ This is in agreement with the proposals discussed above.
 In contrast to these proposals, one of the goals of this package is to ***not*** require the use of the constant `θ₀` for normalizing inputs to common functions.
 To this end, the extensions to functions in `Base` ensure that function calls like
 
-```jldoctest; setup = :(using DimensionfulAngles), filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
+```jldoctest; setup = :(using DimensionfulAngles)
 julia> cos(45ua"°")
 0.7071067811865476
 ```
