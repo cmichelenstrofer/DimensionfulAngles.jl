@@ -112,6 +112,10 @@ julia> dimension(ω̄)
 𝐓⁻¹
 ```
 
+```@docs
+Unitful.uconvert(::Symbol, ::Quantity)
+```
+
 ## [Syntax](@id intro_syntax)
 
 Contents:
