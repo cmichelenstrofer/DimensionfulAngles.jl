@@ -95,8 +95,8 @@ julia> what_am_i(angle)
 "I am an angle."
 ```
 
-Finally, we can convert quantities to or from `Unitful` using an extension of `uconvert`
-with first argument `:Unitful` or `:DimensionfulAngles`, as:
+Finally, we can convert quantities to or from `Unitful` (including `UnitfulAngles`) using an
+extension of `uconvert` with first argument `:Unitful` or `:DimensionfulAngles`, as:
 
 ```jldoctest; setup = :(using DimensionfulAngles, Unitful), filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> ω = 3.2u"radᵃ/s"
@@ -114,6 +114,26 @@ julia> dimension(ω̄)
 
 ```@docs
 Unitful.uconvert(::Symbol, ::Quantity)
+```
+
+Note that astronomical units in `DimensionfulAngles` and `UnitfulAngles` are not equivalent
+and quantities containing these units are converted to compatible, non-astronomical, units
+first.
+Specifically, the `UnitfulAngles` units [`mas`, `μas`, `pas`] are converted to `arcsecond`,
+the `DimensionfulAngles` unit `asᵃ` and all its prefixed versions are converted to
+`arcsecondᵃ`, and the `DimensionfulAngles` units [`ʰᵃ`, `ᵐᵃ`, `ˢᵃ`] are converted to
+`hourAngleᵃ`.
+For example:
+
+```jldoctest; setup = :(using DimensionfulAngles, Unitful)
+julia> θ = 1u"μas"
+1 μas
+
+julia> θ̄ = uconvert(:DimensionfulAngles, θ)
+1//1000000″
+
+julia> uconvert(:Unitful, 1u"ᵐᵃ")
+1//60 hourAngle
 ```
 
 ## [Syntax](@id intro_syntax)

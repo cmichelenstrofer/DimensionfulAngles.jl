@@ -88,18 +88,19 @@ The arcsecond, a unit of angle defined as 1°/3600.
 This is an alternative symbol for [`DimensionfulAngles.arcsecondᵃ`](@ref) common in
 astronomy.
 Unlike `arcsecondᵃ`, `asᵃ` accepts SI prefixes.
-`UnitfulAngles` has similar implementation; this differs in that it contains units of
-angle.
+`UnitfulAngles` has similar implementation for `μas`, `mas`, and `pas`; this differs in that
+it contains units of angle.
 
-!!! note "Abbreviation conflicts with `Unitful.jl`"
-    - both attoseconds and arcseconds are abbreviated as `as`.
-    - both decaseconds and deciarcseconds are abbreviated as `das`.
+!!! note "Avoid abbreviation conflicts with `Unitful.jl`"
+    - to avoid abbreviation conflicts between attoseconds (`as`) and arcseconds, and
+        decaseconds (`das`) and deciarcseconds, the astronomical arcsecond is abbreviated as
+        `asₐ` instead.
 
 Dimension: 𝐀.
 
 See also [`DimensionfulAngles.arcsecondᵃ`](@ref).
 """
-@unit asᵃ "as" ArcsecondAstro 1arcsecondᵃ true true
+@unit asᵃ "asₐ" ArcsecondAstro 1arcsecondᵃ true true
 
 @doc __unit_docstr("ʰ", "hour", "1/24 turn", "turn", "Equivalent to `hourAngleᵃ`.")
 @unit ʰᵃ "ʰ" HourAstro (1turnᵃ//24) false
