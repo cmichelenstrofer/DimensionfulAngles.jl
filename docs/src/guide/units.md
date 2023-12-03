@@ -101,5 +101,5 @@ DimensionfulAngles.gradᵃ
 
 ```@autodocs
 Modules = [DimensionfulAngles]
-Filter = x->_filter_prefixed("as", x)
+Filter = x->_filter_prefixed("asₐ", x)
 ```
