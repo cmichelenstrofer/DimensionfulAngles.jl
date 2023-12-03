@@ -10,6 +10,7 @@ At its core, [`DimensionfulAngles`](@ref) defines:
   - the degree [`DimensionfulAngles.°ᵃ`](@ref) (SI-accepted unit of angle)
   - the *"defining constant"* [`θ₀`](@ref) equal to one radian.
   - the [`@ua_str`](@ref) macro for easily recalling units in the package
+  - extensions to `uconvert` to convert between `Unitful` and `DimensionfulAngles` quantities.
 
 The unit `radᵃ` is prefixable, and therefore defines many other units, which are documented in [Prefixed units](@ref intro_prefixed).
 
@@ -17,7 +18,7 @@ The units in this package are appended the superscript `ᵃ` to differentiate th
 The [`@ua_str`](@ref) provides an easier way to access these units without having to type the superscript `ᵃ`.
 For example, both of these are equivalent:
 
-```jldoctest
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using Unitful
 
 julia> using DimensionfulAngles
@@ -31,7 +32,7 @@ julia> 1.3ua"rad"
 
 The default `u` string can still be more convenient when defining quantities with mixed units, such as
 
-```jldoctest
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using Unitful
 
 julia> using DimensionfulAngles
@@ -43,7 +44,7 @@ julia> 2.1u"radᵃ/s"
 Alternatively it might be convenient to import the units you are using directly, renaming units from *DimensionfulAngles* to remove the superscript `ᵃ`.
 For example:
 
-```jldoctest
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using Unitful
 
 julia> using Unitful: m, s, kg
@@ -70,7 +71,7 @@ One of the main advantage of defining an angle dimension is to be able to dispat
 This behavior and useful aliases are completely inherited from *Unitful.jl*.
 The most basic usage uses the automatically defined alias [`DimensionfulAngles.Angle`](@ref):
 
-```jldoctest
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using Unitful
 
 julia> using DimensionfulAngles
@@ -92,6 +93,47 @@ julia> what_am_i(my_height)
 
 julia> what_am_i(angle)
 "I am an angle."
+```
+
+Finally, we can convert quantities to or from `Unitful` (including `UnitfulAngles`) using an
+extension of `uconvert` with first argument `:Unitful` or `:DimensionfulAngles`, as:
+
+```jldoctest; setup = :(using DimensionfulAngles, Unitful), filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
+julia> ω = 3.2u"radᵃ/s"
+3.2 rad s⁻¹
+
+julia> ω̄ = uconvert(:Unitful, ω)
+3.2 rad s⁻¹
+
+julia> dimension(ω)
+𝐀 𝐓⁻¹
+
+julia> dimension(ω̄)
+𝐓⁻¹
+```
+
+```@docs
+Unitful.uconvert(::Symbol, ::Quantity)
+```
+
+Note that astronomical units in `DimensionfulAngles` and `UnitfulAngles` are not equivalent
+and quantities containing these units are converted to compatible, non-astronomical, units
+first.
+Specifically, the `UnitfulAngles` units [`mas`, `μas`, `pas`] are converted to `arcsecond`,
+the `DimensionfulAngles` unit `asᵃ` and all its prefixed versions are converted to
+`arcsecondᵃ`, and the `DimensionfulAngles` units [`ʰᵃ`, `ᵐᵃ`, `ˢᵃ`] are converted to
+`hourAngleᵃ`.
+For example:
+
+```jldoctest; setup = :(using DimensionfulAngles, Unitful)
+julia> θ = 1u"μas"
+1 μas
+
+julia> θ̄ = uconvert(:DimensionfulAngles, θ)
+1//1000000″
+
+julia> uconvert(:Unitful, 1u"ᵐᵃ")
+1//60 hourAngle
 ```
 
 ## [Syntax](@id intro_syntax)

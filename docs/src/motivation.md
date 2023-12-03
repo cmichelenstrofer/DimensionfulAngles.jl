@@ -15,6 +15,11 @@ and
 
 > For  historical  reasons the radian and steradian are treated as derived units
 
+Note that by including *angle* as a dimension we are dropping its definition as a ratio of
+lengths.
+This is what makes the SI angle dimensionless and would make this 8-dimension system
+incoherent (dimensions are not linearly independent).
+
 Point 2 means that we cannot (easily) differentiate between different dimensionless quantities.
 In practice this means we have to be very careful when dealing with dimensionless quantities.
 Here are some motivating examples using [Unitful.jl](https://painterqubits.github.io/Unitful.jl/).
@@ -39,7 +44,7 @@ ERROR: DimensionError: 2 m and 5 are not dimensionally compatible.
 
 However this does not work with dimensionless quantities such as angles.
 
-```jldoctest
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using Unitful
 
 julia> angle = 10u"°"
@@ -59,7 +64,7 @@ Finally they can be added.
 
 Since angle is not a dimension we cannot differentiate between units of angle and other dimensionless units, which also leads to problems like this:
 
-```jldoctest
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using Unitful
 
 julia> 1u"°" + 1u"rad"
@@ -99,7 +104,7 @@ One of the main features of Julia is multiple dispatch.
 This ability can **not** be used for angular dimensions, and we have to either (1) dispatch on *no dimension* or (2) dispatch on an union of all angle units.
 The former would work for all dimensionless quantities not just angles, and the latter can become cumbersome with a large number of units when considering prefixes and additional units in [UnitfulAngles.jl](https://github.com/yakir12/UnitfulAngles.jl).
 
-```jldoctest
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using Unitful
 
 julia> what_am_i(::Unitful.Length) = "I am a length."

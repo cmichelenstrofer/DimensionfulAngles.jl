@@ -35,9 +35,12 @@ Unitful.has_unit_spacing(u::Units{(Unit{:Arcsecondᵃ, 𝐀}(0, 1 // 1),), 𝐀}
 @doc __unit_docstr("diameterPart", "diameter part", "1/60 rad", "rad")
 @unit diameterPartᵃ "diameterPart" DiameterPartᵃ (1radᵃ//60) false
 
-@doc __unit_docstr("turn", "turn", "2π rad", "rad",
-                   "Equivalent to a full cycle, revolution, or rotation.")
-@unit turnᵃ "τ" Turnᵃ (2π*radᵃ) false
+# Turn
+@doc __unit_docstr(
+    "turn", "turn", "2π rad", "rad",
+    "Equivalent to a full cycle, revolution, or rotation."
+)
+@unit turnᵃ "τ" Turnᵃ (360°ᵃ) false
 
 # Based on the turn
 @doc __unit_docstr("doubleTurn", "double turn", "2 turn", "turn")
@@ -85,18 +88,19 @@ The arcsecond, a unit of angle defined as 1°/3600.
 This is an alternative symbol for [`DimensionfulAngles.arcsecondᵃ`](@ref) common in
 astronomy.
 Unlike `arcsecondᵃ`, `asᵃ` accepts SI prefixes.
-`UnitfulAngles` has similar implementation; this differs in that it contains units of
-angle.
+`UnitfulAngles` has similar implementation for `μas`, `mas`, and `pas`; this differs in that
+it contains units of angle.
 
-!!! note "Abbreviation conflicts with `Unitful.jl`"
-    - both attoseconds and arcseconds are abbreviated as `as`.
-    - both decaseconds and deciarcseconds are abbreviated as `das`.
+!!! note "Avoid abbreviation conflicts with `Unitful.jl`"
+    - to avoid abbreviation conflicts between attoseconds (`as`) and arcseconds, and
+        decaseconds (`das`) and deciarcseconds, the astronomical arcsecond is abbreviated as
+        `asₐ` instead.
 
 Dimension: 𝐀.
 
 See also [`DimensionfulAngles.arcsecondᵃ`](@ref).
 """
-@unit asᵃ "as" ArcsecondAstro 1arcsecondᵃ true true
+@unit asᵃ "asₐ" ArcsecondAstro 1arcsecondᵃ true true
 
 @doc __unit_docstr("ʰ", "hour", "1/24 turn", "turn", "Equivalent to `hourAngleᵃ`.")
 @unit ʰᵃ "ʰ" HourAstro (1turnᵃ//24) false
@@ -112,7 +116,7 @@ Unitful.has_unit_spacing(u::Units{(Unit{:SecondAstro, 𝐀}(0, 1 // 1),), 𝐀})
 
 # Display other unit formats.
 """
-    sexagesimal(x::Angle; unit::AngleUnits=°ᵃ)
+    sexagesimal(x::Angle; base_unit::AngleUnits=°ᵃ)
 
 Convert an angle to the triple (unit, minutes of unit, seconds of unit), where unit is
 either degree (`°ᵃ`) or hour angle (`ʰᵃ`).
@@ -124,14 +128,14 @@ either degree (`°ᵃ`) or hour angle (`ʰᵃ`).
 
 # Example
 
-```jldoctest
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using DimensionfulAngles
 
 julia> sexagesimal(20.2ua"°")
 (20°, 11′, 59.99999999999746″)
 
 julia> sexagesimal(20.2ua"°"; base_unit = ua"ʰ")
-(1ʰ, 20ᵐ, 48.00000000000026ˢ)
+(1ʰ, 20ᵐ, 48.000000000000256ˢ)
 ```
 """
 function sexagesimal(x::Angle; base_unit::AngleUnits = °ᵃ)
@@ -145,7 +149,7 @@ function sexagesimal(x::Angle; base_unit::AngleUnits = °ᵃ)
 end
 
 """
-    show_sexagesimal(x::Angle; unit::AngleUnits=°ᵃ)
+    show_sexagesimal(x::Angle; base_unit::AngleUnits=°ᵃ)
 
 Print an angle in units (u), minutes of unit (m), and seconds of unit (s) where unit is
 either degree (`°ᵃ`) or hour angle (`ʰ`).
@@ -153,17 +157,17 @@ For degrees it is printed as `u° m′ s″` and for hour angle as `uʰ mᵐ sˢ
 
 # Example
 
-```jldoctest
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using DimensionfulAngles
 
 julia> show_sexagesimal(20.2ua"°")
 20° 11′ 59.99999999999746″
 
 julia> show_sexagesimal(20.2ua"°"; base_unit = ua"ʰ")
-1ʰ 20ᵐ 48.00000000000026ˢ
+1ʰ 20ᵐ 48.000000000000256ˢ
 ```
 """
-function show_sexagesimal(x::Angle; base_unit::AngleUnits = °ᵃ)
+function show_sexagesimal(x::Angle; base_unit::AngleUnits=°ᵃ)
     base, minute, second = sexagesimal(x; base_unit = base_unit)
     print("$base $minute $second")
     return nothing

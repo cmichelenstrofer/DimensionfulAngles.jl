@@ -112,3 +112,4 @@ end end
 
 # TODO: test matrix inputs
 # TODO: use random numbers on some meaningful domain for each function
+# TODO: get rid of global constants

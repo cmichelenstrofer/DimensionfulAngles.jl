@@ -12,7 +12,8 @@ The functions in `Base` currently extended to accept dimensionful angle argument
   - hyperbolic functions: `sinh`, `cosh`, `tanh`, `coth`, `sech`, `csch`
   - exponential functions: `exp`, `expm1`, `cis`, `cispi`
   - Sinc functions: `sinc`, `cosc`
-  - Utilities: `deg2rad`, `rad2deg`, `mod2pi`, `rem2pi`
+  - conversions: `deg2rad`, `rad2deg`
+  - divisions: `mod2pi`, `rem2pi`
 
 For example
 
@@ -51,7 +52,7 @@ julia> acos(ua"°", 0.9831912354632536)
 The functions in `Base` that are currently extended to accept units as their first argument
 and return values with those units are:
 
-  - inverse trigonometric: `asin`, `acos`, `atan`, `acot`, `asec`, `acsc`, `asind`, `acosd`, `acotd`, `asecd`, `acscd`, `atan(x, y)`
-  - inverse hyperbolic: `asinh`, `acosh`, `atanh`, `acoth`, `asech`, `acsch`
-  - logarithmic: `log`, `log1p`
+  - inverse trigonometric functions: `asin`, `acos`, `atan`, `acot`, `asec`, `acsc`, `asind`, `acosd`, `acotd`, `asecd`, `acscd`, `atan(x, y)`
+  - inverse hyperbolic functions: `asinh`, `acosh`, `atanh`, `acoth`, `asech`, `acsch`
+  - logarithmic functions: `log`, `log1p`
   - phase angle of a complex number: `angle`

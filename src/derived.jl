@@ -48,7 +48,7 @@ Dimension: 𝐀 𝐓⁻¹.
 
 See also [`DimensionfulAngles.radᵃ`](@ref).
 """
-@unit rpmᵃ "rps" RevolutionsPerMinuteᵃ (1turnᵃ/minute) false
+@unit rpmᵃ "rpm" RevolutionsPerMinuteᵃ (1turnᵃ/minute) false
 
 # Angular wavenumber, angular wavelength, angular period
 @derived_dimension AngularWavenumber (𝐀*𝐋^-1) true
@@ -59,17 +59,25 @@ See also [`DimensionfulAngles.radᵃ`](@ref).
 """
     Periodic()
 
-Equivalence to convert between period, frequency, and
+Equivalence to convert between temporal or spatial period, frequency, and
 [angular frequency](https://en.wikipedia.org/wiki/Angular_frequency)
-according to the relation ``f = ω/2π = 1/T``, where
+according to the relations ``f = ω/2π = 1/T``, where
 
-  - ``f`` is the frequency,
-  - ``ω`` is the angular speed and
-  - ``T`` is the period.
+  - ``f`` is the (temporal) frequency,
+  - ``ω`` is the (temporal) angular frequency,
+  - ``T`` is the (temporal) period,
+  - ``T̄`` is the (temporal) angular period,
+
+and ``ν = k/2π = 1/λ = 1/(2πλ̄)``, where
+
+- ``ν`` is the (spatial) frequency (linear wavenumber),
+- ``k`` is the (spatial) angular frequency (angular wavenumber),
+- ``λ`` is the (spatial) period (linear wavelength), and
+- ``λ̄`` is the (spatial) angular period (angular wavelength).
 
 # Example
 
-```jldoctest
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using Unitful
 
 julia> using DimensionfulAngles

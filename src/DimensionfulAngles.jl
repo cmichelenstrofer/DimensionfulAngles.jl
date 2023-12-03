@@ -11,7 +11,7 @@ information.
 
 # Examples
 
-```jldoctest
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using DimensionfulAngles
 
 julia> 1.0ua"turn"
@@ -27,14 +27,18 @@ julia> cos(45ua"°")
 module DimensionfulAngles
 
 # using Base: Base  # extend: see `base.jl` for full list of functions extended
-using Unitful: Unitful  # extend: has_unit_spacing,
-using Unitful: minute, promotion, rad, s, 𝐓, 𝐋
-using Unitful: Dimension, DimensionlessQuantity, Frequency, FrequencyFreeUnits, Length
-using Unitful: MixedUnits, NoDims, NoUnits, Number, Quantity, Time, Unitlike, Unit, Units
-using Unitful: Wavenumber
+using Unitful: Unitful  # extend: has_unit_spacing, uconvert
+using Unitful: minute, promotion, rad, rpm, rps, s, sr, 𝐓, 𝐋, °
+using Unitful: ContextUnits, Dimension, Dimensions, DimensionlessQuantity, FixedUnits
+using Unitful:  FreeUnits, Frequency, FrequencyFreeUnits, Length, MixedUnits, NoDims
+using Unitful: NoUnits, Number, Quantity, Time, Unitlike, Unit, Units, Wavenumber
 using Unitful: @dimension, @refunit, @derived_dimension, @unit
 using Unitful: dimension, register, uconvert, unit, ustrip
 using UnitfulEquivalences: Equivalence, @eqrelation
+using UnitfulAngles: turn, doubleTurn, halfTurn, quadrant, sextant, octant, clockPosition
+using UnitfulAngles: hourAngle, compassPoint, hexacontade, brad, diameterPart, grad
+using UnitfulAngles: arcminute, arcsecond
+using UnitfulAngles: mas, μas, pas
 
 export @ua_str
 export θ₀
@@ -45,9 +49,10 @@ export sexagesimal, show_sexagesimal
 # export AngularVelocity, AngularVelocityUnits, AngularVelocityFreeUnits
 # export AngularAcceleration, AngularAccelerationUnits, AngularAccelerationFreeUnits
 # export AngularPeriod, AngularPeriodUnits, AngularPeriodFreeUnits
-# export AngularWavenumber, AngularWavenumberUnits, AngularWavenumberUnits
+# export AngularWavenumber, AngularWavenumberUnits, AngularWavenumberFreeUnits
 # export AngularWavelength, AngularWavelengthUnits, AngularWavelengthFreeUnits
 
+# Dimension
 """
     𝐀
 
@@ -75,7 +80,7 @@ Dimension: [`DimensionfulAngles.𝐀`](@ref).
 
 # Examples
 
-```jldoctest
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using DimensionfulAngles
 
 julia> 1.0ua"rad" + 20.0ua"mrad"
@@ -99,7 +104,7 @@ Dimension: [`DimensionfulAngles.𝐀`](@ref).
 
 # Examples
 
-```jldoctest
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using DimensionfulAngles
 
 julia> 1ua"°"
@@ -109,7 +114,7 @@ julia> 1ua"°"
 @unit °ᵃ "°" Degreeᵃ (1radᵃ * π/180) false
 Unitful.has_unit_spacing(u::Units{(Unit{:Degreeᵃ, 𝐀}(0, 1 // 1),), 𝐀}) = false
 
-# Constants
+# Constant
 """
     θ₀
 
@@ -124,7 +129,7 @@ See also [`DimensionfulAngles.radᵃ`](@ref).
 
 # Examples
 
-```jldoctest
+```jldoctest; filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
 julia> using DimensionfulAngles
 
 julia> θ₀
@@ -141,9 +146,10 @@ const θ₀ = (1 // 1)radᵃ
 
 # Other functionalities.
 include("units.jl")  # Other units of angle.
-include("base.jl")  # Extend Base functions for units of angle.
-include("uamacro.jl")  # String macro for using dimensionful units.
 include("derived.jl")  # Units and functionalities for derived dimensions.
+include("convert.jl") # Convert to/from `Unitful`
+include("uamacro.jl")  # String macro for using dimensionful units.
+include("base.jl")  # Extend Base functions to work with angular quantities.
 include("defaults.jl") # Submodule to flood workspace with unit types.
 
 # Register new units and dimensions with Unitful.jl.

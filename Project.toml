@@ -5,9 +5,11 @@ version = "0.2.0"
 
 [deps]
 Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
+UnitfulAngles = "6fb2a4bd-7999-5318-a3b2-8ad61056cd98"
 UnitfulEquivalences = "da9c4bc3-91c8-4f02-8a40-6b990d2a7e0c"
 
 [compat]
 Unitful = "1.10"
+UnitfulAngles = "0.7"
 UnitfulEquivalences = "0.2"
 julia = "1.7"

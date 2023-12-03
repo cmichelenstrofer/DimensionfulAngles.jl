@@ -1,7 +1,12 @@
+# push!(LOAD_PATH,"../src/")
+
 using Documenter
 using DocumenterCitations
 using DimensionfulAngles
 using Unitful
+using UnitfulAngles
+
+ENV["UNITFUL_FANCY_EXPONENTS"] = true
 
 bib = CitationBibliography(joinpath(@__DIR__, "references.bib"))
 
@@ -16,17 +21,23 @@ function _filter_prefixed(base, x; exceptions = [nothing])
     return false
 end
 
-makedocs(bib;
-         sitename = "DimensionfulAngles",
-         format = Documenter.HTML(),
-         modules = [DimensionfulAngles],
-         pages = ["Home" => "index.md",
-                  "Angle as a dimension?" => "motivation.md",
-                  "Package Guide" => ["guide/intro.md",
-                                      "guide/units.md",
-                                      "guide/derived.md",
-                                      "guide/base.md"],
-                  "Relationship to proposed SI extensions." => "proposed.md",
-                  "Index" => "syntax.md"])
+makedocs(;
+    sitename = "DimensionfulAngles",
+    format = Documenter.HTML(
+        assets=String["assets/citations.css",],
+    ),
+    modules = [DimensionfulAngles],
+    pages = [
+        "Home" => "index.md",
+        "Angle as a dimension?" => "motivation.md",
+        "Package Guide" => ["guide/intro.md",
+                            "guide/units.md",
+                            "guide/derived.md",
+                            "guide/base.md"],
+        "Relationship to proposed SI extensions." => "proposed.md",
+        "Index" => "syntax.md",
+        ],
+    plugins = [bib,],
+)
 
-deploydocs(; repo = "github.com/cmichelenstrofer/DimensionfulAngles.jl.git")
+deploydocs(; repo="github.com/cmichelenstrofer/DimensionfulAngles.jl.git",)
