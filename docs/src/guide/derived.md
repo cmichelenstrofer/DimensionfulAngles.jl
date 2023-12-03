@@ -78,7 +78,7 @@ Analogously, spatial period and frequency are [related by](https://en.wikipedia.
 between wavelength `λ` (`𝐋`, `m`), wavenumber `ν` (`1/𝐋`, `1/m`), and angular wavenumber `k` (`𝐀/𝐋`, `rad/m`).
 Additionally an angular period and angular wavelength can be defined analogously as the reciprocal of angular frequency and angular wavenumber.
 
-![Diagram showing graphically the relationships between the various properties of harmonic waves: frequency, period, wavelength, angular frequency, and wavenumber.](../assets/Commutative_diagram_of_harmonic_wave_properties.svg)
+![Diagram showing graphically the relationships between the various properties of harmonic waves: frequency, period, wavelength, angular frequency, and wavenumber.](../assets/Commutative_diagram_of_harmonic_wave_properties.svg
 *image-source: Waldir, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons*
 
 *DimensionfulAngles.jl* provides [`Periodic`](@ref) a [UnitfulEquivalences.jl](https://sostock.github.io/UnitfulEquivalences.jl/stable/) `Equivalence` to convert between temporal or spatial period, frequency, angular frequency, and angular period of a periodic response.
