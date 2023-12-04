@@ -26,7 +26,7 @@ These include
   - Angle as a base dimension.
   - A comprehensive list of angular units.
   - The `@ua_str` macro for easily accessing these units.
-  - Derived dimensions and their units, including: solid angles, angular velocity/frequency, and angular acceleration.
+  - Derived dimensions and their units, including: solid angles, angular velocity/frequency, angular acceleration, luminous flux, illuminance, etc.
   - Conversion between `Unitful` and `DimensionfulAngles` quantities.
   - A [UnitfulEquivalences.jl](https://sostock.github.io/UnitfulEquivalences.jl/stable/) `Equivalence` to convert between period, frequency, and angular frequency of a periodic response.
   - A comprehensive extension of functions in `Base` that take angular quantities as inputs, or output angular quantities.
