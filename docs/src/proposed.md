@@ -26,10 +26,13 @@ Some examples of how common equations would be modified in such systems, using `
       + ``ω=2πf → ω=2πfθ₀``
       + ``k=2π/λ → k=2πθ₀/λ``
 
-  - Arc length ``s`` and sector area:
+  - Arc length and sector area:
 
       + ``s=rθ → s=rθ/θ₀``
       + ``A=½r²θ → A=½r²θ/θ₀``
+
+  - Solid angles
+      + ``Ω=A/r² → Ω=Aθ₀²/r²``
 
   - kinematic equations:
 
