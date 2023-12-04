@@ -92,9 +92,10 @@ Unlike `arcsecondᵃ`, `asᵃ` accepts SI prefixes.
 it contains units of angle.
 
 !!! note "Avoid abbreviation conflicts with `Unitful.jl`"
-    - to avoid abbreviation conflicts between attoseconds (`as`) and arcseconds, and
-        decaseconds (`das`) and deciarcseconds, the astronomical arcsecond is abbreviated as
-        `asₐ` instead.
+
+    To avoid abbreviation conflicts between attoseconds (`as`) and arcseconds, and
+    decaseconds (`das`) and deciarcseconds, the astronomical arcsecond is abbreviated as
+    `asₐ` instead.
 
 Dimension: 𝐀.
 
