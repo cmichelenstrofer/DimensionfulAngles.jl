@@ -1,5 +1,5 @@
 using Test, DimensionfulAngles, Unitful, UnitfulAngles
-using Unitful: 𝐓, 𝐋, ContextUnits, FixedUnits, FreeUnits, Units
+using Unitful: 𝐉, 𝐓, 𝐋, ContextUnits, FixedUnits, FreeUnits, Units
 using DimensionfulAngles: 𝐀
 
 function test_uamacro(unit::Symbol)
@@ -245,10 +245,18 @@ end
                 (1//60)^2 * (1//3600)^-1
             )
         end
+        # derived units
+        let x = 1.98u"rpm*rps^2*lm^-1*lx*msr^2"
+            @test unit(uconvert(:DimensionfulAngles, x)) == ua"rpm*rps^2*lm^-1*lx*msr^2"
+            @test (uconvert(:DimensionfulAngles, x)).val ≈ 1.98
+        end
 end
 
 @testset "DefaultSymbols" begin
     @test typeof(DimensionfulAngles.DefaultSymbols) == Module
-    @test dimension(DimensionfulAngles.DefaultSymbols.rad) == DimensionfulAngles.𝐀
-    @test dimension(DimensionfulAngles.DefaultSymbols.°) == DimensionfulAngles.𝐀
+    @test dimension(DimensionfulAngles.DefaultSymbols.rad) == 𝐀
+    @test dimension(DimensionfulAngles.DefaultSymbols.°) == 𝐀
+    @test dimension(DimensionfulAngles.DefaultSymbols.lm) == 𝐉*𝐀^2
+    @test dimension(DimensionfulAngles.DefaultSymbols.lx) == 𝐉*𝐀^2*𝐋^-2
+    @test DimensionfulAngles.DefaultSymbols.cdᵤ === Unitful.cd
 end

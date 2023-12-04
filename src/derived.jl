@@ -18,6 +18,32 @@ Dimension: `𝐀²`."
 """
 @unit srᵃ "sr" Steradianᵃ (1radᵃ*radᵃ) true true
 
+# Luminous flux and illuminance
+@derived_dimension LuminousFlux (𝐉*𝐀^2) true
+@derived_dimension Illuminance (𝐉*𝐀^2*𝐋^-2) true
+
+"""
+    lmᵃ
+
+The lumen, an SI unit of luminous flux.
+
+Defined as 1 cd × sr. Accepts SI prefixes.
+
+Dimension: `𝐉𝐀²`."
+"""
+@unit lmᵃ "lm" Lumenᵃ 1cdᵤ*srᵃ true true
+
+"""
+    lxᵃ
+
+The lux, an SI unit of illuminance.
+
+Defined as 1 lm / m^2. Accepts SI prefixes.
+
+Dimension: `𝐉𝐀²𝐋⁻²`."
+"""
+@unit lxᵃ "lx" Luxᵃ 1lmᵃ/m^2 true true
+
 # Angular velocity, angular acceleration, and angular frequency.
 @derived_dimension AngularVelocity (𝐀*𝐓^-1) true
 @derived_dimension AngularAcceleration (𝐀*𝐓^-2) true

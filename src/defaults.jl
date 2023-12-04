@@ -21,11 +21,11 @@ will bring the following into the calling namespace:
 
 - Base and derived SI units, with SI prefixes
 
-    - Candela conflicts with `Base.cd` so it is not brought in (Unitful.jl issue #102)
+    - Candela conflicts with `Base.cd` so it is brought in as `cdᵤ`.
 
 - Degrees: °
 
-All angles imported removing the ᵃ superscript.
+All angles and derived units imported removing the ᵃ superscript.
 
 !!! note "Potential conflict with other packages"
 
@@ -40,7 +40,7 @@ baremodule DefaultSymbols
     import DimensionfulAngles
     using Base: filter, ∈, !
 
-    __angle_units = (:rad,:sr)
+    __angle_units = (:rad, :sr, :lm, :lx)
     __non_angle_units = filter(u -> !(u ∈ __angle_units), Unitful.si_no_prefix)
 
     # Unitful Dimensions
@@ -49,10 +49,11 @@ baremodule DefaultSymbols
         Core.eval(DefaultSymbols, Expr(:export, u))
     end
 
-    # DimensionfulAngles Dimension
+    # DimensionfulAngles Dimensions
     Core.eval(DefaultSymbols, Expr(:import, Expr(:(.), :DimensionfulAngles, :𝐀)))
     Core.eval(DefaultSymbols, Expr(:export, :𝐀))
 
+    # units
     for p in Unitful.si_prefixes
         # Unitful units
         for u in __non_angle_units
@@ -61,18 +62,29 @@ baremodule DefaultSymbols
         end
         # DimensionfulAngles units
         for u in __angle_units
-            DAname = Symbol(p,u,:ᵃ)
-            name   = Symbol(p,u)
-            Core.eval(DefaultSymbols, Expr(:import, Expr(:(.), :DimensionfulAngles, DAname)))
-            Core.eval(DefaultSymbols, Expr(:(=), name, DAname))
-            Core.eval(DefaultSymbols, Expr(:export, name))
+            Core.eval(
+                DefaultSymbols,
+                Expr(:import, Expr(:(.), :DimensionfulAngles, Symbol(p,u,:ᵃ)))
+            )
+            Core.eval(DefaultSymbols, Expr(:(=), Symbol(p,u), Symbol(p,u,:ᵃ)))
+            Core.eval(DefaultSymbols, Expr(:export, Symbol(p,u)))
         end
     end
 
+    # degrees Celsius
     Core.eval(DefaultSymbols, Expr(:import, Expr(:(.), :Unitful, :°C)))
     Core.eval(DefaultSymbols, Expr(:export, :°C))
 
+    # DimensionfulAngles degree
     Core.eval(DefaultSymbols, Expr(:import, Expr(:(.), :DimensionfulAngles, :°ᵃ)))
     Core.eval(DefaultSymbols, Expr(:(=), :°, :°ᵃ))
     Core.eval(DefaultSymbols, Expr(:export, :°))
+
+    # candela
+    u = :cd
+    for p in Unitful.si_prefixes
+        Core.eval(DefaultSymbols, Expr(:import, Expr(:(.), :Unitful, Symbol(p,u))))
+        Core.eval(DefaultSymbols, Expr(:(=), Symbol(p,u,:ᵤ), Symbol(p,u)))
+        Core.eval(DefaultSymbols, Expr(:export, Symbol(p,u,:ᵤ)))
+    end
 end

@@ -28,9 +28,9 @@ module DimensionfulAngles
 
 # using Base: Base  # extend: see `base.jl` for full list of functions extended
 using Unitful: Unitful  # extend: has_unit_spacing, uconvert
-using Unitful: minute, promotion, rad, rpm, rps, s, sr, 𝐓, 𝐋, °
+using Unitful: cd as cdᵤ, lm, lx, m, minute, promotion, rad, rpm, rps, s, sr, 𝐉, 𝐋, 𝐓, °
 using Unitful: ContextUnits, Dimension, Dimensions, DimensionlessQuantity, FixedUnits
-using Unitful:  FreeUnits, Frequency, FrequencyFreeUnits, Length, MixedUnits, NoDims
+using Unitful: FreeUnits, Frequency, FrequencyFreeUnits, Length, MixedUnits, NoDims
 using Unitful: NoUnits, Number, Quantity, Time, Unitlike, Unit, Units, Wavenumber
 using Unitful: @dimension, @refunit, @derived_dimension, @unit
 using Unitful: dimension, register, uconvert, unit, ustrip
