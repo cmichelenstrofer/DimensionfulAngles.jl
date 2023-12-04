@@ -44,7 +44,7 @@ Some examples of how common equations would be modified in such systems, using `
 
       + ``T=(𝐫×𝐅) → T=(𝐫×𝐅)/θ₀`` (torque, new units: ``J/s``)
       + ``I=Σ(mᵢ⋅rᵢ)/θ₀²`` (moment of inertia, new units: ``kg⋅m²/rad²``)
-      + ``L=Iω=(𝐫x𝐩)/θ₀`` (angular momentum, new units: ``J/(rad/s)``)
+      + ``L=Iω=(𝐫×𝐩)/θ₀`` (angular momentum, new units: ``J/(rad/s)``)
       + ``W=Tθ`` (work)
       + ``E=½Iω²`` (kinetic energy)
 
@@ -64,7 +64,7 @@ Solid angles are considered a derived dimension equal to angle squared (𝐀²).
 This is in agreement with the proposals discussed above.
 
 ## Normalizing with `θ₀`
-In contrast to these proposals, one of the goals of this package is to ***not*** require the use of the constant `θ₀` for normalizing inputs to common functions.
+In contrast to these proposals, one of the goals of this package is to **not** require the use of the constant `θ₀` for normalizing inputs to common functions.
 To this end, the extensions to functions in `Base` ensure that function calls like
 
 ```jldoctest; setup = :(using DimensionfulAngles), filter = r"(\\d*).(\\d{1,10})\\d+" => s"\\1.\\2"
