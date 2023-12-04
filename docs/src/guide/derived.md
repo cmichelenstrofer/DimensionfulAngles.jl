@@ -4,6 +4,8 @@
 These are:
 
   - [`DimensionfulAngles.SolidAngle`](@ref)
+  - [`DimensionfulAngles.LuminousFlux`](@ref)
+  - [`DimensionfulAngles.Illuminance`](@ref)
   - [`DimensionfulAngles.AngularVelocity`](@ref)
   - [`DimensionfulAngles.AngularAcceleration`](@ref)
   - [`DimensionfulAngles.AngularWavelength`](@ref)
@@ -29,6 +31,20 @@ These are documented in [Prefixed units](@ref derived_prefixed).
 ```@docs
 DimensionfulAngles.SolidAngle
 DimensionfulAngles.srᵃ
+```
+
+## Luminous flux and illuminance
+Luminous flux is a measure of perceived power of light and has dimensions of ``𝐉*𝐀²``.
+The SI unit lumen (lm) = candela x steradian is provided as [`DimensionfulAngles.lmᵃ`](@ref).
+
+Illuminance is luminous flux per unit surface area and has dimensions of ``𝐉*𝐀²*𝐋⁻²``.
+The SI unit lux (lx) = lumen / meter^2 is provided as [`DimensionfulAngles.lxᵃ`](@ref).
+
+```@docs
+DimensionfulAngles.LuminousFlux
+DimensionfulAngles.Illuminance
+DimensionfulAngles.lmᵃ
+DimensionfulAngles.lxᵃ
 ```
 
 ## Angular velocity and acceleration
@@ -111,6 +127,10 @@ DimensionfulAngles.AngularPeriodUnits
 DimensionfulAngles.AngularPeriodFreeUnits
 DimensionfulAngles.AngularWavelengthUnits
 DimensionfulAngles.AngularWavelengthFreeUnits
+DimensionfulAngles.LuminousFluxUnits
+DimensionfulAngles.LuminousFluxFreeUnits
+DimensionfulAngles.IlluminanceUnits
+DimensionfulAngles.IlluminanceFreeUnits
 ```
 
 ### [Prefixed Units](@id derived_prefixed)
@@ -118,4 +138,14 @@ DimensionfulAngles.AngularWavelengthFreeUnits
 ```@autodocs
 Modules = [DimensionfulAngles]
 Filter = x->_filter_prefixed("sr", x)
+```
+
+```@autodocs
+Modules = [DimensionfulAngles]
+Filter = x->_filter_prefixed("lm", x)
+```
+
+```@autodocs
+Modules = [DimensionfulAngles]
+Filter = x->_filter_prefixed("lx", x)
 ```

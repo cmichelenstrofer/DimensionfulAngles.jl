@@ -47,6 +47,8 @@ function Unitful.uconvert(s::Val{:Unitful}, x::Quantity)
     x = _convert_units(x, srᵃ, 𝐀^2, sr, NoDims)
     x = _convert_units(x, rpsᵃ, 𝐀*𝐓^-1, rps, 𝐓^-1)
     x = _convert_units(x, rpmᵃ, 𝐀*𝐓^-1, rpm, 𝐓^-1)
+    x = _convert_units(x, lmᵃ, 𝐀^2*𝐉, lm, 𝐉)
+    x = _convert_units(x, lxᵃ, 𝐀^2*𝐉*𝐋^-2, lx, 𝐉*𝐋^-2)
     return x
 end
 
@@ -61,6 +63,8 @@ function Unitful.uconvert(s::Val{:DimensionfulAngles}, x::Quantity)
     x = _convert_units(x, sr, NoDims, srᵃ, 𝐀^2)
     x = _convert_units(x, rps, 𝐓^-1, rpsᵃ, 𝐀*𝐓^-1)
     x = _convert_units(x, rpm, 𝐓^-1, rpmᵃ, 𝐀*𝐓^-1)
+    x = _convert_units(x, lm, 𝐉, lmᵃ, 𝐀^2*𝐉)
+    x = _convert_units(x, lx, 𝐉*𝐋^-2, lxᵃ, 𝐀^2*𝐉*𝐋^-2)
     return x
 end
 
