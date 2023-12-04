@@ -10,26 +10,43 @@ different, but most (i) include angle as a base dimension, (ii) use a "fundament
 constant, typically equal to one radian, to modify the equations of physics, and (iii)
 define solid angle as a derived dimension equal to angle squared.
 The different proposals, however, take different approaches to which equations or
-quantity units to modify.
+quantity units to modify. 
+One exception not considered here is a class of proposals that define a new dimension for *radius length* rather than for *angle*.
 
 Some examples of how common equations would be modified in such systems, using ``θ₀=1rad``:
 
-  - Trigonometric functions:
+  - Trigonometric & exponential functions:
 
       + ``cos(θ) → cos(θ/θ₀)``
       + ``cos(ωt+φ) → cos([ωt+φ]/θ₀)``
+      + ``Aℯⁱᶿ → Aℯ^[iθ/θ₀]``
 
-  - Angular frequency and frequency:
+  - Angular frequency and angular wave number:
 
       + ``ω=2πf → ω=2πfθ₀``
-  - Arc length ``s`` and other kinematic equations:
+      + ``k=2π/λ → k=2πθ₀/λ``
+
+  - Arc length and sector area:
 
       + ``s=rθ → s=rθ/θ₀``
-  - For dynamic equations there's more variability between the different proposals.
-    As an example, [Quincey_2021](@cite) would modify torque (and its unit) while leaving the units of work intact, as
+      + ``A=½r²θ → A=½r²θ/θ₀``
 
-      + ``T=(𝐫×𝐅) → T=(𝐫×𝐅)/θ₀``
-      + ``W=Tθ``
+  - Solid angles
+      + ``Ω=A/r² → Ω=Aθ₀²/r²``
+
+  - kinematic equations:
+
+      + ``v=rω → v=rω/θ₀``
+      + ``a=rω² → a=rω²/θ₀²``
+
+  - For dynamic equations, there's more variability between the different proposals.
+    As an example, [Quincey_2021](@cite) would modify the units of torque and moment of inertia while leaving the units of work and energy intact.
+
+      + ``T=(𝐫×𝐅) → T=(𝐫×𝐅)/θ₀`` (torque, new units: ``J/s``)
+      + ``I=Σ(mᵢ⋅rᵢ)/θ₀²`` (moment of inertia, new units: ``kg⋅m²/rad²``)
+      + ``L=Iω=(𝐫x𝐩)/θ₀`` (angular momentum, new units: ``J/(rad/s)``)
+      + ``W=Tθ`` (work)
+      + ``E=½Iω²`` (kinetic energy)
 
 ## *DimensionfulAngles.jl*'s relation to these proposals
 
