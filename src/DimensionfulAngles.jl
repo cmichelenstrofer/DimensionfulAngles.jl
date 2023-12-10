@@ -28,13 +28,14 @@ module DimensionfulAngles
 
 # using Base: Base  # extend: see `base.jl` for full list of functions extended
 using Unitful: Unitful  # extend: has_unit_spacing, uconvert
-using Unitful: cd as cdᵤ, lm, lx, m, minute, promotion, rad, rpm, rps, s, sr, 𝐉, 𝐋, 𝐓, °
+using Unitful: cd as cdᵤ, Hz, lm, lx, m, minute, promotion, rad, rpm, rps, s, sr, 𝐉, 𝐋, 𝐓, °
 using Unitful: ContextUnits, Dimension, Dimensions, DimensionlessQuantity, FixedUnits
 using Unitful: FreeUnits, Frequency, FrequencyFreeUnits, Length, MixedUnits, NoDims
 using Unitful: NoUnits, Number, Quantity, Time, Unitlike, Unit, Units, Wavenumber
 using Unitful: @dimension, @refunit, @derived_dimension, @unit
 using Unitful: dimension, register, uconvert, unit, ustrip
-using UnitfulEquivalences: Equivalence, @eqrelation
+using UnitfulEquivalences: UnitfulEquivalences  # extend: edconvert
+using UnitfulEquivalences: dimtype, edconvert, Equivalence, @eqrelation
 using UnitfulAngles: turn, doubleTurn, halfTurn, quadrant, sextant, octant, clockPosition
 using UnitfulAngles: hourAngle, compassPoint, hexacontade, brad, diameterPart, grad
 using UnitfulAngles: arcminute, arcsecond
@@ -42,15 +43,19 @@ using UnitfulAngles: mas, μas, pas
 
 export @ua_str
 export θ₀
-export Periodic
+export Periodic, Dispersion
 export sexagesimal, show_sexagesimal
-# export 𝐀, Angle, AngleUnits, AngleFreeUnits
-# export SolidAngle, SolidAngleUnits, SolidAngleFreeUnits
-# export AngularVelocity, AngularVelocityUnits, AngularVelocityFreeUnits
-# export AngularAcceleration, AngularAccelerationUnits, AngularAccelerationFreeUnits
-# export AngularPeriod, AngularPeriodUnits, AngularPeriodFreeUnits
-# export AngularWavenumber, AngularWavenumberUnits, AngularWavenumberFreeUnits
-# export AngularWavelength, AngularWavelengthUnits, AngularWavelengthFreeUnits
+
+# unexported:
+#     (all angle and derived units, including prefixed units)
+#     𝐀, Angle, AngleUnits, AngleFreeUnits
+#     SolidAngle, SolidAngleUnits, SolidAngleFreeUnits
+#     AngularVelocity, AngularVelocityUnits, AngularVelocityFreeUnits
+#     AngularAcceleration, AngularAccelerationUnits, AngularAccelerationFreeUnits
+#     AngularPeriod, AngularPeriodUnits, AngularPeriodFreeUnits
+#     AngularWavenumber, AngularWavenumberUnits, AngularWavenumberFreeUnits
+#     AngularWavelength, AngularWavelengthUnits, AngularWavelengthFreeUnits
+
 
 # Dimension
 """
@@ -145,12 +150,13 @@ julia> 2.1ua"rad" / θ₀
 const θ₀ = (1 // 1)radᵃ
 
 # Other functionalities.
-include("units.jl")  # Other units of angle.
-include("derived.jl")  # Units and functionalities for derived dimensions.
+include("units.jl")  # Define other units of angle.
+include("derived.jl")  # Define derived units and dimensions.
 include("convert.jl") # Convert to/from `Unitful`
 include("uamacro.jl")  # String macro for using dimensionful units.
 include("base.jl")  # Extend Base functions to work with angular quantities.
-include("defaults.jl") # Submodule to flood workspace with unit types.
+include("defaults.jl")  # Submodule to flood workspace with unit types.
+include("equivalences.jl")  # `UnitfulEquivalences` containing angular dimensions
 
 # Register new units and dimensions with Unitful.jl.
 const localpromotion = copy(promotion)
