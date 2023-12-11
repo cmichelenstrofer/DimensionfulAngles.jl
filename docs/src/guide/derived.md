@@ -81,7 +81,7 @@ DimensionfulAngles.AngularPeriod
 DimensionfulAngles.AngularWavenumber
 ```
 
-## Periodic equivalence
+## Periodic and Dispersion equivalences
 For periodic responses there are several analogous ways to measure the repeat period: period `T` (`𝐓`, `s`), frequency `f` (`1/𝐓`, `Hz=1/s`), or angular frequency `ω` (`𝐀/𝐓`, `rad/s`).
 These are [related by](https://en.wikipedia.org/wiki/Angular_frequency)
 
@@ -97,10 +97,13 @@ Additionally an angular period and angular wavelength can be defined analogously
 ![Diagram showing graphically the relationships between the various properties of harmonic waves: frequency, period, wavelength, angular frequency, and wavenumber.](../assets/Commutative_diagram_of_harmonic_wave_properties.svg)\
 *image-source: Waldir, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons*
 
-*DimensionfulAngles.jl* provides [`Periodic`](@ref) a [UnitfulEquivalences.jl](https://sostock.github.io/UnitfulEquivalences.jl/stable/) `Equivalence` to convert between temporal or spatial period, frequency, angular frequency, and angular period of a periodic response.
+*DimensionfulAngles.jl* provides [`Periodic`](@ref), a [UnitfulEquivalences.jl](https://sostock.github.io/UnitfulEquivalences.jl/stable/) `Equivalence` to convert between temporal or spatial period, frequency, angular frequency, and angular period of a periodic response.
+
+It also provides [`Dispersion`](@ref), which extends [`Periodic`](@ref) to convert between temporal and spatial values using a specific [dispersion relation](https://en.wikipedia.org/wiki/Dispersion_relation) (or equivalently a [phase velocity](https://en.wikipedia.org/wiki/Phase_velocity) as used in the image above)).
 
 ```@docs
 DimensionfulAngles.Periodic
+DimensionfulAngles.Dispersion
 ```
 
 ## [Syntax](@id derived_syntax)

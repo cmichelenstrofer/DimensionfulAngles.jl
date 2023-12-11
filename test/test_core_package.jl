@@ -1,6 +1,7 @@
 using Test, DimensionfulAngles, Unitful, UnitfulAngles
 using Unitful: 𝐉, 𝐓, 𝐋, ContextUnits, FixedUnits, FreeUnits, Units
 using DimensionfulAngles: 𝐀
+using Roots: ZeroProblem, solve
 
 function test_uamacro(unit::Symbol)
     unitᵃ = Symbol("$unit" * "ᵃ")
@@ -138,7 +139,9 @@ end
     @test typeof(DimensionfulAngles.AngularPeriod) === UnionAll
     @test DimensionfulAngles.AngularPeriodFreeUnits === FreeUnits{U, 𝐀^-1 * 𝐓} where {U}
     @test DimensionfulAngles.AngularPeriodUnits === Units{U, 𝐀^-1 * 𝐓} where {U}
+end
 
+@testset "Equivalences" begin
     # periodic: temporal
     @test uconvert(u"radᵃ/s", 1u"Hz", Periodic()) ≈ (2π)u"radᵃ/s"
     @test uconvert(u"Hz", 1u"radᵃ/s", Periodic()) ≈ (1 / 2π)u"Hz"
@@ -174,6 +177,50 @@ end
     @test uconvert(u"m", 10u"m", Periodic()) ≈ 10u"m"
     @test uconvert(u"radᵃ/m", 10u"radᵃ/m", Periodic()) ≈ 10u"radᵃ/m"
     @test uconvert(u"m/radᵃ", 10u"m/radᵃ", Periodic()) ≈ 10u"m/radᵃ"
+
+    # dispersion: spatial <-> temporal
+    h, g = (Inf)u"m", Unitful.gn
+    waterwaves = Dispersion(
+        dispersion = ( k -> √(k*θ₀*g*tanh(k*h/θ₀)) ),
+        dispersion_inverse = (ω -> solve(ZeroProblem(k -> k - ω^2/(g*tanh(k*h/θ₀))/θ₀, k0)))
+        );
+    @test uconvert(u"Hz", 0.004025678249387654u"radᵃ/mm", waterwaves) ≈ 1u"Hz"
+
+    # dispersion: temporal
+    @test uconvert(u"radᵃ/s", 1u"Hz", waterwaves) ≈ (2π)u"radᵃ/s"
+    @test uconvert(u"Hz", 1u"radᵃ/s", waterwaves) ≈ (1 / 2π)u"Hz"
+    @test uconvert(u"Hz", 10u"s", waterwaves) ≈ 0.1u"Hz"
+    @test uconvert(u"s", 10u"Hz", waterwaves) ≈ 0.1u"s"
+    @test uconvert(u"s", 2u"radᵃ/s", waterwaves) ≈ (π)u"s"
+    @test uconvert(u"radᵃ/s", (π)u"s", waterwaves) ≈ 2u"radᵃ/s"
+    @test uconvert(u"s/radᵃ", 10u"radᵃ/s", waterwaves) ≈ 0.1u"s/radᵃ"
+    @test uconvert(u"radᵃ/s", 10u"s/radᵃ", waterwaves) ≈ 0.1u"radᵃ/s"
+    @test uconvert(u"s/radᵃ", 1u"s", waterwaves) ≈ (1 / 2π)u"s/radᵃ"
+    @test uconvert(u"s", 1u"s/radᵃ", waterwaves) ≈ (2π)u"s"
+    @test uconvert(u"s/radᵃ", 1u"Hz", waterwaves) ≈ (1 / 2π)u"s/radᵃ"
+    @test uconvert(u"Hz", 1u"s/radᵃ", waterwaves) ≈ (1 / 2π)u"Hz"
+    @test uconvert(u"Hz", 10u"Hz", waterwaves) ≈ 10u"1/s"
+    @test uconvert(u"s", 10u"s", waterwaves) ≈ 10u"s"
+    @test uconvert(u"radᵃ/s", 10u"radᵃ/s", waterwaves) ≈ 10u"radᵃ/s"
+    @test uconvert(u"s/radᵃ", 10u"s/radᵃ", waterwaves) ≈ 10u"s/radᵃ"
+
+    # dispersion: spatial
+    @test uconvert(u"radᵃ/m", 1u"1/m", waterwaves) ≈ (2π)u"radᵃ/m"
+    @test uconvert(u"m^-1", 1u"radᵃ/m", waterwaves) ≈ (1 / 2π)u"1/m"
+    @test uconvert(u"m^-1", 10u"m", waterwaves) ≈ 0.1u"1/m"
+    @test uconvert(u"m", 10u"m^-1", waterwaves) ≈ 0.1u"m"
+    @test uconvert(u"m", 2u"radᵃ/m", waterwaves) ≈ (π)u"m"
+    @test uconvert(u"radᵃ/m", (π)u"m", waterwaves) ≈ 2u"radᵃ/m"
+    @test uconvert(u"m/radᵃ", 10u"radᵃ/m", waterwaves) ≈ 0.1u"m/radᵃ"
+    @test uconvert(u"radᵃ/m", 10u"m/radᵃ", waterwaves) ≈ 0.1u"radᵃ/m"
+    @test uconvert(u"m/radᵃ", 1u"m", waterwaves) ≈ (1 / 2π)u"m/radᵃ"
+    @test uconvert(u"m", 1u"m/radᵃ", waterwaves) ≈ (2π)u"m"
+    @test uconvert(u"m/radᵃ", 1u"m^-1", waterwaves) ≈ (1 / 2π)u"m/radᵃ"
+    @test uconvert(u"m^-1", 1u"m/radᵃ", waterwaves) ≈ (1 / 2π)u"1/m"
+    @test uconvert(u"m^-1", 10u"m^-1", waterwaves) ≈ 10u"1/m"
+    @test uconvert(u"m", 10u"m", waterwaves) ≈ 10u"m"
+    @test uconvert(u"radᵃ/m", 10u"radᵃ/m", waterwaves) ≈ 10u"radᵃ/m"
+    @test uconvert(u"m/radᵃ", 10u"m/radᵃ", waterwaves) ≈ 10u"m/radᵃ"
 end
 
 @testset "Convert" begin
